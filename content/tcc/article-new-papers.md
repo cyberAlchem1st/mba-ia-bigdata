@@ -102,6 +102,7 @@
 ## Implicação Consolidada
 
 **O ecossistema de pesquisa em REST APIs é ATIVO e CRESCENTE**, mas ninguém ainda modelou a SOBREVIVÊNCIA dos endpoints. Todos os papers são sobre:
+
 - Geração de specs (OOPS, LRASGen)
 - Teste de APIs (LlamaRestTest, QuickREST)
 - Guidelines de design (Peldszus 2026)

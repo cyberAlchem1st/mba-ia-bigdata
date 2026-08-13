@@ -24,6 +24,7 @@ Estimador não-paramétrico da função de sobrevivência S(t):
 $$S(t) = \prod_{t_i \leq t} \left(1 - \frac{d_i}{n_i}\right)$$
 
 Onde:
+
 - $d_i$ = número de eventos no tempo $t_i$
 - $n_i$ = número de sujeitos em risco em $t_i$
 

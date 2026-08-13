@@ -69,6 +69,7 @@ from sksurv.ensemble import RandomSurvivalForest
 
 rsf = RandomSurvivalForest(n_estimators=100, min_samples_leaf=10)
 rsf.fit(X, y)
+
 # Feature importance não-linear
 ```
 
@@ -95,6 +96,7 @@ for commit in Repository('path/to/repo').traverse_commits():
 ## Ambiente de Desenvolvimento
 
 ```bash
+
 # Criar ambiente virtual
 python -m venv venv
 source venv/bin/activate

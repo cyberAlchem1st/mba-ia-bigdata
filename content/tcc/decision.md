@@ -17,6 +17,7 @@ NENHUM paper no mundo aplicou análise de sobrevivência a endpoints de API. RAD
 ### 2. Dataset Mais Maduro
 
 apis.guru/openapi-directory:
+
 - **11.5 anos** de histórico git contínuo
 - **108,837 endpoints** — poder estatístico robusto
 - **CC0** — sem barreiras legais
@@ -25,6 +26,7 @@ apis.guru/openapi-directory:
 ### 3. Alinhamento Máximo com Perfil
 
 O candidato trabalha **diariamente** com:
+
 - REST APIs e contratos de API
 - Microsserviços e versionamento
 - Sistemas financeiros de alta criticidade

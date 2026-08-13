@@ -1,6 +1,5 @@
 # Informações importantes
 
-
 ## Abertura do MBA e Reuniões Gerais
 
 - **Abertura da 6ª turma do MBA em IA e Big Data** — [abrir](https://cursosextensao.usp.br/mod/page/view.php?id=284948)

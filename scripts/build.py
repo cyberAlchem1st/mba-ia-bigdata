@@ -71,6 +71,31 @@ def build_nav():
         }
     )
 
+    # Curso Zero (Introdução à Computação) — aulas extras + tutorias
+    cz = items_in("aulas/curso-zero")
+    cz_notut = [i for i in cz if not i[0].startswith("tutoria")]
+    cz_tut = [i for i in cz if i[0].startswith("tutoria")]
+    if cz:
+        sections.append(
+            {
+                "title": "📚 Curso Zero (Introdução à Computação)",
+                "items": [
+                    {"id": f"aulas/curso-zero/{slug}", "label": label}
+                    for slug, label in cz_notut
+                ],
+            }
+        )
+        if cz_tut:
+            sections.append(
+                {
+                    "title": "🧑‍🏫 Tutorias Curso Zero",
+                    "items": [
+                        {"id": f"aulas/curso-zero/{slug}", "label": label}
+                        for slug, label in cz_tut
+                    ],
+                }
+            )
+
     tut = [
         i for i in items_in("aulas") if re.match(r"^(tutoria|reuni|monitoria)", i[0])
     ]

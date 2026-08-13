@@ -25,6 +25,7 @@
 ## Estrutura
 
 O CVEfixes é um banco de dados relacional que conecta:
+
 - **CVE records** do NVD (National Vulnerability Database)
 - **Commits de fix** nos repositórios associados
 - **Código vulnerável** e **código corrigido**

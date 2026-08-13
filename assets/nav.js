@@ -184,6 +184,272 @@ const NAV = [
     ]
   },
   {
+    "title": "📚 Curso Zero (Introdução à Computação)",
+    "items": [
+      {
+        "id": "aulas/curso-zero/18a-funcoes",
+        "label": "18a. Funções"
+      },
+      {
+        "id": "aulas/curso-zero/18b-documentando-funcoes",
+        "label": "18b. Documentando Funções"
+      },
+      {
+        "id": "aulas/curso-zero/18c-mutabilidade-de-variaveis",
+        "label": "18c. Mutabilidade de Variáveis"
+      },
+      {
+        "id": "aulas/curso-zero/19-recursividade",
+        "label": "19. Recursividade"
+      },
+      {
+        "id": "aulas/curso-zero/20-modulo-os",
+        "label": "20. Módulo os"
+      },
+      {
+        "id": "aulas/curso-zero/21-modulo-sys",
+        "label": "21. Módulo sys"
+      },
+      {
+        "id": "aulas/curso-zero/22-modulo-time",
+        "label": "22. Módulo time"
+      },
+      {
+        "id": "aulas/curso-zero/23-scikit-learn",
+        "label": "23. Biblioteca scikit-learn"
+      },
+      {
+        "id": "aulas/curso-zero/24-matplotlib-parte1",
+        "label": "24. Biblioteca Matplotlib — Parte 1"
+      },
+      {
+        "id": "aulas/curso-zero/25-matplotlib-parte2",
+        "label": "25. Biblioteca Matplotlib — Parte 2"
+      },
+      {
+        "id": "aulas/curso-zero/26-plotly",
+        "label": "26. Biblioteca Plotly"
+      },
+      {
+        "id": "aulas/curso-zero/27-tratamento-de-erros",
+        "label": "27. Tratamento de Erros"
+      },
+      {
+        "id": "aulas/curso-zero/28-arquivos-em-python",
+        "label": "28. Arquivos em Python"
+      },
+      {
+        "id": "aulas/curso-zero/28b-biblioteca-networkx",
+        "label": "28b. Biblioteca NetworkX"
+      },
+      {
+        "id": "aulas/curso-zero/aula-sobre-algoritmos",
+        "label": "Algoritmos"
+      },
+      {
+        "id": "aulas/curso-zero/aula-sobre-computadores",
+        "label": "Como um computador funciona"
+      },
+      {
+        "id": "aulas/curso-zero/aula-sobre-funcoes",
+        "label": "Aula sobre Funções (reforço)"
+      },
+      {
+        "id": "aulas/curso-zero/aula-sobre-iteracoes",
+        "label": "Iterações"
+      },
+      {
+        "id": "aulas/curso-zero/aula-sobre-listas",
+        "label": "Listas"
+      },
+      {
+        "id": "aulas/curso-zero/bhaskara",
+        "label": "Estudo de Caso: Equação do Segundo Grau (Bhaskara)"
+      },
+      {
+        "id": "aulas/curso-zero/conversoes-de-tipos",
+        "label": "Conversões de tipos"
+      },
+      {
+        "id": "aulas/curso-zero/depuracao-de-programas-e-teste-de-sanidade",
+        "label": "Depuração de programas e teste de sanidade"
+      },
+      {
+        "id": "aulas/curso-zero/depuracao-e-teste-de-sanidade",
+        "label": "Depuração e teste de sanidade (parte 2): exercícios"
+      },
+      {
+        "id": "aulas/curso-zero/documentacao-e-comentarios",
+        "label": "Documentação e comentários"
+      },
+      {
+        "id": "aulas/curso-zero/entrada-e-saida-de-dados-2",
+        "label": "Entrada e saída de dados (parte 2): o comando input"
+      },
+      {
+        "id": "aulas/curso-zero/entrada-e-saida-de-dados-3",
+        "label": "Entrada e saída de dados (parte 3): exercícios"
+      },
+      {
+        "id": "aulas/curso-zero/entrada-e-saida-de-dados",
+        "label": "Entrada e saída de dados (parte 1): o comando print"
+      },
+      {
+        "id": "aulas/curso-zero/estruturas-condicionais-match",
+        "label": "Estruturas condicionais com match"
+      },
+      {
+        "id": "aulas/curso-zero/estudo-de-caso-reajuste-de-frete-com-if",
+        "label": "Estudo de caso: reajuste de frete (resolução com if)"
+      },
+      {
+        "id": "aulas/curso-zero/estudo-de-caso-reajuste-de-frete-com-ifelifelse",
+        "label": "Estudo de caso: reajuste de frete (resolução com if/elif/else)"
+      },
+      {
+        "id": "aulas/curso-zero/expressoes-aritmeticas-e-operadores",
+        "label": "Expressões aritméticas e operadores"
+      },
+      {
+        "id": "aulas/curso-zero/expressoes-logicas-e-operadores",
+        "label": "Expressões lógicas e operadores"
+      },
+      {
+        "id": "aulas/curso-zero/extra-1-biblioteca-numpy",
+        "label": "Extra 1. Biblioteca NumPy"
+      },
+      {
+        "id": "aulas/curso-zero/extra-2-modulo-random",
+        "label": "Extra 2. Módulo random"
+      },
+      {
+        "id": "aulas/curso-zero/extra-3-biblioteca-pandas",
+        "label": "Extra 3. Biblioteca Pandas (criar/alterar colunas)"
+      },
+      {
+        "id": "aulas/curso-zero/extra-4-biblioteca-pandas",
+        "label": "Extra 4. Biblioteca Pandas (preparação de dados)"
+      },
+      {
+        "id": "aulas/curso-zero/extra-5-biblioteca-pandas",
+        "label": "Extra 5. Biblioteca Pandas (arquivos e gráficos)"
+      },
+      {
+        "id": "aulas/curso-zero/fatiamento",
+        "label": "Fatiamento (strings, listas e tuplas)"
+      },
+      {
+        "id": "aulas/curso-zero/introducao-ao-ambiente-de-desenvolvimento",
+        "label": "Introdução ao ambiente de desenvolvimento"
+      },
+      {
+        "id": "aulas/curso-zero/introducao-as-estruturas-condicionais",
+        "label": "Introdução às estruturas condicionais"
+      },
+      {
+        "id": "aulas/curso-zero/lacos-de-repeticao-for-2",
+        "label": "Laços de repetição: for (exercícios)"
+      },
+      {
+        "id": "aulas/curso-zero/lacos-de-repeticao-for",
+        "label": "Laços de repetição: for"
+      },
+      {
+        "id": "aulas/curso-zero/lacos-de-repeticao-while-2",
+        "label": "Laços de repetição: while (exercícios e controle de fluxo)"
+      },
+      {
+        "id": "aulas/curso-zero/lacos-de-repeticao-while",
+        "label": "Laços de repetição: while"
+      },
+      {
+        "id": "aulas/curso-zero/listas-multidimensionais",
+        "label": "Listas multidimensionais"
+      },
+      {
+        "id": "aulas/curso-zero/manipulando-conjuntos",
+        "label": "Manipulando conjuntos"
+      },
+      {
+        "id": "aulas/curso-zero/manipulando-dicionarios",
+        "label": "Manipulando dicionários"
+      },
+      {
+        "id": "aulas/curso-zero/manipulando-listas",
+        "label": "Manipulando listas"
+      },
+      {
+        "id": "aulas/curso-zero/manipulando-tuplas",
+        "label": "Manipulando tuplas"
+      },
+      {
+        "id": "aulas/curso-zero/nocoes-basicas-sobre-variaveis-e-tipos",
+        "label": "Noções básicas sobre variáveis e tipos"
+      },
+      {
+        "id": "aulas/curso-zero/numeros-primos-continuacao-com-apoio-de-ia",
+        "label": "Estudo de Caso: Números Primos com Apoio de IA"
+      },
+      {
+        "id": "aulas/curso-zero/numeros-primos-resolucao-inicial",
+        "label": "Estudo de Caso: Números Primos (resolução inicial)"
+      },
+      {
+        "id": "aulas/curso-zero/produtos",
+        "label": "Estudo de Caso: Sistema de Cadastro de Produtos"
+      },
+      {
+        "id": "aulas/curso-zero/python",
+        "label": "Python: a linguagem do curso"
+      },
+      {
+        "id": "aulas/curso-zero/strings",
+        "label": "Strings"
+      }
+    ]
+  },
+  {
+    "title": "🧑‍🏫 Tutorias Curso Zero",
+    "items": [
+      {
+        "id": "aulas/curso-zero/tutoria-05-03-2026",
+        "label": "Tutoria 05/03/2026 — Análise Automatizada de Notas Fiscais em PDF"
+      },
+      {
+        "id": "aulas/curso-zero/tutoria-05-08-2026",
+        "label": "Tutoria 05/08/2026 — Exercícios Práticos: classificação, vogais, agenda de contatos e envio de e-mail"
+      },
+      {
+        "id": "aulas/curso-zero/tutoria-08-07-2026",
+        "label": "Tutoria 08/07/2026 — Primeira Tutoria do Curso Zero (estudantes + exercícios de fixação)"
+      },
+      {
+        "id": "aulas/curso-zero/tutoria-11-02-2026",
+        "label": "Tutoria 11/02/2026 — Suporte à Configuração de Ambiente e Google Colab"
+      },
+      {
+        "id": "aulas/curso-zero/tutoria-15-07-2026",
+        "label": "Tutoria 15/07/2026 — com Prof. Lucas (fundamentos de Python com exercícios)"
+      },
+      {
+        "id": "aulas/curso-zero/tutoria-19-02-2026",
+        "label": "Tutoria 19/02/2026 — Sistema de Controle de Gastos Mensais por Categoria"
+      },
+      {
+        "id": "aulas/curso-zero/tutoria-22-07-2026",
+        "label": "Tutoria 22/07/2026 — com Profa. Mirela (fundamentos de Python + teste de mesa)"
+      },
+      {
+        "id": "aulas/curso-zero/tutoria-26-02-2026",
+        "label": "Tutoria 26/02/2026 — Análise de Acidentes de Trânsito em São Paulo com Pandas"
+      },
+      {
+        "id": "aulas/curso-zero/tutoria-29-07-2026",
+        "label": "Tutoria 29/07/2026 — Resumão de Sintaxe + Exercícios de Fixação (com tutor Cardoso)"
+      }
+    ]
+  },
+  {
     "title": "🧑‍🏫 Tutorias e Reuniões",
     "items": [
       {

@@ -9,8 +9,11 @@ from lifelines import CoxPHFitter
 import pandas as pd
 
 # Dados: cada linha = um endpoint
+
 # T = duração em dias (birth até death/censoring)
+
 # E = indicador de evento (1 = morreu, 0 = censored)
+
 # covariates: method_GET, method_POST, path_depth, ...
 
 cph = CoxPHFitter(penalizer=0.1)  # L2 regularization
@@ -65,7 +68,9 @@ results.print_summary()  # p < 0.05 → PH violada
 ### Gamma Frailty
 
 ```python
+
 # lifelines não tem frailty nativo — usar statsmodels ou R via rpy2
+
 # Alternativa: CoxPHFitter com strata
 cph_stratified = CoxPHFitter()
 cph_stratified.fit(df, 'T', 'E', strata=['provider_id'])
@@ -74,6 +79,7 @@ cph_stratified.fit(df, 'T', 'E', strata=['provider_id'])
 ### Time-Stratified Landmark
 
 ```python
+
 # Dividir dados em 3 regimes temporais
 early = df[df['T'] <= 90]
 mid = df[(df['T'] > 90) & (df['T'] <= 365)]
@@ -94,6 +100,7 @@ from lifelines import WeibullAFTFitter
 aft = WeibullAFTFitter(penalizer=0.1)
 aft.fit(df, 'T', 'E', formula=formula)
 aft.print_summary()
+
 # Comparar direção dos coeficientes com Cox PH
 ```
 

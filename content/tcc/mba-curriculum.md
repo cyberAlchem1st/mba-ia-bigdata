@@ -61,6 +61,7 @@ graph TD
 ## Professores Relevantes
 
 ### Cibele Maria Russo
+
 - Profa Associada ICMC, Livre-docente 2025
 - Doutora em Estatística USP (2010)
 - Linhas: modelos de regressão, efeitos mistos, diagnóstico
@@ -68,21 +69,25 @@ graph TD
 - Google Scholar: 600+ citações, h=11
 
 ### Mariana Cúri
+
 - Disciplina: Estatística na CC Experimental e R (com Cibele Russo)
 - Linhas: mineração estatística de dados
 - Coautora com Diego Minatel e Alneu Lopes
 
 ### Ricardo Marcondes Marcacini
+
 - Orientador de TCC (Victor Tornisiello — LLMs)
 - Coautor frequente de Solange Rezende
 - Linhas: NLP, LLMs, text mining, graph learning
 
 ### Cristina Dutra de Aguiar
+
 - Disciplina: Processamento Analítico de Larga Escala
 - Orientadora de TCC (Felipe Casali — Regressão Logística)
 - **Precedente: orientou TCC com ML clássico (não-DL)**
 
 ### Solange Oliveira Rezende (Coordenadora)
+
 - Profa Titular ICMC, pós-doc University of Minnesota
 - Linhas: KDD, text mining, graph learning, multimodal AI
 - **Potencial orientadora se TCC enquadrado como KDD**
