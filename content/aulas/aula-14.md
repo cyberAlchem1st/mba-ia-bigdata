@@ -3,6 +3,7 @@
 > **Resumo didático** — o que você DEVE entender ao sair desta aula.
 
 ## Objetivo da aula
+
 Mostrar como processar, a partir do Python, dados armazenados no Oracle — o SGBD líder de mercado — usando `cx_Oracle` (driver), cursores, dicionário de dados, `fetchmany`, generators e SQLAlchemy. É a ponte entre a primeira quinzena (Python) e a segunda (bancos de dados), fechando os fundamentos da disciplina.
 
 ## Conceitos em ordem (narrativa didática)
@@ -30,6 +31,7 @@ Sobre agregação: os SGBDs (Oracle) fazem agregações simples (sum, avg, max, 
 Por fim, o **SQLAlchemy**: cria-se um engine a partir do DSN; com `MetaData` e `Table` você obtém toda a definição da tabela (colunas, constraints, foreign keys) sem consultas complicadas ao dicionário. É possível criar objetos `insert`, `update`, `delete` para a tabela, compilar com parâmetros e executar — sem escrever SQL manualmente (embora os comandos subjacentes existam). Exemplo: criar um `insert` de jogador com `datetime`, compilar parâmetros e executar. Ao final, **feche a conexão** (`close`): o banco tem limite de conexões e começa a negar novas se você abrir muitas.
 
 ## Pontos-chave
+
 - `cx_Oracle` segue a especificação DB-API 2.0; SQLAlchemy abstrai o SQL em objetos (professor prefere SQL próprio).
 - Caminho de conexão: VPN USP → Instant Client → driver → servidor Oracle.
 - Cursor = objeto que envia comandos pela conexão; um tipo só serve para DDL e DML.
@@ -43,26 +45,32 @@ Por fim, o **SQLAlchemy**: cria-se um engine a partir do DSN; com `MetaData` e `
 - Sempre **feche** as conexões (limite do banco).
 
 ## Exemplo essencial
+
 ```python
 import cx_Oracle
 
 # conexão (host/porta/serviço da VPN USP; usuário/senha = M + CPF)
+
 conn = cx_Oracle.connect(user=usuario, password=senha, dsn=dsn)
 cur = conn.cursor()
 
 # DDL: executar script .sql com split por ';'
+
 cur.execute("CREATE TABLE time (id NUMBER PRIMARY KEY, nome VARCHAR2(50))")
 
 # DML: bind variables + commit
+
 cur.execute("INSERT INTO time (id, nome) VALUES (:a, :b)", a=1, b="Palmeiras")
 conn.commit()
 
 # leitura eficiente: fetchmany (N tuplas por vez)
+
 cur.execute("SELECT * FROM joga WHERE clássico = 'N'")
 for tuplas in cur.fetchmany(11):
     print(tuplas)
 
 # generator: processar tabela grande em pedaços
+
 df_gen = pd.read_sql("SELECT * FROM partida", conn, chunksize=3)
 total = 0
 for chunk in df_gen:
@@ -70,9 +78,11 @@ for chunk in df_gen:
 print(total)  # 31 — mesmo resultado da agregação no banco
 
 conn.close()
+
 ```
 
 ## Armadilhas comuns
+
 - Esquecer o `commit`: os dados são enviados, mas não consolidados — parecem "sumir".
 - Usar `fetchone` em loop para bases grandes: custo igual ao de trazer centenas de tuplas (blocos/páginas).
 - Trazer uma tabela inteira para a memória sem pensar no tamanho: risco de estourar a memória (use generator).
@@ -81,4 +91,5 @@ conn.close()
 - Achar que SQLAlchemy dispensa entender SQL: ele abstrai, mas os comandos subjacentes existem e você precisa saber o que está fazendo.
 
 ## Conexão com a próxima aula
+
 A aula encerra a parte de fundamentos de banco de dados: Oracle (relacional, líder de mercado), MongoDB (NoSQL, líder) e a integração com Python. As próximas aulas aprofundam recursos avançados do SQL no Oracle — funções analíticas e CTEs.

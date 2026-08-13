@@ -3,6 +3,7 @@
 > **Resumo didático** — o que você DEVE entender ao sair desta aula.
 
 ## Objetivo da aula
+
 Colocar em prática o DDL no Oracle (via SQL Developer): criar tabelas de um projeto de instituição de ensino e observar como chaves, checagens e integridade referencial bloqueiam dados inválidos. Você aprende a ler mensagens de erro como sinais de que o banco está protegendo a consistência.
 
 ## Conceitos em ordem (narrativa didática)
@@ -12,14 +13,17 @@ O professor abre o **SQL Developer**, o cliente gráfico distribuído pela Oracl
 O projeto da aula é uma **instituição de ensino** com as entidades: aluno, professor, disciplina, turma e matrícula. Para cada uma, executa-se o `CREATE TABLE` correspondente.
 
 **Tabela aluno**: nome (NOT NULL), número USP (chave primária), idade (NUMBER(3)), data de nascimento (DATE). O número USP é chave — em Oracle, chave já implica NOT NULL automaticamente. O nome recebe `UNIQUE` (chave secundária): não pode haver dois alunos com o mesmo nome. Ao inserir dados pela interface, o SQL Developer monta o INSERT por trás. Erros demonstrados:
+
 - Inserir número USP repetido → **restrição exclusiva violada** (PK duplicada — como dar o mesmo CPF a duas pessoas).
 - Inserir nome repetido → violação da restrição `UNIQUE` do nome.
 
 **Tabela professor**: nome (UNIQUE, mas sem NOT NULL — registros podem ficar sem nome), número funcional (PK), idade, titulação com `CHECK (titulacao IN ('mestre','doutor','titular'))`. Erros:
+
 - Inserir titulação "assistente" → **restrição de verificação (CHECK) violada** — o valor não está no conjunto permitido.
 - Inserir nome "Marcos" repetido → violação de UNIQUE. Aqui o professor mostra a importância de **nomear constraints** (ex.: `CONSTRAINT chtit CHECK ...`): quando o sistema gera o nome, fica difícil ler o erro.
 
 **Tabela disciplina**: sigla (PK), nome, número de créditos, professor (FK → professor.número_funcional) e livro. A FK tem `ON DELETE SET NULL`. Erro demonstrado:
+
 - Inserir disciplina com professor 999 (inexistente) → **restrição de integridade violada, chave mãe não localizada**. O banco só aceita professores que existem.
 - Ao deletar o professor 555, as disciplinas dele ficam com professor NULL (ação SET NULL).
 
@@ -28,6 +32,7 @@ O projeto da aula é uma **instituição de ensino** com as entidades: aluno, pr
 **Tabela matrícula**: chave composta de 4 atributos, FK composta para turma (sigla, número) e FK para aluno. Permite matricular alunos em turmas existentes.
 
 Depois, comandos de manutenção:
+
 - `ALTER TABLE aluno ADD (cidade VARCHAR2(30))` — adicionar coluna.
 - `ALTER TABLE turma DROP COLUMN numero` → **erro** porque a coluna é referenciada por matrícula; é preciso `DROP COLUMN numero CASCADE CONSTRAINTS`.
 - `DROP TABLE matricula` — remove a tabela (e todos os dados).
@@ -36,6 +41,7 @@ Depois, comandos de manutenção:
 Por fim, quatro formas de acessar o Oracle: (1) servidor da USP com instruções, (2) Oracle Express local (não recomendado — pesado), (3) Oracle Cloud, (4) PostgreSQL local (SQL bem parecido).
 
 ## Pontos-chave
+
 - SQL Developer é um cliente; o banco é o Oracle no servidor.
 - `CREATE TABLE` + PK + UNIQUE + CHECK + FK traduzem o projeto em regras executáveis.
 - Erros de restrição são o banco protegendo a consistência: exclusiva (PK/UNIQUE), verificação (CHECK), integridade (FK).
@@ -46,6 +52,7 @@ Por fim, quatro formas de acessar o Oracle: (1) servidor da USP com instruções
 - `DROP TABLE` remove tabela e dados; com FK apontando, exige `CASCADE CONSTRAINTS`.
 
 ## Exemplo essencial
+
 ```sql
 CREATE TABLE disciplina (
   sigla     CHAR(4) PRIMARY KEY,
@@ -60,9 +67,11 @@ CREATE TABLE disciplina (
 -- INSERT com professor 999 (que não existe) → erro:
 -- "restrição de integridade violada - chave mãe não localizada"
 -- O banco impede a disciplina de referenciar um professor inexistente.
+
 ```
 
 ## Armadilhas comuns
+
 - Achar que o erro de restrição é "bug": é o banco aplicando as regras do projeto.
 - Esquecer que PK já implica NOT NULL no Oracle.
 - Tentar `DROP COLUMN` de coluna referenciada por FK sem `CASCADE CONSTRAINTS`.
@@ -70,4 +79,5 @@ CREATE TABLE disciplina (
 - Confundir `ON DELETE CASCADE` (remove dependentes) com `SET NULL` (mantém dependentes sem o valor).
 
 ## Conexão com a próxima aula
+
 Com as tabelas criadas, a próxima aula mostra o DML: inserir, atualizar, remover e selecionar dados com INSERT, UPDATE, DELETE e SELECT.

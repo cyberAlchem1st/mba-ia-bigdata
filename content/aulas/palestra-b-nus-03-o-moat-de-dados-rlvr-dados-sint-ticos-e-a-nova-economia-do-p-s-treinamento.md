@@ -25,4 +25,3 @@ rigel-bezerra-de-melo-
 - [Slides da palestra](https://drive.google.com/file/d/1ke1klMhni0BnxYb2HXipscVCkJ17ySRo/view?usp=sharing)
 - [https://www.linkedin.com/in/roberta-antunes-56578b39/](https://www.linkedin.com/in/roberta-antunes-56578b39/)
 - [https://www.linkedin.com/in/rigel-bezerra-de-melo-42744b185/?skipRedirect=true](https://www.linkedin.com/in/rigel-bezerra-de-melo-42744b185/?skipRedirect=true)
-

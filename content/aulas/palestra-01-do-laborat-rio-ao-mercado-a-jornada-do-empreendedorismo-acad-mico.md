@@ -14,4 +14,3 @@ LinkedIn pessoal: linkedin.com/in/neylorfabiano/
 ## Materiais
 
 - [https://auspin.usp.br/](https://auspin.usp.br/)
-

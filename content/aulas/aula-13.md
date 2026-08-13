@@ -3,6 +3,7 @@
 > **Resumo didático** — o que você DEVE entender ao sair desta aula.
 
 ## Objetivo da aula
+
 Colocar o MongoDB para funcionar: instalar, entrar no prompt de comando, criar banco e coleção, inserir e recuperar dados, e conhecer os comandos fundamentais (CRUD) e o pipeline de agregação — sempre contrastando com o SQL do modelo relacional.
 
 ## Conceitos em ordem (narrativa didática)
@@ -22,6 +23,7 @@ O professor então apresenta a **agregação** (`aggregate`), um pipeline mais a
 Fechando, o professor pondera prós e contras. Prós: sem esquema, você coloca e recupera informação muito rápido, sem projeto. Contras: a tentação de começar sem pensar no projeto; o gerenciamento fica mais custoso; muitas questões de consistência e integridade são **transferidas para a aplicação** (não ficam mais com o banco); junções podem ser necessárias mesmo num banco orientado a documentos. Ele recomenda artigos de contraponto ("por que não usar MongoDB" e "por que usar") — a escolha depende de saber o que você vai fazer. O MongoDB não é substituto universal do relacional: o relacional faz mais coisas, é mais poderoso e mais usado. Resumo: o MongoDB tem equivalente ao DML (CRUD), mas **não tem DDL equivalente** — o "DDL" se resume a `create collection` e `use db`; o resto é manipulação de dados.
 
 ## Pontos-chave
+
 - Instalação: descompactar zip; `mongod` (serviço) + `mongo` (prompt).
 - `use <db>` cria banco (só existe ao inserir); `db.colecao.insert({...})` insere.
 - **CRUD** (Create/Read/Update/Delete) = equivalente ao DML do SQL.
@@ -33,24 +35,31 @@ Fechando, o professor pondera prós e contras. Prós: sem esquema, você coloca 
 - MongoDB não tem DDL equivalente — só `create collection` e `use db`; o resto é manipulação.
 
 ## Exemplo essencial
+
 ```sql
 -- SQL relacional
 SELECT sigla, SUM(gols) FROM time GROUP BY sigla;
+
 ```
+
 ```javascript
 // MongoDB (agregação)
 db.time.aggregate([
   { $group: { _id: "$sigla", total_gols: { $sum: "$gols" } } }
 ])
+
 ```
+
 ```javascript
 // Inserção com estruturas diferentes na mesma coleção
 db.teams.insertOne({ nome: "Real Madrid", pais: "Espanha" })
 db.teams.insertOne({ nome: "Barcelona", pais: "Espanha", ano_fundacao: 1899 })
 db.teams.insertOne({ nome: "Lisboa", elenco: { goleiro: "Marcos", zagueiro: "Ronaldo" } })
+
 ```
 
 ## Armadilhas comuns
+
 - Começar a usar sem pensar no projeto: o MongoDB não te obriga a projetar — mas o gerenciamento depois fica mais caro.
 - Achar que o MongoDB substitui o relacional: o relacional é mais poderoso, mais usado e melhor para problemas que exigem fidelidade.
 - Ignorar que a consistência virou responsabilidade da aplicação: o banco não garante mais integridade por você.
@@ -58,4 +67,5 @@ db.teams.insertOne({ nome: "Lisboa", elenco: { goleiro: "Marcos", zagueiro: "Ron
 - Confundir o `$` de operador com o `$` de campo: `$sum` é operador; `"$gols"` referencia o campo.
 
 ## Conexão com a próxima aula
+
 Com o MongoDB dominado na prática, a próxima aula fecha o ciclo da disciplina: voltar ao Python e importar dados do Oracle (o relacional líder de mercado) — juntando a primeira quinzena (Python) com a segunda (bancos de dados).

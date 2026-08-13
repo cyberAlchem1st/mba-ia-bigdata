@@ -19,4 +19,3 @@ webofknowledge.com
 - [https://servicos.sti.usp.br/vpn/](https://servicos.sti.usp.br/vpn/)
 - [VPN](https://www.aguia.usp.br/portfolio/servicos/conexao-remota/)
 - [https://apps.webofknowledge.com](https://apps.webofknowledge.com/)
-

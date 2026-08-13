@@ -3,6 +3,7 @@
 > **Resumo didático** — o que você DEVE entender ao sair desta aula.
 
 ## Objetivo da aula
+
 Apresentar as Common Table Expressions (CTE) no Oracle: um recurso que permite **modularizar, organizar e explicar** consultas SQL grandes e complexas, quebrando-as em blocos nomeados com a cláusula `WITH`. O objetivo é clareza e legibilidade — não desempenho. A base de exemplo é o esquema de aluno/matrícula/turma/disciplina.
 
 ## Conceitos em ordem (narrativa didática)
@@ -28,6 +29,7 @@ Exemplo final com duas agregações: `media_geral` (média de todas as notas) e 
 Ponto importante: **CTE não deixa a consulta mais rápida** — o propósito é clareza e compartimentação. O desempenho depende do otimizador do SGBD; se houver problema de performance, usa-se `EXPLAIN` (fora do escopo da aula). Boas práticas: nomes descritivos, separar etapas conceitualmente diferentes (filtro, agregação, ranking, comparação final), evitar CTE desnecessárias e **testar cada CTE isoladamente** antes de juntar. O critério final: uma boa CTE torna a consulta mais legível.
 
 ## Pontos-chave
+
 - CTE = consulta nomeada com `WITH`; guarda um resultado intermediário **durante a consulta**.
 - Não é tabela permanente: ao fim da consulta, o resultado não existe mais.
 - Decompõe consultas grandes em etapas: filtrar → calcular → juntar → filtro final.
@@ -39,6 +41,7 @@ Ponto importante: **CTE não deixa a consulta mais rápida** — o propósito é
 - Boas práticas: nomes descritivos, separar etapas, evitar CTE desnecessárias, testar cada bloco isoladamente.
 
 ## Exemplo essencial
+
 ```sql
 -- CTE simples: resultado intermediário nomeado
 WITH matriculas_2024 AS (
@@ -86,9 +89,11 @@ WITH situacao_aluno AS (
 SELECT situacao, COUNT(*) AS qtd
 FROM situacao_aluno
 GROUP BY situacao;
+
 ```
 
 ## Armadilhas comuns
+
 - Achar que a CTE acelera a consulta: é recurso de escrita/clareza; a performance depende do otimizador.
 - Tentar usar o bloco nomeado fora da consulta em que foi definido: ele só existe durante aquela consulta.
 - Usar o alias da window function no `WHERE` do mesmo `SELECT`: não funciona (WHERE vem antes do SELECT) — use CTE ou subquery.
@@ -96,4 +101,5 @@ GROUP BY situacao;
 - Não testar cada bloco isoladamente: juntar tudo de uma vez dificulta encontrar erros.
 
 ## Conexão com a próxima aula
+
 Com as CTEs, encerra-se o bloco de recursos avançados do SQL no Oracle (funções analíticas + CTE). A disciplina de fundamentos de banco de dados está completa: relacional (Oracle), NoSQL (MongoDB), integração com Python e SQL avançado — a base para os próximos cursos do MBA.

@@ -17,4 +17,3 @@ motorola.com.br
 - [Slides da Palestra](https://drive.google.com/file/d/1Pi-D41bKKOWoyk7kgmWDa6QH03wcVcnC/view?usp=sharing)
 - [linkedin.com/in/thiago-fmartins](http://linkedin.com/in/thiago-fmartins)
 - [motorola.com.br](http://motorola.com.br/)
-

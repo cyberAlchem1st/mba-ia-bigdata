@@ -3,6 +3,7 @@
 > **Conhecimento destilado** — pontos que valem para sua carreira/estudo.
 
 ## Em uma frase
+
 Analisar comportamento e contexto do usuário com IA embarcada permite criar experiências mais inteligentes, adaptativas e eficientes em dispositivos móveis e desktops.
 
 ## Ideias principais (narrativa didática)

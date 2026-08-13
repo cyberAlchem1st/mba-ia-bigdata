@@ -3,6 +3,7 @@
 > **Conhecimento destilado** — pontos que valem para sua carreira/estudo.
 
 ## Em uma frase
+
 Uma tecnologia criada na universidade só vira negócio quando se domina a jornada que vai do problema de pesquisa à transferência de tecnologia — passando por propriedade intelectual, titularidade, patentes e licenciamento.
 
 ## Ideias principais (narrativa didática)

@@ -4,7 +4,6 @@
 
 ## Atividades síncronas
 
-
 ### 05/2026
 
 - **23/05/2026 10:00** — Curso 15 - Palestra
@@ -85,7 +84,7 @@
 - **4 jul. 2026** — Atividade quinzenal 01 - Linguagens e Ferramentas/Frameworks (Python + SQL)
 - **18 jul. 2026** — Atividade quinzenal 02 - Linguagens e Ferramentas/Frameworks (Python + SQL)
 - **1 ago. 2026** — Atividade quinzenal 01 - Ciência de Dados, Aprendizado de Máquina e Mineração de
-- **7 ago. 2027** — Tarefa: Resumo - Palestra bônus 01: Perception: Entendendo o usuário através da 
+- **7 ago. 2027** — Tarefa: Resumo - Palestra bônus 01: Perception: Entendendo o usuário através da
 - **7 ago. 2027** — Tarefa: Resumo - Palestra bônus 02: Assegure sua Estratégia de GenAI: Combinando
-- **7 ago. 2027** — Tarefa: Resumo - Palestra bônus 03: O Moat de Dados: RLVR, Dados Sintéticos e a 
+- **7 ago. 2027** — Tarefa: Resumo - Palestra bônus 03: O Moat de Dados: RLVR, Dados Sintéticos e a
 - **8 ago. 2026** — Tarefa: Resumo - Palestra 01: Do laboratório ao mercado: a jornada do empreended

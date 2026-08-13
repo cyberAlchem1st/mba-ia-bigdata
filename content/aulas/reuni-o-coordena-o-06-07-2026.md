@@ -7,6 +7,7 @@
 A reunião abriu com a coordenadora Solange Rezende apresentando o MBA em IA e Big Data (6ª edição; 4 turmas formadas, 5ª em fase final — TCCs até outubro). O ambiente Moodle (AVA, Pró-Reitoria de Cultura e Extensão) tinha 272 alunos matriculados; mais de 40 ainda não tinham entrado e seriam contatados.
 
 **Funcionamento do MBA:**
+
 - **Cursos avançados**: são 8; o aluno é obrigado a cursar 5, mas ganha 1 de brinde (6 no total). A escolha é feita por formulário no início de janeiro. Quem quiser os 2 restantes paga R$ 220 por curso extra.
 - **TCC**: haverá tutoria específica a partir de final de julho para discutir ideias e esclarecer os dois tipos de TCC. O TCC é obrigatório (fazer só as disciplinas e não fazer o TCC reprova). Recomendação: escolher um problema real do trabalho e fazer o TCC nessa linha; construir um bom LinkedIn durante a formação. Há 85 orientadores (inclusive de fora do ICMC); a indicação é feita pela coordenação apoiada por um modelo de linguagem, com possibilidade de troca.
 - **Navegação no Moodle** (Giovano): fórum geral do MBA (dúvidas gerais) vs fórum de cada disciplina (dúvidas do curso). Aulas com material de apoio, exercícios de fixação (resolvidos), arquivo de dados para os exercícios e atividade quinzenal.

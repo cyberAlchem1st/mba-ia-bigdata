@@ -7,18 +7,21 @@
 A reunião abriu com a Solange dando boas-vindas aos novos alunos (turma com 335 matriculados; perfil heterogêneo, ~30% de áreas correlatas — medicina, ciências políticas etc.). Ela reforçou que o MBA foi projetado para receber quem não sabe programar e que o objetivo é **ensinar de verdade** IA e Big Data, não apenas ferramentas.
 
 **Mensagens principais da Solange:**
+
 - Curso 0 e curso 1 são **fundamentos** (não são cursos de IA); a partir do curso 2 começa a IA e a manipulação de grandes bancos de dados (curso 3).
 - Para quem vem de áreas correlatas: a sensação de "desespero" no início é normal; ser firme, proativo e **ouvir menos o grupo do WhatsApp** (70% da turma tem base de TI). Cooperar é um valor do MBA.
 - Dúvida → fórum da disciplina, tutoria, ou gravação da tutoria + fórum. Monitores e docentes respondem.
 - Haverá tutoria extra para quem vem de área correlata, se necessário.
 
 **Apresentação da Mirela (supervisora EAD):**
+
 - Estrutura: **Módulo de Fundamentação** (cursos 0 a 6), precedido pelo **curso 0** (opcional, 20h — ampliado de 10h) e o **curso 1** (30h: Python + banco de dados/SQL). A tutoria daquela noite era do curso 0 (programação).
 - **Quinzenas**: todo o material da quinzena (vídeos, slides, notebooks, exercícios de fixação) é liberado de uma vez. Depois vem a **atividade quinzenal** (vale 20% da nota, ajuda a definir frequência) e a **avaliação final** (compõe o restante da nota).
 - **Fórum por curso**: dúvidas simples ou avançadas podem ser postadas; tutores, apoio, coordenação, a Mirela e os professores acompanham e respondem (geralmente em até 24h).
 - **Por onde começar**: ler o manual do aluno (primeiro link no Moodle), explorar o Moodle (agenda, aulas, fóruns) e assistir às gravações (abertura da 6ª turma e reunião com a coordenação). Tudo fica gravado e disponível.
 
 **Dúvidas dos alunos:**
+
 - **Roberto (Sicoob)**: (1) ao se cadastrar, só aparecia o curso de introdução — explicado que o acesso ao MBA é feito internamente pelo apoio técnico (algumas horas); o Roberto pediu verificação do caso. (2) A data de início (04/07) não tinha sido informada na seleção — a coordenação fará acompanhamento diferenciado e **adequação de datas**.
 - **Prazos prorrogados**: por causa dos novos alunos, as provas do curso 0 e curso 1 terminam em **24 de agosto** (prazo máximo de entrega); nesses dois cursos não se seguiu a regra estrita da quinzena.
 - **Ritmo de estudo**: uma aluna calculou ~4-5h/dia para acompanhar; a coordenação disse que vai ajustando e flexibilizando, sem atropelar ninguém. Haverá na próxima semana uma **reunião/tutoria mais longa só com quem entrou agora**.

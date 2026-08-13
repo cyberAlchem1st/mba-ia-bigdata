@@ -3,6 +3,7 @@
 > **Resumo didático** — o que você DEVE entender ao sair desta aula.
 
 ## Objetivo da aula
+
 Apresentar o modelo relacional como um conjunto formal de técnicas para projetar bancos de dados que representem fielmente o mundo real, e mostrar por que ele se apoia na teoria dos conjuntos. A aula também introduz as propriedades ACID, que diferenciam bancos relacionais dos NoSQL.
 
 ## Conceitos em ordem (narrativa didática)
@@ -18,12 +19,14 @@ Depois vem o **pragmatismo do banco relacional**: modelagem (diagramas Entidade-
 Ele introduz os **metadados** (dados que descrevem dados) e o **dicionário de dados**: ao instalar um banco, cria-se um "banco dos bancos" que guarda nomes de tabelas, atributos, tipos e restrições — essencial para desenvolver aplicações.
 
 Por fim, as **propriedades ACID**, que caracterizam bancos relacionais:
+
 - **Atomicidade**: a transação ou é executada por completo ou é totalmente cancelada. Exemplo: dar aumento de 5% a mil funcionários — se falhar no funcionário 500, nada pode ser aplicado.
 - **Consistência**: mecanismos como chaves primárias, chaves estrangeiras, unicidade, checagem e gatilhos garantem que o banco saia de um estado válido para outro válido.
 - **Isolamento**: transações concorrentes não interferem entre si — enquanto você atualiza salários, o RH que tenta ler recebe um lock (trava) e espera.
 - **Durabilidade**: logs, redundância e mecanismos de recuperação garantem que os dados sejam perenes e resilientes a falhas.
 
 ## Pontos-chave
+
 - Modelo relacional = técnicas formais para projetar como dados são armazenados e restringidos.
 - Base matemática: teoria dos conjuntos — sem repetição e sem ordem definida.
 - Unicidade é essencial no mundo real: número de série, placa, CPF, número USP.
@@ -34,18 +37,22 @@ Por fim, as **propriedades ACID**, que caracterizam bancos relacionais:
 - NoSQL relaxa ACID; isso será explorado nas aulas finais da disciplina.
 
 ## Exemplo essencial
+
 ```text
 Atomicidade na prática:
 UPDATE funcionarios SET salario = salario * 1.05;   -- mil funcionários
 -- Se falhar no funcionário 500:
 --   ou TODOS recebem o aumento, ou NENHUM recebe (rollback total)
+
 ```
 
 ## Armadilhas comuns
+
 - Achar que conjunto pode ter elementos repetidos: repetição quebra unicidade e gera inconsistência.
 - Confundir "ordem" de armazenamento com ordem lógica: conjuntos não têm ordem definida.
 - Esquecer que o relacional exige projeto prévio — não dá para "sair usando" como em planilhas.
 - Tratar ACID como detalhe teórico: é o que garante que um banco corporativo não corrompa dados.
 
 ## Conexão com a próxima aula
+
 Na próxima aula, a teoria dos conjuntos é aplicada dentro do modelo relacional: tabelas, duplas, atributos, esquemas e domínios.

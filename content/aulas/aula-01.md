@@ -3,6 +3,7 @@
 > **Resumo didático** — o que você DEVE entender ao sair desta aula.
 
 ## Objetivo da aula
+
 Apresentar o problema que motiva os bancos de dados — aplicações precisam de dados persistentes, consistentes e compartilhados — e introduzir o Sistema Gerenciador de Banco de Dados (SGBD) como a camada de software que resolve esse problema. É a porta de entrada da segunda parte do curso, que vai do modelo relacional até a conexão Python + Oracle.
 
 ## Conceitos em ordem (narrativa didática)
@@ -18,6 +19,7 @@ O SGBD é tão presente que você o acessa dezenas de vezes por dia sem perceber
 Por fim, ele lista as vantagens: persistência, independência da estrutura dos dados, consistência, abstração/interface, acesso compartilhado e concorrente, distribuição, segurança (contra sequestro de dados/ransomware), backup e padrões. As desvantagens: custo financeiro (Oracle, Microsoft) e a necessidade de treinamento — o que explica por que muita gente ainda guarda dados em planilhas Excel, que não oferecem nenhuma dessas garantias.
 
 ## Pontos-chave
+
 - SGBD = camada de software entre aplicações e dados; abstrai arquivos, estrutura, indexação e acesso.
 - Dados precisam ser **persistentes** (não voláteis) e **consistentes** (fiéis ao mundo real).
 - **Redundância** (guardar a mesma informação em vários lugares) leva a **inconsistência** — o exemplo do notebook com número de série repetido.
@@ -28,6 +30,7 @@ Por fim, ele lista as vantagens: persistência, independência da estrutura dos 
 - Oracle é o SGBD típico de ambientes corporativos críticos (bancos, corretoras).
 
 ## Exemplo essencial
+
 ```text
 Sem SGBD:  cada aplicação gerencia seus próprios arquivos
            → mesmo notebook cadastrado com fabricantes diferentes
@@ -35,13 +38,16 @@ Sem SGBD:  cada aplicação gerencia seus próprios arquivos
 
 Com SGBD:  aplicação → SGBD (camada de software) → arquivos no disco
            → acesso, segurança, indexação e consistência centralizados
+
 ```
 
 ## Armadilhas comuns
+
 - Achar que "banco de dados" é o mesmo que "planilha": planilhas não garantem consistência, concorrência nem segurança.
 - Confundir persistência com memória RAM: dados em disco/SSD sobrevivem ao desligamento; memória é volátil.
 - Subestimar a redundância: repetir informação "só por segurança" é a origem mais comum de dados contraditórios.
 - Pensar que o SGBD é opcional: sem a camada, cada aplicação reinventa a roda de gerenciamento de arquivos.
 
 ## Conexão com a próxima aula
+
 Agora que você sabe por que existem SGBDs, a próxima aula apresenta o modelo relacional — o principal modelo de projeto de bancos de dados, baseado na teoria dos conjuntos.

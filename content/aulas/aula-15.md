@@ -3,6 +3,7 @@
 > **Resumo didático** — o que você DEVE entender ao sair desta aula.
 
 ## Objetivo da aula
+
 Apresentar as funções analíticas (no Postgres chamadas de window functions) como uma forma complementar de recuperar informação no Oracle: elas fazem agregações como o `GROUP BY`, mas **sem perder o contexto** das linhas que geraram o resultado. A base de exemplo é o esquema de aluno/matrícula/turma/disciplina.
 
 ## Conceitos em ordem (narrativa didática)
@@ -30,6 +31,7 @@ Há dois `ORDER BY` distintos: o **dentro do `OVER`** (determina o processamento
 Há ainda outros recursos (LAG, LEAD, FIRST, LAST, desvio padrão, variância, mediana) que o professor deixa como aprofundamento — não cabem numa aula só.
 
 ## Pontos-chave
+
 - Função analítica = agregação que **mantém o contexto** das linhas que a geraram.
 - Cláusula **`OVER`** caracteriza a window function; no Postgres o nome é window function.
 - `OVER` vazio: agregação sobre todas as tuplas, valor repetido em cada linha.
@@ -42,6 +44,7 @@ Há ainda outros recursos (LAG, LEAD, FIRST, LAST, desvio padrão, variância, m
 - Usos: médias com contexto, rankings, melhores/piores, somas e médias acumuladas.
 
 ## Exemplo essencial
+
 ```sql
 -- Média geral repetida em cada linha + diferença da nota para a média
 SELECT nome, sigla, nota,
@@ -71,9 +74,11 @@ FROM matricula;
 SELECT sigla, nota,
        SUM(nota) OVER (PARTITION BY sigla ORDER BY nota) AS acumulado
 FROM matricula;
+
 ```
 
 ## Armadilhas comuns
+
 - Confundir `PARTITION BY` com `GROUP BY`: a ideia é parecida, mas a função analítica não colapsa as linhas — mantém o contexto.
 - Usar o alias da janela no `WHERE` do mesmo `SELECT`: não funciona (WHERE vem antes do SELECT); use consulta aninhada.
 - Confundir os dois `ORDER BY`: o de dentro do `OVER` define o processamento; o final só ordena a saída.
@@ -81,4 +86,5 @@ FROM matricula;
 - Esquecer que `OVER` vazio = todas as tuplas: sem `PARTITION BY`, a agregação é global.
 
 ## Conexão com a próxima aula
+
 Com as funções analíticas dominadas, a próxima aula apresenta as Common Table Expressions (CTE) no Oracle — outro recurso para organizar consultas SQL, que inclusive se combina com as window functions (ex.: filtrar um ranking).

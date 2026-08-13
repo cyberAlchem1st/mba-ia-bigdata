@@ -3,6 +3,7 @@
 > **Resumo didático** — o que você DEVE entender ao sair desta aula.
 
 ## Objetivo da aula
+
 Apresentar o universo NoSQL ("not only SQL") como um paradigma alternativo aos bancos relacionais (ACID): por que ele surgiu no contexto do big data, quais propriedades ele relaxa (BASE), quais tipos de solução existem e quando cada um faz sentido. É a porta de entrada para o MongoDB, que será estudado nas próximas aulas.
 
 ## Conceitos em ordem (narrativa didática)
@@ -22,6 +23,7 @@ Existem vários tipos de NoSQL, cada um adequado a um formato de dado: **key-val
 Por fim, o professor apresenta o MongoDB: banco open source, orientado a documentos, de alto desempenho e disponibilidade, com escala facilitada — o NoSQL mais usado no ranking DB-Engines, mas apenas em 5º lugar geral: os quatro primeiros são relacionais. A mensagem é clara: o relacional não é opcional nem obsoleto — é a melhor solução para problemas sérios que exigem fidelidade de informação. O NoSQL é protagonista no big data, mas cada paradigma tem seu papel.
 
 ## Pontos-chave
+
 - NoSQL = "not only SQL": não se limita ao SQL, tem outros paradigmas de armazenamento.
 - Motivação: big data (volume + velocidade) exigia escala rápida que o relacional rígido não entregava.
 - Relacional é rígido: esquema definido antes, junções, integridade referencial — difícil escalar horizontalmente.
@@ -33,6 +35,7 @@ Por fim, o professor apresenta o MongoDB: banco open source, orientado a documen
 - MongoDB = NoSQL mais usado, mas os 4 primeiros do ranking são relacionais — o relacional continua sendo a solução padrão.
 
 ## Exemplo essencial
+
 ```text
 ACID (relacional):  Atomicidade, Consistência, Isolamento, Durabilidade
                     → fidelidade da informação → onde dinheiro circula
@@ -43,9 +46,11 @@ BASE (NoSQL):       Basically Available, Soft state, Eventual consistency
 
 Escala vertical:    mesmo servidor + memória/disco/CPU
 Escala horizontal:  mais nós de processamento (replicação + distribuição)
+
 ```
 
 ## Armadilhas comuns
+
 - Achar que NoSQL substitui o relacional: são paradigmas para problemas diferentes; o relacional segue sendo a solução padrão e mais usada.
 - Usar consistência eventual onde dinheiro circula: qualquer falha de consolidação pode custar muito caro.
 - Confundir escala vertical com horizontal: o diferencial do NoSQL é a horizontal.
@@ -53,4 +58,5 @@ Escala horizontal:  mais nós de processamento (replicação + distribuição)
 - Tratar todos os NoSQL como iguais: key-value, documento, coluna e grafo resolvem problemas distintos.
 
 ## Conexão com a próxima aula
+
 Agora que o paradigma NoSQL e o contraste com o relacional estão claros, a próxima aula entra em detalhes do MongoDB — o banco orientado a documentos mais usado — comparando seus conceitos (documentos, coleções, sharding) com o modelo relacional.

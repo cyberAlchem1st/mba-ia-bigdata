@@ -17,4 +17,3 @@ marcus-mvsa/
 
 - [www.marcus-araujo.com](https://www.marcus-araujo.com/)
 - [https://www.linkedin.com/in/marcus-mvsa/](https://www.linkedin.com/in/marcus-mvsa/)
-

@@ -3,6 +3,7 @@
 > **Conhecimento destilado** — pontos que valem para sua carreira/estudo.
 
 ## Em uma frase
+
 Em um mundo com mais de 25 legislações de IA com alcance extraterritorial, a conformidade regulatória não é detalhe jurídico — é condição para o valor construído por produtos de IA não ser destruído por multas e exclusões de seguro.
 
 ## Ideias principais (narrativa didática)

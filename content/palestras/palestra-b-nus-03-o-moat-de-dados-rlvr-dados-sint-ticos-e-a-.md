@@ -3,6 +3,7 @@
 > **Conhecimento destilado** — pontos que valem para sua carreira/estudo.
 
 ## Em uma frase
+
 Na nova economia da IA, a vantagem competitiva (moat) deixa de ser o modelo base e passa a ser a capacidade de produzir dados de alta qualidade na etapa de pós-treinamento — com RLVR, dados sintéticos e humanos no loop.
 
 ## Ideias principais (narrativa didática)

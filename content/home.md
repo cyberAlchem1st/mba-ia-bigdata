@@ -17,6 +17,7 @@ flowchart LR
     D[Curso 02<br>Ciência de Dados / ML] --> E[Aulas + Práticas]
     F[Curso 15<br>Tendências e Mercado] --> G[Palestras]
     H[Tutorias] --> I[Revisão + Suporte]
+
 ```
 
 ## Próximas atividades síncronas
@@ -35,7 +36,7 @@ flowchart LR
 ## Conteúdo disponível
 
 | Seção | O que tem |
-|---|---|
+| --- | --- |
 | 🐍 Python | 23 aulas (tipos, listas, funções, numpy, pandas) |
 | 🗄️ SQL/NoSQL | 16 aulas (modelo relacional, Oracle, MongoDB) |
 | 🧑‍🏫 Tutorias | 15 sessões de revisão e suporte |

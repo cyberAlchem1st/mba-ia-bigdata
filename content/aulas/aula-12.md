@@ -3,6 +3,7 @@
 > **Resumo didático** — o que você DEVE entender ao sair desta aula.
 
 ## Objetivo da aula
+
 Aprofundar o MongoDB, o banco NoSQL mais usado, mostrando na prática como o paradigma orientado a documentos contrasta com o modelo relacional: documentos e coleções no lugar de tuplas e tabelas, `_id` como chave, documentos autocontidos, BSON, e a arquitetura de escala horizontal com sharding e réplicas.
 
 ## Conceitos em ordem (narrativa didática)
@@ -24,6 +25,7 @@ O formato dos dados: os documentos seguem a notação **JSON** (JavaScript Objec
 O MongoDB é tipado (ObjectId, string, número, array etc.), como qualquer banco — tipagem existe desde os primórdios da computação por questões de desempenho e controle. A instalação é muito simples: baixar, descompactar um zip e já está funcionando — muito mais rápido que instalar Oracle. Comandos básicos: ver bancos (`show dbs`), trocar de banco (`use`), ver coleções (`show collections`), criar coleção. O `_id` é imutável: se você não o fornece, o MongoDB gera um **ObjectId** único; se quiser mudar, é preciso deletar e reinserir o documento. É possível até usar um documento como `_id`.
 
 ## Pontos-chave
+
 - Documento = tupla; coleção = tabela; `_id` = chave primária (sempre o `_id` no MongoDB).
 - Modelo **semiestruturado**: documentos da mesma coleção podem ter estruturas diferentes.
 - Documentos **autocontidos**: toda a informação de uma instância em um único documento; junção não é prioridade.
@@ -35,6 +37,7 @@ O MongoDB é tipado (ObjectId, string, número, array etc.), como qualquer banco
 - Instalação trivial (descompactar zip) — contraste com a inércia do relacional.
 
 ## Exemplo essencial
+
 ```text
 Relacional (tabela usuario):
   id | user_name | email | idade | cidade
@@ -51,9 +54,11 @@ MongoDB (coleção usuario) — mesma informação, paradigma diferente:
 Com embedding (subdocumento autocontido):
   { "_id": ..., "estado": "SP", "prefeito": { "nome": "X",
     "endereco": { "rua": "Y", "numero": 100 } } }
+
 ```
 
 ## Armadilhas comuns
+
 - Achar que o MongoDB não tem chave primária: tem — é sempre o `_id`, imutável.
 - Esperar uniformidade de esquema: documentos da mesma coleção podem (e vão) ter estruturas diferentes.
 - Projetar como se fosse relacional (normalizar tudo, espalhar em tabelas): o MongoDB performa melhor com documentos autocontidos.
@@ -61,4 +66,5 @@ Com embedding (subdocumento autocontido):
 - Achar que "sem junção" significa que junção não existe: ela existe, só não é prioridade de projeto.
 
 ## Conexão com a próxima aula
+
 Com os conceitos do modelo orientado a documentos estabelecidos, a próxima aula mostra o MongoDB funcionando na prática: instalação, prompt de comando, inserção e recuperação de dados (CRUD).

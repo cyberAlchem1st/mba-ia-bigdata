@@ -1,6 +1,5 @@
 # Disciplinas e estrutura do curso
 
-
 ## Curso 01 — Linguagens e Ferramentas (Python + SQL)
 
 - 💬 [Fórum - Curso 01 - Linguagens e Ferramentas/Frameworks (Python + SQL)](https://cursosextensao.usp.br/mod/forum/view.php?id=283795)
