@@ -5,39 +5,84 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>05_range_lacosaninhados_while — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>05_range_lacosaninhados_while</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1lVDv1EQwCq_Php5wYMq6YiN6cO3uI5N2/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 05</li>
+<li>Conteúdo:</li>
+<li>- <em>range</em></li>
+<li>- Laços aninhados</li>
+<li>- <em>continue</em> &amp; <em>break</em></li>
+<li>- Laço <em>while</em></li>
+<li>Função <code>range()</code> em conjunto com <code>for</code></li>
+<li>Laços aninhados</li>
+<li>Diretivas <code>continue</code>  e <code>break</code></li>
+<li>Laço <code>while</code></li>
+<li>Resumo da aula</li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code>list(range(1,10))</code></pre>
+
+<pre><code>tuple(range(3,15))</code></pre>
+
+<pre><code>for x in range(1,10):
+    print(x)</code></pre>
+
+<pre><code>lista_numeros = []
+for i in range(20):
+    if (i % 2 == 0):
+        lista_numeros.append(i)
+
+print(&#x27;numero de elementos na lista: &#x27;,len(lista_numeros))
+print(lista_numeros)</code></pre>
+
+<pre><code>l1 = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]
+l2 = [&#x27;X&#x27;, &#x27;Z&#x27;]
+
+# iterar pela lista l1
+for i in l1:
+    #print(i, &#x27;:&#x27;)
+    for j in l2:
+        #print(&quot;\t&quot;,j)
+        print(&quot;%s%s&quot; % (i,j))</code></pre>
+
+<pre><code>valores = [&#x27;três&#x27;, 56, 342, 12.4e-5, 4+3j, (&#x27;A&#x27;, 1, 50.1), -0.19e4, 1000, 960, -406]</code></pre>
+
+<pre><code>lista = [&#x27;a&#x27;, 10.5, .20, &#x27;b&#x27;, 30.0, 100, (&#x27;tupla&#x27;, 1, 2), 10, &#x27;fim&#x27;, 1000, 405, &#x27;x&#x27;]</code></pre>
+
+<pre><code>soma = 0
+for x in lista:
+    # se o elemento for fim, encerra o loop
+    if (x == &#x27;fim&#x27;):
+        break
+
+    # se o elemento for diferente de inteiro e float, vai para o proximo
+    if (type(x) != int and type(x) != float):
+        continue
+
+    soma = soma + x
+
+print(&quot;Soma dos floats e ints anteriores a &#x27;fim&#x27;:&quot;, soma)</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

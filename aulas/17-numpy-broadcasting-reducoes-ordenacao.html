@@ -5,39 +5,122 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>17_numpy_broadcasting_reducoes_ordenacao — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>17_numpy_broadcasting_reducoes_ordenacao</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1mWLA4aTx8o_3ZXfcbnYLfaV0o3vp0wnd/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 17</li>
+<li>Conteúdo:</li>
+<li>- Modulo: Numpy</li>
+<li>- <em>Broadcasting</em></li>
+<li>- Operadores relacionais</li>
+<li>- Redução</li>
+<li>- Ordenação (<em>sort</em>)</li>
+<li>- Aritmética vetorial e matricial</li>
+<li>Broadcasting (extensão)</li>
+<li>Operações entre um array e um escalar</li>
+<li>Operações entre arrays</li>
+<li>Operadores relacionais</li>
+<li>Igualdade do array com <code>np.array_equal()</code></li>
+<li>Redução</li>
+<li>Redução lógica</li>
+<li>Mais reduções</li>
+<li>Ordenação  <code>sort()</code></li>
+<li>Aritmétrica vetorial e matricial</li>
+<li>Exercício 2.6</li>
+<li>Resumo da aula</li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code>import numpy as np
+
+# Cria uma matriz 5x5 com números aleatórios
+A = np.arange(25).reshape(5,5)
+
+# define um escalar
+s = 3
+
+# O opeador &quot;+&quot; é aplicado elemento por elemento (caso contrário não seria definido)
+B = s + A
+
+print(A,&#x27;\n&#x27;)
+print(B)</code></pre>
+
+<pre><code>A = np.arange(25).reshape(5,5) # matriz 5x5
+print(A.shape)
+
+v = np.arange(5).reshape(5,1) # array com 5 elementos 5x1
+print(v.shape)
+
+# A operação &quot;*&quot; é feita elemento por elemento,
+# broadcasting em &quot;v&quot; gerar novas colunas
+B =  v * A
+
+print(v,&#x27;\n&#x27;)
+print(A,&#x27;\n&#x27;)
+print(B)</code></pre>
+
+<pre><code>A = np.arange(4).reshape(2,2)      # matriz 2x2
+B = np.arange(6,2,-1).reshape(2,2) # matriz 2x2
+
+M = (B == A)
+
+print(A,&#x27;\n&#x27;)
+print(B,&#x27;\n&#x27;)
+print(M)</code></pre>
+
+<pre><code>A = np.arange(4).reshape(2,2)      # matrix 2x2
+B = np.arange(6,2,-1).reshape(2,2) # matrix 2x2
+C = np.copy(A)
+
+# Resposta é apenas um valor booleano
+print(np.array_equal(A,B))
+print(np.array_equal(A,C))</code></pre>
+
+<pre><code># np.array_equal(A,B) é equivalente a:
+D = (A==B)
+print(D)</code></pre>
+
+<pre><code>print(np.all(D))</code></pre>
+
+<pre><code>A = np.arange(25).reshape(5,5)
+print(A,&#x27;\n&#x27;)
+
+M = A &gt; 0
+print(M,&#x27;\n&#x27;)
+
+print(&#x27;Todos os elementos são TRUE? &#x27;, np.all(M))
+print(&#x27;Algum elemento é TRUE? &#x27;,np.any(M))
+
+print(&#x27;Todos os elementos de cada coluna são TRUE? &#x27;,np.all(M,axis=0))
+print(&#x27;Algum elemento de cada linha é TRUE? &#x27;,np.any(M,axis=1))</code></pre>
+
+<pre><code>A = np.zeros((6,5))  # matriz 5x5 de zeros
+A[:] = np.arange(5)  # broadcasting o array [0,1,2,3,4] nas linhas
+
+print(A,&#x27;\n&#x27;)
+
+print(&#x27;Soma de todos os valores: &#x27;, np.sum(A)) # todos os elementos
+print(&#x27;Soma dos valores das colunas: &#x27;, np.sum(A,axis=0)) # soma os valores das colunas
+print(&#x27;Soma dos valores das linhas: &#x27;, np.sum(A,axis=1)) # soma os valores das linhas</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

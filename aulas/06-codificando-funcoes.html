@@ -5,39 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>06_codificando_funcoes — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>06_codificando_funcoes</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1lSpG5Skcdx9fpYdnYZtv6zWWq7sL4Ven/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 06</li>
+<li>Conteúdo:</li>
+<li>- Codificando funções</li>
+<li>Codificando Funções</li>
+<li>Exercício 1.4</li>
+<li>Resumo da aula</li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code>def is_intfloat(x):
+    if (type(x) == int or type(x) == float):
+        print(&quot; é inteiro ou float&quot;)
+    else:
+        print(&quot;não é inteiro nem float&quot;)</code></pre>
+
+<pre><code>val1 = 3.0
+is_intfloat(val1)
+
+val2 = 3
+is_intfloat(val2)
+
+val3 = &#x27;5.5&#x27;
+is_intfloat(val3)</code></pre>
+
+<pre><code>def is_intfloat(x):
+    if (type(x) == int or type(x) == float):
+        return True
+    else:
+        return False
+
+val1 = 3.0
+print(is_intfloat(val1))
+
+val3 = &#x27;5.5&#x27;
+print(is_intfloat(val3))</code></pre>
+
+<pre><code>val = &#x27;dd&#x27;
+if is_intfloat(val):
+    val = val/2
+    print(val)</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

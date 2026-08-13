@@ -5,39 +5,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>10_colecoesaninhadas_comprehension — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>10_colecoesaninhadas_comprehension</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1mEUWJ97gwYPFlCRbxEBw_SvCziSS8RVB/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 10</li>
+<li>Conteúdo:</li>
+<li>- Coleções aninhadas</li>
+<li>- Comprehensions</li>
+<li>Coleções aninhadas</li>
+<li>Lista de tuplas</li>
+<li>Lista de listas</li>
+<li>Aninhando dicionários e listas</li>
+<li>Comprehension</li>
+<li>Exercício 1.7</li>
+<li>Resumo da aula</li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code># tuplas como registros indicando frutas: código identificador, nome e preço por kilo
+fruta1 = (640, &#x27;morango&#x27;, 25.0)
+fruta2 = (201, &#x27;banana&#x27;, 4.99)
+fruta3 = (452, &#x27;seriguela&#x27;, 9.99)
+fruta4 = (330, &#x27;melancia&#x27;, 2.50)
+
+lista = [fruta1, fruta2, fruta3, fruta4]
+print(lista)</code></pre>
+
+<pre><code>lista.append((202, &#x27;maçã&#x27;, 6.95))
+lista.sort()
+print(lista)</code></pre>
+
+<pre><code># listas com notas de turmas de alunos
+turma1 = [9.5, 8.0, 10.0, 7.0]
+turma2 = [1.5, 5.0, 5.5, 6.8, 8.0, 9.5, 9.5, 10.0, 1.0]
+turma3 = [5.5, 7.0, 8.0, 6.0, 0.0, 3.5]
+turma4 = [10.0, 7.5, 8.0, 9.0, 4.0, 6.0, 6.5]
+
+notas = [turma1, turma2]
+print(notas)
+notas = notas + [turma3]
+print(notas)
+notas.append(turma4)
+print(notas)</code></pre>
+
+<pre><code>notas = {
+    &#x27;Python&#x27;: { 2020: [9.5, 8.0, 10.0, 5.0, 6.0, 6.0],
+                2021: [8.2, 10.0, 10.0, 9.0, 7.5, 7.0, 10.0] },
+    &#x27;Redes Neurais&#x27;: { 2019: [8.0, 9.8, 10.0, 0.0, 8.2, 7.5, 7.5],
+                       2020: [9.0, 7.2, 9.0, 8.0, 6.3, 7.0],
+                       2021: [10.0, 7.5, 8.0, 9.0, 7.0, 7.3, 6.5] }
+}</code></pre>
+
+<pre><code>sum(notas[&#x27;Python&#x27;])</code></pre>
+
+<pre><code>type(notas[&#x27;Python&#x27;])</code></pre>
+
+<pre><code>for turma in notas[&#x27;Redes Neurais&#x27;]:
+    print(turma)</code></pre>
+
+<pre><code>for turma in notas[&#x27;Redes Neurais&#x27;].items():
+    print(turma[0], &#x27;- Menor nota:&#x27;, min(turma[1]))</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

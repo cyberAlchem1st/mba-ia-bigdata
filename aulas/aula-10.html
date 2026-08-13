@@ -5,36 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aula 10 — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>Aula 10</h1>
 
-<h2>Materiais</h2>
+<h2>Resumo destilado</h2>
+
+<blockquote>Resumo gerado automaticamente a partir da transcrição da aula gravada.</blockquote>
+
+<h3>Tópicos principais</h3>
 
 <ul>
-<li><a href="https://docs.google.com/presentation/d/1sRRRph1Dk01EXeVcd8sA5Bypm2x9fFoYDQtBYKS8ekM/edit?usp=drive_link">Slides</a></li>
+<li>O sql é uma linguagem declarativa, então você não é imperativo, então você não pode dizer como as coisas serão feitas, você não pode guardar estados intermediários da consulta.</li>
+<li>E isso muitas vezes dificulta a escrita de consulta ou torna pouco intuitiva na escrita de consulta e até mesmo a leitura de uma consulta que foi a escrita.</li>
+<li>Uma outra modalidade de consulta aliada são as consultas correlacionadas, então na condição where consulta interna, ela vai referenciar alguma coisa da consulta externa consulta mais externa, melhor a gente ver como exemplo.</li>
+<li>O aluno com a idade mais alta tem 40 anos, eu posso fazer isso aqui select 40 consegui produzir o valor 40 e aí eu posso fazer a seguinte consulta, select aster al oware idade igual 40 que é a idade mais alta.</li>
+<li>Vou colocar a idade também dos alunos que tem a idade máxima que é 40 simples, só que eu tive que fazer duas consultas para resolver isso.</li>
+<li>Veja são três selects select count pro, o resultado dessa consulta que considera essa consulta como consulta auxiliar.</li>
+<li>Então essas consultas que são chamadas consultas in, então elas funcionam trazendo dados de fora para dentro da consulta principal.</li>
+<li>Eu resolvo meus problemas usando essa constante, e de repente entra um aluno novo marcos número usp 23 41, então entrou um aluno novo 41 e quando eu executar essa consulta aqui eu não ela não responde mais ao meu problema.</li>
+<li>Está tornando para mim um aluno que não é o aluno com a idade mais alta, a idade mais alta agora é 41 então eu tenho que re executar essa daqui e mudar essa consulta, o que torna todo o processo pouco automatizado.</li>
+<li>Toda vez, você vai ter que ficar vendo se mudou a idade máxima e substituir refazer o sql.</li>
+<li>A consulta correta funciona a gente tem o resultado esperado.</li>
+<li>Esses dados aqui de fora são fornecidos para dentro da consulta principal para que ela possa funcionar corretamente.</li>
 </ul>
 
+<h2>Transcrição completa</h2>
 
+<p><a href="transcricoes/aula-10.html">Ver transcrição completa</a></p>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

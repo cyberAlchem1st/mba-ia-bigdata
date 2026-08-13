@@ -5,39 +5,98 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>04_estruturasdecontrole_iteracoes — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>04_estruturasdecontrole_iteracoes</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1lbues6_IADxzrwvFl_KibLFhY9UhQocj/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 04</li>
+<li>Conteúdo</li>
+<li>- Estruturas de controle: condicional</li>
+<li>- Estruturas de controle: laço de repetição</li>
+<li>Estruturas de controle</li>
+<li>Condicional <code>if</code></li>
+<li>Indentação</li>
+<li>Iterando por sequências</li>
+<li>laço <code>for</code></li>
+<li>Resumo da aula</li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code>condicao = True
+
+if condicao:
+    print(&quot;Código será executado se condicao for VERDADEIRA (True)&quot;)</code></pre>
+
+<pre><code>condicao = False
+
+if condicao:
+    print(&quot;Código será executado se condicao for VERDADEIRA (True)&quot;)</code></pre>
+
+<pre><code>condicao = False
+
+t = 1
+
+if condicao:
+    print(&quot;Essa condicao foi verdadeira&quot;)
+    print(&quot;do contrario esses prints nao executariam&quot;)
+    t = 1000
+print(&quot;fora do IF, valor de t =&quot;, t)</code></pre>
+
+<pre><code>x = 1   # alterar valor de x e testar
+
+if x == 3:
+    print(&quot;x vale 3&quot;)
+elif x &gt; 2:
+    print(&quot;x é maior do que 2&quot;)
+else:
+    print(&quot;x não vale nem 3 nem é maior do que 2&quot;)
+
+print(&quot;Este print está fora do &#x27;if&#x27;&quot;)</code></pre>
+
+<pre><code>x = 3
+
+# O seguinte trecho de código
+# É utilizado em comprehension
+
+
+# É equivalente a
+y = &#x27;três&#x27; if x == 3 else &#x27;outro número&#x27; # isto é um &#x27;if&#x27; ternário
+print(y)
+
+# mude o valor de x no início da célula para 3 e veja o resultado</code></pre>
+
+<pre><code>palavra = str(input())</code></pre>
+
+<pre><code>print(palavra[0])
+print(palavra[1])
+print(palavra[2])
+print(palavra[3])
+print(palavra[4])
+print(palavra[5])
+print(palavra[6])</code></pre>
+
+<pre><code>palavra = str(input())
+print(&quot;soletrando:&quot;)
+for elemento in palavra:
+    print(elemento)</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

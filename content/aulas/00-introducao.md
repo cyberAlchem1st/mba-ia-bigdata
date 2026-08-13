@@ -1,9 +1,26 @@
 # 00_introducao
 
-Notebook de apoio
-(os alunos devem efetuar o download do arquivo)
+## Conceitos abordados
 
-## Materiais
+- Python - Aula 00
+- Conteúdo
+- - Python
+- - Memória
+- - Tipos
+- - Variáveis
+- - Comentários
+- - Saída de dados
+- - Sequências: tuplas
+- - Sequências: listas
+- - Sequências: caracteres
+- - Estruturas de controle: condicional
+- - Estruturas de controle: laço de repetição
+- - *range*
+- - Laços aninhados
+- - *continue* & *break*
+- - Laço *while*
+- - Codificando funções
+- - Sequências
+- - Fatiamento (*Slicing*)
 
-- [Notebook de apoio](https://drive.google.com/file/d/1ltlo24N4bcJSWwv4BCV5h36wZdojwSpp/view?usp=drive_link)
-
+## Exemplos de código

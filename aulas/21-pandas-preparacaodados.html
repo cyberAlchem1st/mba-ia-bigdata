@@ -5,39 +5,76 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>21_Pandas_preparacaodados — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>21_Pandas_preparacaodados</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1YWhpNXnHSJKCJd3AKklSW0_bXjhzBt9G/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 21</li>
+<li>Conteúdo:</li>
+<li>- Preparação de dados</li>
+<li>Preparação de dados. O que se deseja é que:</li>
+<li><code>melt()</code> para reconfigurar tabelas</li>
+<li>Combinando</li>
+<li><code>merge</code></li>
+<li>Merge baseado nos valores de colunas</li>
+<li>Merge baseado nos valores de coluna em DataFrame e rótulos no outro DataFrame</li>
+<li><code>concat</code></li>
+<li>Exercício 2.8</li>
+<li>Resumo da aula</li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code># criando os dataframes para o exemplo
+import numpy as np
+import pandas as pd
+temps = np.array([[23, 21, 20],[30, 29, 28],[18, 21, 20],[9, 10, 13]])
+dtemp1 = pd.DataFrame(temps, index=[&#x27;São Paulo&#x27;,&#x27;Fortaleza&#x27;,&#x27;Montevideo&#x27;,&#x27;London&#x27;])
+
+dtemp2 = pd.DataFrame({
+    &#x27;São Paulo&#x27;: [25, 27, 23, 25],
+    &#x27;Fortaleza&#x27;: [35, 32, 31, 29],
+    &#x27;Montevideo&#x27;: [20, 18, 21, 23],
+    &#x27;London&#x27;: [14, 15, 12, 13]
+})</code></pre>
+
+<pre><code>print(dtemp1)
+
+print(dtemp1.melt())</code></pre>
+
+<pre><code>print(dtemp2)
+print(dtemp2.melt())</code></pre>
+
+<pre><code>dtemp1.melt().head()</code></pre>
+
+<pre><code>dtemp1 = dtemp1.rename_axis(&#x27;city&#x27;).reset_index()
+dtemp1</code></pre>
+
+<pre><code>dtemp1_melt = dtemp1.melt(id_vars=[&#x27;city&#x27;])
+dtemp1_melt</code></pre>
+
+<pre><code>tabela1 = dtemp1.melt(id_vars=[&#x27;city&#x27;], value_name=&#x27;temperature&#x27;, var_name=&#x27;day&#x27;)
+tabela1</code></pre>
+
+<pre><code>print(dtemp2)
+print(dtemp2.melt())</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

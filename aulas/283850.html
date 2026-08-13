@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>283850 — MBA IA & Big Data — ICMC/USP</title>
+<link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <h1>MBA IA & Big Data — ICMC/USP</h1>
+  <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
+</header>
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
+<main class="container">
+<div class="content">
+<h1>283850</h1>
+
+<h2>Conceitos abordados</h2>
+
+<ul>
+<li>Importando e processando dados do Oracle via Python</li>
+<li>Instalação</li>
+<li>Cursor</li>
+<li>Criação de um esquema a partir de um script sql</li>
+<li>Consulta à estrutura do esquema por meio do Dicionário de Dados</li>
+<li>Diagram da base de dados Futebol, usada neste notebook.</li>
+<li>Recuperando dados com cursores</li>
+<li>Usando rowfactories</li>
+<li>Lendo dados do banco diretamente para um Pandas Dataframe</li>
+<li>SQLAlchemy - SQL Expression Language</li>
+</ul>
+
+<h2>Exemplos de código</h2>
+
+<pre><code>#Instalar o Oracle Instant Client (basic ou light) - sudo alien -i oracle-instantclient-basiclite-linuxx64.rpm
+#Depois instalar o cx_oracle: conda install -c anaconda cx_oracle
+import cx_Oracle #documentacao https://cx-oracle.readthedocs.io/en/latest/user_guide/introduction.html
+import pandas as pd
+import sqlalchemy</code></pre>
+
+<pre><code>#Howto: https://www.oracle.com/database/technologies/appdev/python/quickstartpythononprem.html#copy
+#executar uma vez por sessão - lib dir é o diretório onde se encontra o arquivo libclntsh.so
+try:
+    cx_Oracle.init_oracle_client(lib_dir=&quot;/usr/lib/oracle/21/client64/lib/&quot;)
+except Exception as e:
+    print(str(e))</code></pre>
+
+<pre><code>dsnStr = cx_Oracle.makedsn(host=&quot;orclgrad1.icmc.usp.br&quot;, port=&quot;1521&quot;, service_name=&quot;pdb_junior.icmc.usp.br&quot;)
+conexao = cx_Oracle.connect(user=&quot;M_SEU_CPF&quot;, password=&quot;SUA_SENHA&quot;, dsn=dsnStr)
+print(conexao.version)
+
+#No caso de PostgreSQL, usa-se a biblioteca psycopg2
+#import psycopg2
+#conn = psycopg2.connect(host=host_address, database=name_of_database, user=user_name, password=user_password)</code></pre>
+
+<pre><code>cursorDDL = conexao.cursor()
+cursorDML = conexao.cursor()</code></pre>
+
+<pre><code>#Primeiro o esquema
+fd = open(&#x27;./EsquemaFutebol/Esquema_Futebol.sql&#x27;, &#x27;r&#x27;)
+sqlFile = fd.read()
+fd.close()
+
+sqlCommands = sqlFile.split(&#x27;;&#x27;)
+for command in sqlCommands:
+    if(command == &#x27;&#x27;): break;
+    try:
+        #print(command)
+        #print()
+        cursorDDL.execute(command)
+    except Exception as msg:
+        print(&quot;Erro de SQL: &quot;+ str(msg) + &quot;: &quot;+ command)
+print(&#x27;Script finalizado.&#x27;)</code></pre>
+
+<pre><code>#Agora as relações instanciadas
+fd = open(&#x27;./EsquemaFutebol/Dados_Futebol.sql&#x27;, &#x27;r&#x27;)
+sqlFile = fd.read()
+fd.close()
+
+sqlCommands = sqlFile.split(&#x27;;&#x27;)
+for command in sqlCommands:
+    try:
+        #print(command)
+        #print()
+        cursorDDL.execute(command)
+    except Exception as msg:
+        print(&quot;Erro de SQL: &quot;+ str(msg) + &quot;: |&quot;+ command+&#x27;|&#x27;)
+print(&#x27;Script finalizado.&#x27;)</code></pre>
+
+<pre><code>cursorDML.execute(&#x27;select * from user_tables&#x27;)
+print(&#x27;Lista das tabelas no esquema do usuário que estabeleceu a conexão:&#x27;)
+for tupla in cursorDML:
+    print(tupla[0])</code></pre>
+
+<pre><code>printForeignKeys(&#x27;&#x27;)</code></pre>
+
+</div>
+</main>
+<footer class="site-footer">
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+</footer>
+</body>
+</html>

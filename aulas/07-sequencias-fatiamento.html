@@ -5,39 +5,90 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>07_sequencias_fatiamento — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>07_sequencias_fatiamento</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1m3g5awFeAqvzyhKowZENiEZ7d3DwAf4C/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 07</li>
+<li>Conteúdo:</li>
+<li>- Sequências</li>
+<li>- Fatiamento (<em>Slicing</em>)</li>
+<li>- Operadores <code>in</code> <code>+</code> e <code>*</code></li>
+<li>Relembrando: sequências</li>
+<li>Fatiamento (<em>slicing</em>)</li>
+<li>Indexando com valores negativos</li>
+<li>Operadores <code>in</code> <code>+</code> e <code>*</code></li>
+<li>&quot;in&quot;</li>
+<li>&quot;+&quot;</li>
+<li>&quot;*&quot;</li>
+<li>Resumo da aula</li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code># TUPLA
+
+# Armazena passaporte, país de origem, ano e mes de vencimento do passaporte
+passageiro1 = (&#x27;GGS1023&#x27;, &#x27;BRA&#x27;, 2021, 12)
+print(passageiro1[0])
+print(passageiro1[3])</code></pre>
+
+<pre><code># tuplas são imutáveis
+passageiro1[1] = &#x27;ARG&#x27;</code></pre>
+
+<pre><code># LISTA
+
+# lista de preços
+ls = [34, 4.34, &#x27;a&#x27;, 23, 9, 98]   # Listas são definidas utilizando colchetes [ ]
+print(ls)
+print(ls[2])
+# mutável, podemos alterar elementos
+ls[2] = 10
+print(ls)</code></pre>
+
+<pre><code># STRING
+
+st1 = &quot;Isso é uma &#x27;string&#x27;&quot;  # Strings são definidas utilizando aspas simples &#x27;&#x27; ou duplas &quot;&quot;
+st2 = &#x27;Isso é uma outra &quot;string&quot;&#x27;  # Strings são definidas utilizando aspas simples &#x27;&#x27; ou duplas &quot;&quot;
+print(st1)
+print(st2)
+print(st2[0:6])</code></pre>
+
+<pre><code>ls = [1, 5, 13, 50, 1000, 10, &#x27;fim&#x27;]
+print(ls)
+print(ls[0:2])  # recupera elementos ls[0],ls[1] (note que o elemento ls[2] não é recuperado)
+print(ls[2:])   # recupera elementos a partir de ls[2] em diante
+print(ls[1:5])  # recupera elementos ls[1],ls[2],ls[3],ls[4]
+print(ls[:3])   # recupera elementos até ls[2]</code></pre>
+
+<pre><code>ls = [1, 5, 13, 50, 1000, 10, &#x27;fim&#x27;]
+print(ls[-1])
+print(ls[-7])</code></pre>
+
+<pre><code>print(ls[-4:-1])</code></pre>
+
+<pre><code>t = [1,2,3,4,5]
+print(3 in t)
+print(7 in t)
+print(3 not in t)
+print(7 not in t)</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

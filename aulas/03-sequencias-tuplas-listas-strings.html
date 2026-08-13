@@ -5,39 +5,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>03_sequencias_tuplas_listas_strings — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>03_sequencias_tuplas_listas_strings</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1ldsTTFMbB8hj_lJaDJgqygKhHJWPN_K1/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 03</li>
+<li>Conteúdo</li>
+<li>- Sequências: tuplas</li>
+<li>- Sequências: listas</li>
+<li>- Sequências: caracteres</li>
+<li>Sequências</li>
+<li>Tupla - <em>tuple</em></li>
+<li>Lista - <em>list</em></li>
+<li>String - <em>str</em></li>
+<li>Resumo da aula</li>
+<li>- Sequências:caracteres</li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code>tupla = (23, &#x27;abc&#x27;, 4.56, (2,3))  # Tupla é sequência definida usando parenteses ()
+
+# os valores dos elementos podem ser acessados utilizando o índice do elemento entre colchetes
+print(tupla[3])</code></pre>
+
+<pre><code>print(tupla[3][0])
+print(tupla[3][1])</code></pre>
+
+<pre><code># Como tuplas são imutáveis, não se pode mudar o valor dos elementos (mensagem de erro é gerada)
+print(tupla[2])
+tupla[2] = 1.5</code></pre>
+
+<pre><code># tentar acessar um elemento fora do intervalo da sequencia gera erro
+tupla[4]</code></pre>
+
+<pre><code># Listas são definidas utilizando colchetes [ ]
+ls = [&quot;abc&quot;, 34, 4.34, 23, 9, 98]
+
+print(ls)
+
+
+# mutável, podemos alterar elementos
+ls[3] = 10000
+print(ls)</code></pre>
+
+<pre><code>lsn = []  # cria um lista lsn vazia
+print(lsn)
+
+# inserindo elementos em uma lista após ela ter sido criada
+lsn.append(&#x27;maçã&#x27;)
+lsn.append(&#x27;manga&#x27;)
+lsn.append(&#x27;banana&#x27;)
+lsn.append(&#x27;laranja&#x27;)
+print(lsn)</code></pre>
+
+<pre><code>lsn.insert(0,&#x27;abacate&#x27;)
+lsn.append(&#x27;manga&#x27;)
+print(lsn)
+
+lsn.insert(2,&#x27;amora&#x27;)
+print(lsn)</code></pre>
+
+<pre><code># elementos também podem ser removidos com o comando &#x27;del&#x27;
+print(3*&#x27;-&#x27;,&#x27;Removendo elementos inseridos&#x27;)
+
+print(lsn)
+print(&#x27;-&#x27;,&#x27;deleta posição 0&#x27;)
+del(lsn[0])
+print(lsn)
+
+print(&#x27;-&#x27;,&#x27;deleta posição 2&#x27;)
+del(lsn[2])
+print(lsn)</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

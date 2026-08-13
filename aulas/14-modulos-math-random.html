@@ -5,39 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>14_modulos_math_random — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>14_modulos_math_random</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1mLYAQ8kYRjdZ6quDLHah5UP67-0Y96-r/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 14</li>
+<li>Conteúdo</li>
+<li>- Módulos Python</li>
+<li>- Módulos: math e random</li>
+<li>Módulos Python</li>
+<li><code>import</code>, <code>from</code> e <code>as</code></li>
+<li><code>math</code></li>
+<li>Exemplo de uso de <code>from  import </code></li>
+<li><code>random</code></li>
+<li>Exemplo de uso de <code>import as</code></li>
+<li>Funções com listas</li>
+<li>Controlando a geração pseudo-aleatória com <code>seed()</code></li>
+<li>Resumo da aula</li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code>import math
+
+# logaritmo natural
+print(math.log(31))
+
+# especificando a base
+print(math.log(32, 2))</code></pre>
+
+<pre><code># soma de floats que evita erros de precisão
+num_floats = [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+# usando função padrão
+print(sum(num_floats))
+print(math.fsum(num_floats))</code></pre>
+
+<pre><code># constantes
+print(math.pi)
+print(math.e)
+print(math.inf)
+print(math.nan)</code></pre>
+
+<pre><code>from math import pi
+print(pi)</code></pre>
+
+<pre><code>from math import log, sqrt
+print(log(1001, 3))
+print(sqrt(100))</code></pre>
+
+<pre><code># podemos usar `rd` ao invés de `random` para acessar o módulo
+import random as rd</code></pre>
+
+<pre><code># sorteia um número aleatório
+print(rd.random())
+
+# exemplo: criando uma lista de números aleatórios
+num_aleat = []
+for i in range(5):
+    num_aleat.append(rd.random())
+
+print(num_aleat)</code></pre>
+
+<pre><code># sorteia um numero aleatorio inteiro uniforme entre &quot;a&quot; e &quot;b&quot;
+print(rd.randint(1,10))
+
+# exemplo: criando uma lista de números aleatórios
+numint_1_10 = []
+for i in range(30):
+    numint_1_10.append(rd.randint(1,10))
+
+print(numint_1_10)</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

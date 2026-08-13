@@ -5,39 +5,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>11_comprehension_filtragem — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>11_comprehension_filtragem</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1mE6_D5oNAHSrqlh8FG-pQaElI0Zy6sXK/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 11</li>
+<li>Conteúdo:</li>
+<li>- Comprehensions com filtragem</li>
+<li>- Usando <em>if-else</em></li>
+<li>Compreehension com filtragem</li>
+<li>Iterando por coleções</li>
+<li>Usando <code>if-else</code></li>
+<li>Resumo da aula</li>
+<li>- Usando <em>if</em> e <em>else</em></li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code>l = [x**2 for x in range(-20,21) if (x**2)%2 != 0]
+print(l)</code></pre>
+
+<pre><code>disciplinas = [(&#x27;Programação&#x27;, 4), (&#x27;Cálculo&#x27;,4), (&#x27;Isostática&#x27;,2), (&#x27;Semicondutores&#x27;, 2),
+               (&#x27;Manufatura Discreta&#x27;,2), (&#x27;Análise real&#x27;, 4), (&#x27;Seminários&#x27;, 1),
+               (&#x27;Processamento de Imagens&#x27;, 3)]</code></pre>
+
+<pre><code>mincred = 3
+
+disciplinas_mincred = [(nome,cred) for (nome,cred) in disciplinas if cred &gt;= mincred]
+print(disciplinas_mincred)</code></pre>
+
+<pre><code>disciplinas_mincred_for = list()
+for (nome,cred) in disciplinas:
+    if (cred &gt;= mincred):
+        disciplinas_mincred_for.append((nome,cred))
+print(disciplinas_mincred_for)</code></pre>
+
+<pre><code>disciplinas_mincred == disciplinas_mincred_for</code></pre>
+
+<pre><code># computando o quadrado dos números entre -20 e 20. Se o resultado for par, substituir por -1
+l = [x**2 if (x**2)%2!=0 else -1 for x in range(-20,21)]
+print(l)</code></pre>
+
+<pre><code>import random as rd
+
+n = 25
+rand_num = [rd.randint(0,10) for _ in range(n)]
+print(rand_num)</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

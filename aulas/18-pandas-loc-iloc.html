@@ -5,39 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>18_Pandas_loc_iloc — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>18_Pandas_loc_iloc</h1>
 
-<p>Notebook de apoio</p>
-<p>(os alunos devem efetuar o download do arquivo)</p>
-
-<h2>Materiais</h2>
+<h2>Conceitos abordados</h2>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1mVhiAXqGTWhjE0h7xzcbAqzOFJuKJlay/view?usp=drive_link">Notebook de apoio</a></li>
+<li>Python - Aula 18</li>
+<li>Conteúdo:</li>
+<li>- Modulo: Pandas</li>
+<li>- Pandas: Dataframe</li>
+<li>- Localização (<em>loc</em> e <em>iloc</em>)</li>
+<li><code>pandas</code></li>
+<li>Carregando arquivos</li>
+<li>DataFrames</li>
+<li>Acessando Colunas</li>
+<li>Convertendo para valores</li>
+<li>Busca (query)</li>
+<li>Criando e removendo colunas</li>
+<li>Acessando Linhas</li>
+<li>Usando <code>loc()</code></li>
+<li>Usando <code>iloc()</code></li>
+<li>Resumo da aula</li>
 </ul>
 
+<h2>Exemplos de código</h2>
 
+<pre><code>%%writefile data_access.csv
+day,month,num access,category
+31,5,9241,student
+31,5,830,teacher
+31,5,45,coordinator
+3,6,9102,student
+3,6,1022,teacher
+3,6,30,coordinator
+4,6,10301,student
+4,6,781,teacher
+4,6,81,coordinator</code></pre>
+
+<pre><code># Carregar um CSV simples
+import pandas as pd # importamos a biblioteca
+
+df = pd.read_csv(&#x27;data_access.csv&#x27;)  # o método read_csv carrega um arquivo no formato &#x27;.csv&#x27;
+                                # a primeira linha do arquivo se torna os rótulos das colunas
+                                # como os indices não foram especificados, são criados automaticamente
+
+df</code></pre>
+
+<pre><code>l, c = df.shape
+print(l)
+print(c)</code></pre>
+
+<pre><code>print(df[&#x27;day&#x27;])</code></pre>
+
+<pre><code># nao funciona para nome de variável / rótulo com espaços e outras restrições
+print(df.num access)</code></pre>
+
+<pre><code>print(df[ [&#x27;day&#x27;, &#x27;num access&#x27;] ])</code></pre>
+
+<pre><code>lista_dias = list(df[&#x27;day&#x27;].values)
+print(lista_dias)
+type(lista_dias)
+acessos = list(df[&#x27;num access&#x27;].values)
+acessos_total = sum(acessos)
+acessos_total</code></pre>
+
+<pre><code>df.query(&#x27;month == 6&#x27;)</code></pre>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>

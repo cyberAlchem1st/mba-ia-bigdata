@@ -5,36 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aula 16 — MBA IA & Big Data — ICMC/USP</title>
 <link rel="stylesheet" href="assets/site.css">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="">Início</a>
-      <a href="disciplinas.html" class="">Disciplinas</a>
-      <a href="agenda.html" class="">Agenda</a>
-      <a href="aulas.html" class="active">Aulas</a>
-      <a href="palestras.html" class="">Palestras</a>
-      <a href="transcricoes.html" class="">Transcrições</a>
-      <a href="tcc/index.html" class="">TCC</a>
-    </nav>
-    
+<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="active">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
 <main class="container">
+<div class="content">
 <h1>Aula 16</h1>
 
-<h2>Materiais</h2>
+<h2>Resumo destilado</h2>
+
+<blockquote>Resumo gerado automaticamente a partir da transcrição da aula gravada.</blockquote>
+
+<h3>Tópicos principais</h3>
 
 <ul>
-<li><a href="https://drive.google.com/file/d/1a5b8BEM8XaVmYeden1XeZGEo_7GQNbKI/view?usp=drive_link">Slides</a></li>
+<li>O CTE em Oracle, que é um recurso que permite modularizar, explicar e organizar consultas SQL.</li>
+<li>Esse é o grande motivador, você poder quebrar consultas SQL, de maneira a tornar a leitura de um SQL, que de outra maneira ficaria muito grande e complexo de ler, em algo quebrado em diferentes pedaços.</li>
+<li>Hoje a gente vai ver o tópico de Common Table Expressions, ainda em Oracle.</li>
+<li>A gente vai usar o esquema que a gente está habituado, a gente já viu em outras aulas, um aluno que se matricula em diversas turmas, uma turma, diversos alunos, para cada turma uma disciplina.</li>
+<li>Uma CTE tem como motivador você filtrar, calcular, juntar, fazer filtros finais nos dados que você quer recuperar do banco, mas em etapas, em estágios.</li>
+<li>E essa consulta aqui, deixa eu executar ela em Oracle.</li>
+<li>Uma vez que eu calculei esse SQL, eu posso selecionar os atributos desse resultado aqui, como se fosse uma tabela &quot;matrículas 2024&quot;.</li>
+<li>Vamos usar nossa base de dados, os alunos e suas matrículas.</li>
+<li>Temos aqui duas disciplinas, BD e A, os alunos, as notas e as frequências deles.</li>
+<li>Vamos ver um primeiro exemplo aqui, vamos destrinchar isso aqui em Oracle.</li>
+<li>Agora eu quero operar, eu quero olhar esses dados e recuperar os seus atributos de uma maneira mais organizada, mais clara, não quero ter que ler uma junção.</li>
+<li>Temos essa consulta e temos essa consulta.</li>
 </ul>
 
+<h2>Transcrição completa</h2>
 
+<p><a href="transcricoes/aula-16.html">Ver transcrição completa</a></p>
+
+</div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
 </body>
 </html>
