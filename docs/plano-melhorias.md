@@ -221,3 +221,17 @@
 - ADR: https://glennmason.dev/fieldnotes/architecture-decision-records/
 - OpenSpec: https://github.com/Fission-AI/OpenSpec · architecture-pattern-mcp: https://github.com/olk/architecture-pattern-mcp-server
 - Mermaid CLI: https://github.com/mermaid-js/mermaid-cli · markdownlint: https://github.com/DavidAnson/markdownlint-cli2
+
+---
+
+## 10. Resultado da re-validação (2026-08-12, commit d1dd904)
+
+Varredura completa com ferramentas novas (cybersec-agentic):
+- **Curso 4641** (Introdução à Computação e Programação — curso zero) descoberto e extraído:
+  - 64 transcrições Vimeo (método comprovado)
+  - 64 resumos didáticos (aulas + extras + estudos de caso + 9 tutorias)
+- Cursos de turmas anteriores (3788, 4345) e MBA CD (4553): acesso negado (enrol) — exigem matrícula
+- Conteúdo futuro no 4666: seções 3-25 não existem (vazias) — sem conteúdo oculto
+- Abas separadas: curso (sidebar) vs TCC Explorer (link destacado no rodapé da sidebar)
+- Total: 148 aulas + 88 transcrições + 13 palestras + 2 exercícios
+- markdownlint 100% limpo em todo content/ (config: MD004/013/026/031/033/034/040/041/047/050 off)
