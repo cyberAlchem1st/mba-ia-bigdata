@@ -1,0 +1,292 @@
+<div class="content">
+<h1>Exercícios de Fixação — Curso 01 (Python + SQL)</h1>
+
+<blockquote>Conhecimento destilado dos exercícios de fixação do curso. Cada exercício exercita conceitos específicos — use como checklist de domínio.</blockquote>
+
+<h2>Mapa de conceitos por exercício</h2>
+
+<div class="mermaid">
+mindmap
+  root((Exercícios Fixação))
+    1. Python
+      Tipos e operadores
+      Condicionais e repetição
+      Listas e fatiamento
+      Funções e escopo
+    Dicionários e frequência
+    Tuplas e médias
+    Pandas: CSV e DataFrames
+    Filtragem e slicing
+    Colunas e agregação
+    Comprehension
+      Range com passo float
+      Multiplicação de listas
+      Matriz n por n
+    Lambda e strings
+      NumPy
+      Arrays e slicing
+      Broadcasting
+      Random e submatriz
+    Pandas avançado
+      Filtros e merge
+      Merge de DataFrames
+</div>
+
+<h2>Exercícios</h2>
+
+<h3>Exercício 1 — Tipos de dados, operadores aritméticos e booleanos</h3>
+
+<p>Qual o tipo do valor resultante das operações abaixo (ou das variáveis as quais foram atribuídos)?</p>
+
+<p>a) <code>False + True</code></p>
+<p>b) <code>2 * 1e2**2</code></p>
+<p>c) <code>a = 6/2</code></p>
+<p>d) <code>x = 6//2 + 6%2</code></p>
+<p>e) `(2 + 4) == 4 or 0</p>
+
+<h3>Exercício 2 — Operador módulo (%), condicionais, ano bissexto</h3>
+
+<p>Crie uma variável contendo um ano (um valor inteiro entre 0 e 3000)</p>
+
+<p>A seguir, se o ano for divisível por 4, exiba na tela &#x27;Pode ser um ano bissexto&#x27;; caso contrário exiba &#x27;Definitivamente não é um ano bissexto&#x27;</p>
+
+<p>__Dica:__ Utilize o operador <code>%</code> que retorna o resto da divisão de um número por outro.</p>
+
+<h3>Exercício 3 — Listas, filtragem por tipo (int/float)</h3>
+
+<p>Dada a lista <code>valores</code> abaixo, crie uma nova lista chamada <code>numeros</code> contendo apenas elementos <code>float</code> ou <code>int</code>.</p>
+
+<p>Note que essa nova lista pode ter menos elementos do que a lista existente.</p>
+
+<p>Ao final exiba a nova lista <code>numeros</code></p>
+
+<p>__Dica__: Percorra a lista com uma estrutura de repetição e utilize <code>type()</code> para retornar o tipo e compare com o desejado. Exemplo:</p>
+<pre><code>type(3) == int</code></pre>
+<p>Retorna <code>True</code></p>
+
+<h3>Exercício 4 — Funções, juros compostos, estruturas de repetição</h3>
+
+<p>Escreva uma <strong>função</strong> que receba por parâmetro uma taxa de juros pagas ao ano, calcule e retorne um número inteiro relativo a quantos anos serão necessários para que um investimento nessa taxa dobre de valor. Assuma juros compostos e use uma estrutura de repetição para calcular.</p>
+
+<h3>Exercício 5 — Fatiamento de listas, comprehension com filtro</h3>
+
+<p>Considere a lista <code>linguagens</code> declarada abaixo.</p>
+<ul>
+<li>Utilizando fatiamento, imprima o subconjunto de elementos entre o segundo e o quarto elemento (inclusive)</li>
+<li>Gere uma nova lista chamada <code>maiores4</code> contendo os elementos da lista <code>linguagens</code> que possuam quatro caracteres ou mais, utilizando a função <code>len()</code>.</li>
+<li>Gere uma nova lista chamada <code>j_ou_c</code> contendo os elementos da lista <code>linguagens</code> que começam com a letra &#x27;j&#x27; ou com a letra &#x27;c&#x27;.</li>
+</ul>
+
+<h3>Exercício 6 — Funções, dicionários, contagem de frequência</h3>
+
+<p>Codifique uma função <code>conta_palavras()</code> que, a partir de um um texto (string) contendo palavras separadas por vírgulas apenas - considere que não há outras pontuações:</p>
+<ol>
+<li>Inicie criando uma lista de palavras e</li>
+<li>Use um dicionário para contar a frequência de cada palavra no texto, retornando o dicionário obtido.</li>
+</ul>
+
+<p><em>Dica: use a função <code>str.split()</code> para separar uma string em substrings usando como delimitador um caracter especificado por argumento</em></p>
+
+<p>Exemplo:</p>
+
+<pre><code>nomes = &quot;ana,fábio,cristina,ana,fábio,ubiratã,ana&quot;
+freq = conta_palavras(nomes)
+print(freq)</code></pre>
+<p>Deve gerar:</p>
+<pre><code>{&#x27;ana&#x27;: 3, &#x27;fábio&#x27;: 2, &#x27;cristina&#x27;: 1, &#x27;ubiratã&#x27;: 1}</code></pre>
+
+<h3>Exercício 7 — Tuplas, listas aninhadas, média</h3>
+
+<p>Considere a lista <code>produtos</code> definida abaixo, onde cada elemento é uma tupla possuindo:</p>
+<ul>
+<li>elemento 1: o nome de um produto</li>
+<li>elemento 2: e uma lista de preços encontradas no mercado.</li>
+</ul>
+
+<p>Calcule a média de preços de cada produto, salvando o resultado em uma nova lista chamada <code>preco_medio</code>.</p>
+
+<p>Posteriormente, sorteie um dos produtos e exiba na tela o nome e preço médio desse produto sorteado</p>
+
+<p>__Dica:__ Utilize a função <code>fsum()</code> do módulo <code>math</code> para somar os valores daa lista. Por exemplo:</p>
+<pre><code>ls = [1.0,1.0,1.0,1.0,1.0]
+print(fsum(ls))</code></pre>
+<p>resulta no valor 5</p>
+<p>Os exercícios a seguir farão uso do arquivo WorldCups.csv</p>
+
+<p>O arquivo WorldCups.csv possui as seguintes colunas:</p>
+<ul>
+<li>Year: ano da copa</li>
+<li>Country: pais sede</li>
+<li>Winner: campeão</li>
+<li>RunnersUp: disputou a final com o campeão</li>
+<li>Third: terceiro colocado</li>
+<li>Fourth: quarto colocado</li>
+<li>GoalsScored: número de gols na copa</li>
+<li>QualifiedTeams: número de times que disputaram a copa</li>
+<li>MatchesPlayed: número de jogos</li>
+<li>Attendance: número de espectadores (público)</li>
+</ul>
+
+<h3>Exercício 8 — Pandas: leitura CSV, DataFrame, index, dtypes</h3>
+
+<p>Utilizando o pandas leia o arquivo WorldCups.csv como DataFrame.</p>
+<ul>
+<li>Definina a coluna &#x27;Year&#x27; como índice</li>
+<li>Exiba as 5 primeiras linhas do DataFrame</li>
+<li>Exiba o tipo de dado de cada coluna</li>
+<li>Imprima o número de linhas do DataFrame</li>
+</ul>
+
+<h3>Exercício 9 — Pandas: remoção de colunas, filtragem por intervalo</h3>
+
+<p>Remova as colunas &#x27;QualifiedTeams&#x27; e &#x27;Fourth&#x27; do DataFrame.</p>
+
+<p>A seguir, com o DataFrame resultante, exiba os vencedores das copas entre os anos 1954 e 1982 (inclusive)</p>
+
+<h3>Exercício 10 — Pandas: novas colunas, filtragem, agregação</h3>
+
+<p>Crie uma nova coluna com a média de gols por partida chamada <code>AverageGoalsMatch</code>, dividindo o número de gols pelo número de partidas jogadas.</p>
+
+<p>A seguir, encontre e/ou calcule:</p>
+<ul>
+<li>os anos em que o Brasil ganhou a copa, armazene em uma lista e imprima na tela o ano e a média de gols naquele ano</li>
+<li>os anos em que o Brasil jogou uma final (os finalistas estão nas colunas &#x27;Winner&#x27; e &#x27;RunnersUp&#x27;), armazene em uma lista e imprima na tela</li>
+<li>a porcentagem de vitórias do Brasil em finais, e imprima na tela</li>
+</ul>
+
+<h3>Exercício 11 — Comprehension, range com passo float, round()</h3>
+
+<p>Codifique uma função que use comprehension para retornar uma lista com <code>n</code> valores numéricos iniciando em 0 e  com passo <code>p</code> permitindo um número float como passo. Arredonde cada número para 5 casas decimais usando a função <code>round(,5)</code></p>
+
+<p>Exemplo para n=8, p=0.05</p>
+<pre><code>[0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]</code></pre>
+
+<h3>Exercício 12 — NumPy/math: log, tratamento de zero (nan)</h3>
+
+<p>A partir de um vetor com números inteiros aleatórios, calcular seu <code>log</code> e criar uma lista com o resultado.</p>
+<ul>
+<li>se o número for 0 substituir o valor por <code>nan</code> (not a number) da biblioteca <code>math</code> para indicar que o resultado não é numérico</li>
+</ul>
+
+<h3>Exercício 13 — Comprehension paralela, multiplicação elemento-a-elemento</h3>
+
+<p>Codifique uma função que receba como argumento duas listas de números com o mesmo tamanho. Use comprehension para retornar uma nova lista que é a multiplicação elemento-a-elemento das duas listas.  Caso as listas não possuam o mesmo tamanho emita uma mensagem de erro e retorne a constante <code>math.nan</code> do módulo <code>math</code>.</p>
+
+<p>Exemplo:</p>
+<pre><code>l1 = [1, 2, 3, 4, 5]
+l2 = [5, 5, 5, 10, 10]
+multiplica_listas(l1,l2)
+
+  [5, 10, 15, 40, 50]</code></pre>
+
+<h3>Exercício 14 — Comprehension aninhada, matriz n×n</h3>
+
+<p>Codifique uma comprehension que simule uma matriz de tamanho n x n, cujos elementos são dados por <code>(i+j*i)</code>, sendo <code>i</code> o índice da linha e <code>j</code> o índice da coluna. Para simular isso com uma lista de listas, o <code>i</code> corresponde ao índice da lista principal e o <code>j</code> aos índices das listas aninhadas.</p>
+
+<p>Por exemplo, seja a segunda lista (posição i=1), o seu terceiro elemento (posição j=2) seria obtido por <code>1+2*1 = 3</code></p>
+
+<p>Exemplo com n = 3:</p>
+<pre><code>  [[0, 0, 0],
+   [1, 2, 3],
+   [2, 4, 6]]</code></pre>
+<hr>
+
+<h2>Desafio</h2>
+
+<p>Temos uma série de pontos 3D organizados numa lista e gostaríamos de computar as distâncias entre todos os pontos pareados.</p>
+
+<p>Calcular a distância entre dois pontos $p1 = (x_1,y_1,z_1)$ e  $p2 = (x_2,y_2,z_2)$ usando a fórmula</p>
+
+<p>$$d(p1,p2) = |x_1 - x_2| +|y_1 - y_2| + |z_1 - z_2|,$$</p>
+<p>em que $|.|$ representa o valor absoluto.</p>
+
+<p>Exemplo com 2 pontos organizados em listas:</p>
+<pre><code>[[1.0, 1.0, 1.0],
+ [3.0, 3.0, 3.0]]</code></pre>
+
+<p>A saída deve ser:</p>
+<pre><code>[[0.0, 6.0],
+ [6.0, 0.0]]</code></pre>
+
+<p>Note que a diagonal principal tem sempre valor zero já que representa a distância de um ponto para ele mesmo, e que a matriz é simétrica pois a distância entre dois pontos p1 e p2 é tal que: d(p1,p2) = d(p2,p1).</p>
+
+<p>Para isso utilize uma única linha contendo comprehensions aninhadas e com iteração em paralelo</p>
+
+<h3>Exercício 15 — Expressões lambda, manipulação de strings</h3>
+
+<p>Escreva uma expressão lambda que permita receber uma string contendo duas palavras relativas ao nome de uma pessoa e seu sobrenome. Essas são separadas por um ou mais espaços em branco. A expressão deve retornar o nome no formato: &quot;SOBRENOME, N.&quot;</p>
+
+<p>Exemplo:</p>
+<pre><code>nome = &#x27;Dennis   ritchie&#x27;</code></pre>
+
+<p>Retorno:</p>
+<pre><code>RITCHIE, D.</code></pre>
+
+<p>A seguir escreva um comprehension que percorra uma lista contendo nomes e gere uma nova lista com os nomes no formato &quot;SOBRENOME, N.&quot;</p>
+
+<p>Exemplo:</p>
+<pre><code>nomes = [&#x27;Dennis   ritchie&#x27;, &#x27;ALAN  Turing&#x27;, &#x27;betty Holberton&#x27;]</code></pre>
+
+<p>Retorno:</p>
+<pre><code>[&#x27;RITCHIE, D.&#x27;, &#x27;TURING, A.&#x27;, &#x27;HOLBERTON, B.&#x27;]</code></pre>
+
+<h3>Exercício 16 — NumPy: listas de tuplas → array 2D</h3>
+
+<p>Dada uma lista de tuplas, em que cada tupla é formada por um par (str,list). Ver um exemplo abaixo.</p>
+
+<pre><code>l_tup = [(&#x27;a&#x27;,[8, 4, 6, 1]), (&#x27;b&#x27;,[1, 2, 3, 4]), (&#x27;c&#x27;,[5, 3, 3, 3])]</code></pre>
+<ul>
+<li>Converta a lista de tuplas em um numpy array bidimensional em que cada lista é transformada em uma linha do array, ignorando a string.</li>
+<li>Percorra cada linha do array resultante usando <code>for</code>, exibindo na tela os 3 últimos elementos de cada array</li>
+</ul>
+
+<p>Seu código deve funcionar para qualquer número de tuplas na lista, assuma que as listas tem sempre o mesmo número de elementos, todos numéricos.</p>
+
+<h3>Exercício 17 — NumPy: randint, slicing de submatriz, filtragem</h3>
+
+<p>Use o método <code>randint</code> do <code>np</code> para criar um array bidimensional com 6x10 elementos inteiros entre 1 e 5.</p>
+
+<p>A seguir, considerando apenas a submatriz formada pelas linhas: 2 até 6 e as colunas 2, 5 e 8, copie para uma matriz unidimensional os valores maiores ou iguais a 4.</p>
+
+<h3>Exercício 18 — NumPy: broadcasting, comparação entre arrays</h3>
+
+<p>Dados dois arrays conforme abaixo que são notas (de 1 a 10) dadas a 4 diferentes serviços fornecidos por empresas concorrentes A e B. As notas de cada serviço estão organizadas nas 4 linhas dos arrays.</p>
+
+<p>A empresa <code>A</code> coletou 10 notas, e <code>B</code> coletou 5 notas para cada serviço (simuladas aleatoriamente no código abaixo).</p>
+
+<p>Os 4 serviços possuem pesos que é determinado pela lista <code>pesos</code> listada abaixo.</p>
+
+<p>A empresa A deseja se comparar com a empresa B com base na média das notas da empresa B. Para isso:</p>
+<ol>
+<li>usando redução, obtenha a média das notas de cada serviço da empresa B;</li>
+<li>para cada serviço, calcule qual foi a menor nota observada por A considerando apenas as notas de A que foram maiores do que a média de B para aquele serviço;</li>
+<li>armazene essas notas mínimas em um novo array de 4 elementos, e exiba esse array na tela;</li>
+<li>utilizando multiplicação vetorial, calcule e exiba na tela a soma das notas mínimas ponderadas pelos pesos</li>
+</ul>
+
+<h3>Exercício 19 — Pandas: filtragem múltipla, agrupamento</h3>
+
+<p>Carregue o arquivo <code>tips.csv</code>:</p>
+<ol>
+<li>Filtre as linhas selecionando apenas jantares (time = &#x27;Dinner&#x27;) e cuja conta foi superior a 40 (total_bill &gt; 40), mostrando o total da conta, número de pessoas na mesa e gorjeta (total_bill, size, tip);</li>
+<li>Obtenha um novo dataframe em que seja mostrada a gorjeta (tip) média e máxima para cada valor de dia da semana (day) e horário (time)</li>
+</ul>
+
+<h3>Exercício 20 — Pandas: merge/join de DataFrames, limpeza</h3>
+
+<p>Carregue os arquivos <code>sales1.csv</code>, <code>sales1_shipdate.csv</code>  e <code>sales2.csv</code>, os quais possuem informações de vendas realizadas. Devemos juntar as bases de dados e tratá-las.</p>
+
+<p>O arquivo <code>sales1_shipdate.csv</code> contém as datas de envio das ordens na <code>sales1.csv</code>. Já <code>sales2.csv</code> contém essa coluna no próprio arquivo</p>
+
+<p>Para isso:</p>
+
+<ol>
+<li>Combine as bases de dados, consolidando-as em um único DataFrame</li>
+<li>Exiba na tela quais atributos possuem dados faltantes após a concatenação</li>
+</ul>
+<p>    * Sabendo que <code>Total Revenue</code> é a multiplicação do preço unitário pela quantidade de unidades, preencha os valores faltantes dessa coluna</p>
+<ol>
+<li>Detecte linhas duplicadas. Remova duplicatas, mantendo a primeira ocorrência, e imprima na tela quantas linhas foram removidas</li>
+</ul>
+
+</div>

@@ -1,0 +1,77 @@
+<div class="content">
+<h1>Tutoria 11/07/2026 — Como pedir ajuda em Python, funções e list comprehension</h1>
+
+<blockquote><strong>Resumo didático</strong> — segunda tutoria do curso 1. O tutor Gustavo Sampaio mostrou onde buscar ajuda em Python (Stack Overflow, documentação, W3Schools), explicou a diferença entre <code>print</code> e <code>return</code> em funções, resolveu um exercício de list comprehension com <code>range</code> e passo float, e falou sobre memória no Colab.</blockquote>
+
+<h2>O que foi coberto (cronológico)</h2>
+
+<p>A tutoria começou com a retomada do que foi visto no encontro anterior (notebook vs <code>.py</code>, tipos, float/int, casting, padronização de código) e a previsão dos próximos temas: dicionários, fatiamento, list comprehension, expressões lambda e NumPy.</p>
+
+<p><strong>Como pedir ajuda em Python</strong> (pergunta de um aluno que quer evitar depender de IA generativa):</p>
+<ul>
+<li><strong>Stack Overflow</strong>: site de dúvidas de programação; para dúvidas básicas de Python, quase sempre já existe alguém que teve a mesma dúvida.</li>
+<li><strong>Documentação oficial da linguagem</strong>: explica tipos, operações e traz exemplos. Cuidado com a versão — a documentação pode se referir a uma versão diferente da instalada (hoje a estável é 3.14.x; no Colab vem a 3.12.13). Para checar a versão: <code>python --version</code> no terminal, ou <code>!python --version</code> no Colab.</li>
+<li><strong>W3Schools</strong>: tutoriais com exemplos de código que podem ser executados no próprio navegador.</li>
+<li>Gustavo não recomenda usar modelos de linguagem logo no começo do aprendizado, pois a base (a &quot;casca&quot;) se constrói errando e entendendo; mas não demoniza o uso.</li>
+</ul>
+
+<p><strong><code>print</code> vs <code>return</code> em funções</strong> (dúvida da Pri):</p>
+<ul>
+<li>Gustavo mostrou no Colab uma função de contagem regressiva com <code>while</code>. Explicou que <strong>indentação</strong> define escopo: o que está dentro do <code>while</code> só roda se o loop for atingido, e a função só roda se for <strong>chamada</strong>.</li>
+<li><code>print</code> apenas exibe algo no terminal e <strong>não retorna nada</strong>. <code>return</code> devolve um valor da função, que pode ser guardado em uma variável.</li>
+<li>Se a função não retorna nada, o valor retornado é <code>None</code>. Se você só quer exibir algo, usa <code>print</code>; se quer usar o resultado, precisa de <code>return</code>.</li>
+</ul>
+
+<p><strong>List comprehension</strong> (dúvida do Martin sobre memória e do Elias sobre o exercício da aula 10):</p>
+<ul>
+<li>List comprehension é uma operação vetorial em uma linha — mais rápida que um <code>for</code> clássico (milissegundos). Sobre memória, Gustavo não afirmou ganho garantido; a intuição é que o ganho, se existir, é marginal. Em projetos de IA, as bibliotecas já usam comprehension (ou C) por baixo dos panos.</li>
+<li><strong>Exercício resolvido ao vivo</strong>: criar uma lista com N valores numéricos iniciando em 0, com passo P (float, ex.: 0.05), arredondados para 5 casas com <code>round</code>. O problema: <code>range</code> não aceita float. Soluções mostradas:</li>
+</ul>
+<p>  1. Usar <code>range</code> com valores inteiros e dividir por 10 (ex.: <code>range(0, 45, 5)</code> → item/10).</p>
+<p>  2. Usar <code>lambda</code> com divisão.</p>
+<p>  3. Versão equivalente com <code>for</code> + <code>append</code> para comparar.</p>
+<ul>
+<li>Explicou a sintaxe de <code>range(start, stop, step)</code> (stop não incluído) e a equivalência entre o <code>for</code> com <code>append</code> e o list comprehension em uma linha.</li>
+<li>Alexandre levantou que list comprehension pode assustar iniciantes. Gustavo concordou que é <strong>opcional</strong> e que o código funciona sem ele; saber que existe amplia o ferramental. Dica: para entender, quebre o código, mude parâmetros, veja onde dá erro.</li>
+</ul>
+
+<p><strong>Memória e desempenho no Colab</strong> (dúvida do Alexandre sobre arquivo lento):</p>
+<ul>
+<li>O Colab instancia uma máquina na Google (no exemplo: ~1 GB de RAM em uso, 20 GB de disco). Em &quot;Ambiente de execução → Desconectar e excluir&quot;, a máquina é resetada (perde variáveis e arquivos) e liberada; a cota de uso (ex.: ~73 horas sem GPU) permanece.</li>
+<li>Juntar todos os exercícios em um único notebook funciona, mas há risco: variáveis do escopo global de exercícios anteriores continuam guardadas e podem &quot;vazar&quot; para células seguintes. Cuidado com nomes de variáveis reutilizados.</li>
+<li>A lentidão do arquivo provavelmente não é RAM da máquina da Google, e sim renderização de muito texto no navegador (RAM local).</li>
+</ul>
+
+<h2>Pontos-chave / Decisões ou orientações</h2>
+
+<ul>
+<li>Fontes confiáveis de ajuda: Stack Overflow, documentação oficial do Python e W3Schools; verificar a versão do Python em uso.</li>
+<li><code>print</code> exibe e não retorna; <code>return</code> devolve valor para ser usado; função sem <code>return</code> retorna <code>None</code>.</li>
+<li>Indentação define escopo em Python; função só executa quando chamada.</li>
+<li>List comprehension é opcional, mais rápida que <code>for</code> clássico; ganho de memória não é garantido.</li>
+<li><code>range(start, stop, step)</code> não aceita float; usar inteiros e dividir (ex.: por 10) para passos decimais.</li>
+<li>Colab: desconectar/excluir ambiente reseta a máquina; variáveis globais persistem entre células do mesmo notebook — cuidado com nomes reutilizados.</li>
+<li>Dúvidas seguem no fórum do curso 1.</li>
+</ul>
+
+<h2>Ações para o aluno</h2>
+
+<ul>
+<li>Assistir à gravação da primeira tutoria (quem não participou).</li>
+<li>Praticar: criar funções com <code>return</code> e com <code>print</code> para fixar a diferença.</li>
+<li>Refazer o exercício da aula 10 (list comprehension com passo float) usando as soluções mostradas.</li>
+<li>Testar no Colab: <code>!python --version</code>, <code>range(start, stop, step)</code>, <code>round</code>, e o comando de desconectar/excluir ambiente de execução.</li>
+<li>Explorar Stack Overflow, documentação do Python e W3Schools para dúvidas básicas.</li>
+</ul>
+
+<h2>Materiais mencionados</h2>
+
+<ul>
+<li>Stack Overflow (stackoverflow.com)</li>
+<li>Documentação oficial do Python (docs.python.org)</li>
+<li>W3Schools (w3schools.com)</li>
+<li>Google Colab (ambiente de execução, cota de uso, desconectar/excluir)</li>
+<li>Exercício da aula 10 (list comprehension com <code>range</code> e passo float)</li>
+</ul>
+
+</div>

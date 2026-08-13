@@ -1,0 +1,96 @@
+<div class="content">
+<h1>Tutoria 05-08-2026</h1>
+
+<h2>Conceitos abordados</h2>
+
+<ul>
+<li>Exercícios de Fixação</li>
+<li>Sua consulta terá uma junção, uma agregação, e uma ordenação.</li>
+<li>Q17) Usando junção;</li>
+<li>Q18) Usando consulta aninhada correlacionada (EXISTS);</li>
+<li>Q19) Usando consulta aninhada não-correlacionada (IN).</li>
+<li>EXTRA: Custo de cada consulta</li>
+</ul>
+
+<h2>Exemplos de código</h2>
+
+<pre><code># !pip install oracledb
+import oracledb
+
+conexao = oracledb.connect(
+    user = &quot;seu_usuario&quot;,
+    password = &quot;sua_senha&quot;,
+    host=&quot;orclgrad1.icmc.usp.br&quot;,
+    port=1521,
+    service_name=&quot;pdb_junior.icmc.usp.br&quot;
+)
+
+if conexao:
+    print(&quot;Conexão bem-sucedida!&quot;)
+
+cursor = conexao.cursor()
+
+if cursor:
+    print(&quot;Cursor criado com sucesso!&quot;)</code></pre>
+
+<pre><code>SELECT T.SIGLA, L.id_lab, L.NOME_LAB
+FROM TURMA T FULL OUTER JOIN LABORATORIO L
+ON t.laboratorio = L.id_lab;</code></pre>
+
+<pre><code>consulta = &quot;&quot;&quot;
+SELECT T.SIGLA, L.id_lab, L.NOME_LAB FROM TURMA T FULL OUTER JOIN LABORATORIO L
+ON t.laboratorio = L.id_lab
+&quot;&quot;&quot;
+
+resultado = cursor.execute(consulta)
+
+for linha in resultado:
+    print(linha)</code></pre>
+
+<pre><code>SELECT L.nome_lab, SUM(T.NAlunos)
+FROM LABORATORIO L JOIN TURMA T ON L.id_lab = T.laboratorio
+GROUP BY nome_lab
+ORDER BY SUM(T.NAlunos) DESC;</code></pre>
+
+<pre><code>consulta = &quot;&quot;&quot;
+SELECT L.nome_lab, SUM(T.NAlunos) as total
+FROM LABORATORIO L JOIN TURMA T ON L.id_lab = T.laboratorio
+GROUP BY L.nome_lab
+ORDER BY total DESC
+&quot;&quot;&quot;
+
+resultado = cursor.execute(consulta)
+
+for linha in resultado:
+    print(linha)</code></pre>
+
+<pre><code>SELECT A.NUSP, A.NOME, D.NOME, M.ANO, M.NOTA, P.NOME, L.nome_lab
+FROM ALUNO A
+INNER JOIN MATRICULA M ON M.aluno = A.NUSP
+INNER JOIN TURMA T ON T.SIGLA = M.SIGLA and T.numero = M.NUMERO
+INNER JOIN LABORATORIO L ON T.laboratorio = L.id_lab
+INNER JOIN DISCIPLINA D ON T.SIGLA = D.SIGLA
+INNER JOIN PROFESSOR P ON P.NFUNC = D.PROFESSOR
+ORDER BY A.NOME;</code></pre>
+
+<pre><code>consulta = &quot;&quot;&quot;
+SELECT A.NUSP, A.NOME, D.NOME, M.ANO, M.NOTA, P.NOME, L.nome_lab
+FROM ALUNO A
+INNER JOIN MATRICULA M ON M.aluno = A.NUSP
+INNER JOIN TURMA T ON T.SIGLA = M.SIGLA and T.numero = M.NUMERO
+INNER JOIN LABORATORIO L ON T.laboratorio = L.id_lab
+INNER JOIN DISCIPLINA D ON T.SIGLA = D.SIGLA
+INNER JOIN PROFESSOR P ON P.NFUNC = D.PROFESSOR
+ORDER BY A.NOME
+&quot;&quot;&quot;
+
+resultado = cursor.execute(consulta)
+
+for linha in resultado:
+    print(linha)</code></pre>
+
+<pre><code>SELECT D.Sigla, D.Nome
+FROM Disciplina D LEFT OUTER JOIN MATRICULA M ON D.sigla = M.sigla
+WHERE M.aluno is null;</code></pre>
+
+</div>

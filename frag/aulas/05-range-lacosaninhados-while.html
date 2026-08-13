@@ -1,0 +1,67 @@
+<div class="content">
+<h1>Aula 05 — <code>range</code>, Laços Aninhados, <code>continue</code>/<code>break</code> e <code>while</code></h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que <code>range(i, j, passo)</code> gera intervalos numéricos para usar com <code>for</code>, que laços podem ser aninhados, que <code>continue</code> pula uma iteração e <code>break</code> encerra o laço, e que <code>while</code> repete um bloco <em>enquanto</em> uma condição for verdadeira — exigindo cuidado com a condição de parada.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Apresentar a função <code>range()</code> para iterar sobre intervalos de números, os laços aninhados, as diretivas <code>continue</code> e <code>break</code>, e o laço <code>while</code> com sua condição de parada.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro entendemos a função <strong><code>range()</code></strong>, que gera um intervalo de números — de <code>i</code> até <em>antes de</em> <code>j</code>, com um passo opcional: <code>range(i, j, passo)</code>. Vimos que <code>range</code> pode ser convertido em lista ou tupla (<code>list(range(1,10))</code>) e, principalmente, usado diretamente no <code>for</code> para repetir um número conhecido de vezes.</p>
+
+<p>Depois vimos os <strong>laços aninhados</strong>: um <code>for</code> dentro de outro <code>for</code>. Para cada elemento do laço externo, o laço interno percorre todos os seus elementos — útil para combinar elementos de duas sequências.</p>
+
+<p>Em seguida, conhecemos as diretivas <strong><code>continue</code></strong> e <strong><code>break</code></strong>: <code>continue</code> pula a iteração atual e vai para a próxima; <code>break</code> interrompe o laço inteiro e sai dele. O material ressalta que ambas são pouco recomendadas, mas existem para situações em que não há alternativa melhor.</p>
+
+<p>Por fim, passamos ao laço <strong><code>while</code></strong>, mais geral que o <code>for</code>: ele repete um bloco <em>enquanto</em> uma condição for verdadeira. A diferença crucial é que agora a <strong>condição de parada é nossa responsabilidade</strong> — é preciso que, em algum momento, a condição se torne falsa, senão o programa fica em loop infinito. Vimos o exemplo de dividir um número por 2 sucessivamente enquanto ele for maior que 1.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li><code>range(i, j, passo)</code> gera números de <code>i</code> até <code>j-1</code> (o final é exclusivo).</li>
+<li><code>range</code> pode ser convertido para lista/tupla ou usado direto no <code>for</code>.</li>
+<li>Laços aninhados: para cada iteração do externo, o interno percorre tudo.</li>
+<li><code>continue</code> pula a iteração atual; <code>break</code> sai do laço.</li>
+<li><code>while condicao:</code> repete enquanto a condição for <code>True</code>.</li>
+<li>No <code>while</code>, a condição de parada deve ser garantida pelo código (senão: loop infinito).</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code># range com for: números pares de 0 a 19
+lista_numeros = []
+for i in range(20):
+    if i % 2 == 0:
+        lista_numeros.append(i)
+print(lista_numeros)
+
+# continue e break
+lista = [&#x27;a&#x27;, 10.5, .20, &#x27;b&#x27;, 30.0, 100, (&#x27;tupla&#x27;, 1, 2), 10, &#x27;fim&#x27;, 1000]
+soma = 0
+for x in lista:
+    if x == &#x27;fim&#x27;:
+        break                # encerra o laço
+    if type(x) != int and type(x) != float:
+        continue             # pula para a próxima iteração
+    soma = soma + x
+print(&quot;Soma até &#x27;fim&#x27;:&quot;, soma)
+
+# while: dividir por 2 enquanto maior que 1
+num = int(input())
+c = 0
+while num &gt; 1:
+    num = num // 2
+    c = c + 1
+print(&quot;Divisões por 2:&quot;, c)</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Esquecer que <code>range</code> exclui o valor final (<code>range(1,10)</code> vai até 9).</li>
+<li>Criar loop infinito no <code>while</code> por esquecer de atualizar a condição dentro do bloco.</li>
+<li>Usar <code>break</code>/<code>continue</code> sem necessidade — eles tornam o fluxo mais difícil de ler.</li>
+<li>Confundir <code>continue</code> (pula a iteração) com <code>break</code> (sai do laço).</li>
+<li>Aninhar laços sem pensar no custo: o número de iterações é o produto dos tamanhos.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Agora que sabemos repetir operações com <code>for</code> e <code>while</code>, a próxima aula ensina a <strong>encapsular</strong> essas repetições em blocos reutilizáveis: as <strong>funções</strong>, definidas com <code>def</code> e capazes de retornar valores com <code>return</code>.</p>
+
+</div>

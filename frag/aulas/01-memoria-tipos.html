@@ -1,0 +1,50 @@
+<div class="content">
+<h1>Aula 01 — Memória e Tipos de Dados</h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que todo dado em Python vive na memória como bits, e que o <em>tipo</em> é o que dá significado a esses bits e define o que podemos fazer com eles. Aprender a usar <code>type()</code> e conhecer os tipos básicos é o primeiro passo para programar.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Explicar o que é Python (linguagem interpretada), como o computador armazena dados em memória (bits) e apresentar os tipos de dados mais comuns (<code>int</code>, <code>float</code>, <code>bool</code>, <code>str</code>, <code>complex</code>), mostrando que o tipo determina a interpretação do valor e as operações permitidas.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro entendemos que Python é uma linguagem <strong>dinâmica e interpretada</strong>: as instruções são executadas em tempo de execução, uma a uma, por um interpretador — diferente de linguagens compiladas que geram um arquivo binário antes de rodar. Vimos que o código fica em arquivos <code>.py</code> e que o <em>notebook</em> (<code>.ipynb</code>) é um ambiente que mistura código com texto e gráficos, ideal para prototipação e apresentação, mas não para código em produção.</p>
+
+<p>Depois fomos para a base de tudo: a <strong>memória</strong>. Ela armazena dados eletronicamente em <strong>bits</strong> (0 e 1), que são concatenados para representar números e caracteres. O problema é que os mesmos bits podem significar coisas diferentes — <code>00100011</code> pode ser o número <code>35</code> ou o caractere <code>#</code>. A solução do Python é o <strong>tipo</strong>: o tipo define a interpretação dos bits e o que podemos fazer com o dado.</p>
+
+<p>A partir daí usamos a função <code>type()</code> para descobrir o tipo de qualquer valor. Vimos os tipos principais: <code>int</code> (inteiros), <code>float</code> (ponto flutuante, que simula reais com precisão limitada), <code>bool</code> (resultado de expressões lógicas: <code>True</code>/<code>False</code>), <code>str</code> (cadeias de caracteres entre aspas) e números complexos (<code>3j</code>, <code>4+5j</code>). Cometemos nosso primeiro erro — tentar concatenar <code>str</code> com <code>int</code> usando <code>+</code> — e aprendemos que o operador <code>+</code> significa adição para números, mas concatenação para strings.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Python é interpretado: executa instrução por instrução, sem compilação prévia.</li>
+<li>Memória armazena tudo em bits; o <strong>tipo</strong> dá significado aos bits.</li>
+<li><code>type(valor)</code> revela o tipo de qualquer valor ou expressão.</li>
+<li>Tipos básicos: <code>int</code>, <code>float</code>, <code>bool</code>, <code>str</code>, <code>complex</code>.</li>
+<li><code>float</code> tem precisão limitada (não é um real matemático exato).</li>
+<li><code>+</code> é adição para números e concatenação para strings — misturar tipos gera erro.</li>
+<li>Strings são escritas entre aspas simples ou duplas.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code># Descobrindo o tipo de cada valor
+print(type(42))          # &lt;class &#x27;int&#x27;&gt;  — inteiro
+print(type(3.14))        # &lt;class &#x27;float&#x27;&gt; — ponto flutuante
+print(type(True))        # &lt;class &#x27;bool&#x27;&gt; — booleano
+print(type(&#x27;big data&#x27;))  # &lt;class &#x27;str&#x27;&gt; — string
+
+# O tipo define a operação: + soma números, mas concatena strings
+print(35 + 5)            # 40 (adição)
+print(&#x27;#&#x27; + &#x27;bigdata&#x27;)   # #bigdata (concatenação)
+# print(&#x27;#&#x27; + 35)        # ERRO: não dá para concatenar str com int</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Confundir <code>int</code> com <code>float</code>: <code>42 / 3.14</code> resulta em <code>float</code>, mesmo que os operandos sejam mistos.</li>
+<li>Achar que <code>float</code> é exato: ele tem precisão limitada, o que gera pequenas diferenças em contas.</li>
+<li>Tentar operar tipos incompatíveis (ex.: <code>&#x27;#&#x27; + 35</code>) — o Python acusa erro.</li>
+<li>Esquecer que <code>bool</code> é resultado de comparações lógicas (ex.: <code>42 &gt; 3.14</code> é <code>True</code>).</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Agora que sabemos que valores têm tipos, a próxima aula mostra como dar <em>nomes</em> a esses valores na memória — as <strong>variáveis</strong> — além de comentários e saída de dados com <code>print()</code>.</p>
+
+</div>

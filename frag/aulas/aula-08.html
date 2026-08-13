@@ -1,0 +1,76 @@
+<div class="content">
+<h1>Aula 08 — Junções (JOIN) no SQL</h1>
+
+<blockquote><strong>Resumo didático</strong> — o que você DEVE entender ao sair desta aula.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Resolver o custo da normalização: como bases relacionais dividem a informação em várias tabelas, e como o SELECT usa <strong>junções</strong> para recompor essa informação em uma única sentença declarativa.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+
+<p>O professor lembra que uma base normalizada é uma <strong>estrutura</strong>: as tabelas se referenciam entre si (as &quot;flechas&quot; da integridade referencial). Isso reduz redundância e aumenta consistência, mas tem um custo: responder perguntas que envolvem mais de uma tabela exige juntá-las.</p>
+
+<p>Exemplo central: saber a <strong>idade do professor de cada disciplina</strong>. A idade está na tabela professor; a disciplina está na tabela disciplina (que só guarda o número funcional do professor). Em SQL declarativo, isso precisa ser resolvido em uma única sentença.</p>
+
+<p>Se você apenas escreve <code>FROM disciplina, professor</code>, o banco gera o <strong>produto cartesiano</strong>: 10 disciplinas × 5 professores = 50 duplas, combinando cada disciplina com todos os professores — a maioria das combinações é errada. A correção é a <strong>condição de junção</strong>, que usa a informação da estrutura (a FK):</p>
+<pre><code>WHERE disciplina.professor = professor.numero_funcional</code></pre>
+<p>Isso retorna apenas a dupla correta para cada disciplina (10 duplas).</p>
+
+<p>Existem duas sintaxes equivalentes:</p>
+<ul>
+<li>Lista de tabelas + condição no WHERE: <code>FROM disciplina, professor WHERE disciplina.professor = professor.numero_funcional</code>.</li>
+<li>Cláusula JOIN: <code>FROM disciplina JOIN professor ON disciplina.professor = professor.numero_funcional</code> (INNER JOIN é o padrão implícito).</li>
+</ul>
+
+<p>O professor então mostra o problema das duplas <strong>sem correspondência</strong>: se duas disciplinas ficam sem professor, o INNER JOIN retorna só 8 duplas — mas saber quais disciplinas estão sem professor também é informação útil. Para isso existem os <strong>outer joins</strong>:</p>
+<ul>
+<li><strong>LEFT JOIN</strong>: retorna todas as duplas da tabela da esquerda, mesmo sem correspondência na direita (disciplinas sem professor aparecem com NULL).</li>
+<li><strong>RIGHT JOIN</strong>: o inverso — todas as duplas da direita (ex.: professor Leonardo, que não ministra disciplina nenhuma).</li>
+<li><strong>FULL OUTER JOIN</strong>: ambos os lados — disciplinas sem professor E professores sem disciplina.</li>
+</ul>
+
+<p>Ele mostra também a sintaxe Oracle com <code>(+)</code>: <code>FROM disciplina, professor WHERE disciplina.professor = professor.numero_funcional(+)</code> equivale ao LEFT JOIN (o <code>(+)</code> fica no lado que pode faltar).</p>
+
+<p>Exemplos adicionais: alunos sem matrícula (LEFT JOIN aluno com matrícula → Juca e Lucas ficam sem correspondência); professores que ministram ou não ministram (com <code>UPPER(titulacao)</code> para normalizar comparação).</p>
+
+<p>O professor encerra com os diagramas de conjuntos (Venn): INNER = só a interseção; LEFT/RIGHT = interseção + lado correspondente; FULL = tudo; CROSS = produto cartesiano puro.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Normalização divide a informação; junção a recompoe.</li>
+<li>Produto cartesiano sozinho não responde: precisa da condição de junção (a FK).</li>
+<li>Condição de junção: <code>disciplina.professor = professor.numero_funcional</code>.</li>
+<li>Duas sintaxes: <code>FROM a, b WHERE ...</code> e <code>FROM a JOIN b ON ...</code> (equivalentes).</li>
+<li>INNER JOIN: só duplas com correspondência (padrão implícito).</li>
+<li>LEFT/RIGHT JOIN: inclui duplas sem correspondência do lado indicado.</li>
+<li>FULL OUTER JOIN: inclui os dois lados sem correspondência.</li>
+<li>Sintaxe Oracle <code>(+)</code>: <code>WHERE a.x = b.y(+)</code> = LEFT JOIN.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>-- Idade do professor de cada disciplina (INNER JOIN)
+SELECT d.sigla, d.nome, p.nome, p.idade
+FROM disciplina d, professor p
+WHERE d.professor = p.numero_funcional;
+
+-- Disciplinas sem professor (LEFT JOIN)
+SELECT d.sigla, d.nome
+FROM disciplina d LEFT JOIN professor p
+  ON d.professor = p.numero_funcional
+WHERE p.numero_funcional IS NULL;
+-- Equivalente Oracle: FROM disciplina d, professor p
+--   WHERE d.professor = p.numero_funcional(+)</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Esquecer a condição de junção → produto cartesiano com duplas erradas.</li>
+<li>Usar INNER JOIN quando quer incluir duplas sem correspondência (use LEFT/RIGHT/FULL).</li>
+<li>Confundir LEFT com RIGHT: depende de qual tabela está em cada lado do JOIN.</li>
+<li>Esquecer que a condição de junção usa a chave (FK) da estrutura, não qualquer coluna.</li>
+<li>Achar que junção é opcional em banco relacional: é inerente a bases normalizadas.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>A próxima aula mostra o GROUP BY e as funções de agregação — o &quot;bê-á-bá&quot; da análise de dados com SQL.</p>
+
+</div>

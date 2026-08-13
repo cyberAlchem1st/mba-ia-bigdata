@@ -1,0 +1,66 @@
+<div class="content">
+<h1>Aula 22 — Visualização de Dados com Matplotlib e Seaborn</h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que Matplotlib é a biblioteca de visualização 2D de baixo nível (com controle total sobre cada elemento do gráfico) e que Seaborn é uma camada de alto nível sobre ela, ideal para gráficos estatísticos. Saber escolher o tipo de gráfico certo para cada pergunta sobre os dados é o objetivo final.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Apresentar os fundamentos de visualização com Matplotlib e Seaborn: a estrutura de um gráfico (Figure, Axes, Plot), os principais tipos de gráfico (linha, dispersão, barras, histograma, pizza, boxplot, pairplot) e sua aplicação num estudo de caso real com o dataset Iris.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro entendemos o <strong>Matplotlib</strong>: uma biblioteca de visualização 2D que produz figuras de qualidade de publicação, flexível e integrada a NumPy e Pandas. Aprendemos a estrutura básica de um gráfico: a <strong>Figure</strong> (a &quot;tela&quot; de mais alto nível), os <strong>Axes</strong> (a área de plotagem onde os dados são desenhados, com eixos, títulos e legendas) e o <strong>Plot</strong> (a representação visual dos dados).</p>
+
+<p>Depois vimos os <strong>gráficos fundamentais</strong> com dados do NumPy. O <strong>gráfico de linha</strong> (<code>plt.plot</code>) é ideal para evolução de dados contínuos — começamos com seno e cosseno — e aprendemos a <strong>personalizar</strong>: cor, estilo, espessura, marcadores, título, rótulos, legenda e grade. Vimos os <strong>subplots</strong> (<code>plt.subplots</code>) para comparar gráficos lado a lado numa mesma figura.</p>
+
+<p>Em seguida, os demais tipos: <strong>dispersão</strong> (<code>plt.scatter</code>) para relação entre duas variáveis numéricas, <strong>barras</strong> (<code>plt.bar</code>/<code>plt.barh</code>) para comparar categorias, <strong>histograma</strong> (<code>plt.hist</code>) para distribuição de uma variável (com curva normal sobreposta) e <strong>pizza</strong> (<code>plt.pie</code>) para proporções de poucas categorias.</p>
+
+<p>Depois, o <strong>estudo de caso com o Iris</strong>: carregamos o dataset com <code>sns.load_dataset(&#x27;iris&#x27;)</code>, criamos um gráfico de dispersão colorindo os pontos por espécie (com um laço sobre as espécies) e um <strong>boxplot</strong> com Seaborn comparando a distribuição do comprimento da sépala entre espécies.</p>
+
+<p>Por fim, as <strong>visualizações avançadas com Seaborn</strong>: como o Seaborn &quot;conversa&quot; com o Matplotlib, podemos combinar as duas bibliotecas. O destaque é o <strong><code>pairplot</code></strong>, que gera uma matriz de gráficos mostrando as relações bivariadas entre todos os pares de variáveis e a distribuição de cada variável na diagonal — uma ferramenta poderosa de análise exploratória.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Matplotlib: controle total; estrutura Figure → Axes → Plot.</li>
+<li>Seaborn: alto nível, baseado em Matplotlib, para gráficos estatísticos.</li>
+<li>Linha (<code>plot</code>) para séries contínuas; dispersão (<code>scatter</code>) para relação entre variáveis.</li>
+<li>Barras (<code>bar</code>/<code>barh</code>) para categorias; histograma (<code>hist</code>) para distribuições.</li>
+<li>Pizza (<code>pie</code>) para proporções com poucas categorias.</li>
+<li>Subplots (<code>plt.subplots</code>) comparam gráficos na mesma figura.</li>
+<li><code>sns.boxplot</code> compara distribuições por categoria; <code>sns.pairplot</code> analisa todos os pares de variáveis.</li>
+<li>Personalização: <code>title</code>, <code>xlabel</code>, <code>ylabel</code>, <code>legend</code>, <code>grid</code>, <code>figsize</code>, <code>color</code>, <code>linestyle</code>.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+
+# Gráfico de linha com seno e cosseno
+eixo_x = np.linspace(-10, 10, 100)
+plt.plot(eixo_x, np.sin(eixo_x), label=&#x27;Seno(x)&#x27;)
+plt.plot(eixo_x, np.cos(eixo_x), label=&#x27;Cosseno(x)&#x27;)
+plt.title(&quot;Seno e Cosseno&quot;)
+plt.xlabel(&quot;Eixo X&quot;)
+plt.ylabel(&quot;Eixo Y&quot;)
+plt.legend()
+plt.show()
+
+# Estudo de caso Iris: boxplot por espécie
+iris_df = sns.load_dataset(&#x27;iris&#x27;)
+sns.boxplot(x=&#x27;species&#x27;, y=&#x27;sepal_length&#x27;, data=iris_df)
+plt.title(&#x27;Comprimento da Sépala por Espécie&#x27;)
+plt.show()</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Chamar <code>plt.show()</code> antes de configurar título/rótulos — o gráfico sai incompleto.</li>
+<li>Confundir <code>plt.plot</code> (linha) com <code>plt.scatter</code> (pontos).</li>
+<li>Esquecer <code>plt.legend()</code> quando há <code>label</code> nas curvas.</li>
+<li>Usar pizza com muitas categorias (fica ilegível) — prefira barras.</li>
+<li>Achar que <code>sns.pairplot</code> substitui o Matplotlib: eles se complementam.</li>
+<li>Esquecer <code>plt.axis(&#x27;equal&#x27;)</code> em pizza para não ficar elíptica.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Esta aula encerra o bloco de Python. Na sequência do curso, os próximos conteúdos retomam o <strong>SQL</strong> — a outra linguagem do módulo — para consultar e manipular dados em bancos relacionais.</p>
+
+</div>

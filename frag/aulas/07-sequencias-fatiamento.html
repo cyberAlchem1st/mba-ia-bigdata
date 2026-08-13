@@ -1,0 +1,53 @@
+<div class="content">
+<h1>Aula 07 — Sequências: Fatiamento (Slicing) e Operadores <code>in</code>, <code>+</code>, <code>*</code></h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que o fatiamento <code>[i:j]</code> extrai uma sub-sequência do elemento <code>i</code> até o <code>j-1</code> (o final é <strong>exclusivo</strong>), que índices negativos contam a partir do fim, e que os operadores <code>in</code>, <code>+</code> e <code>*</code> têm significados especiais sobre sequências.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Aprofundar o trabalho com sequências (tuplas, listas, strings), apresentando o fatiamento com índices positivos e negativos e os operadores binários <code>in</code> (pertinência), <code>+</code> (concatenação) e <code>*</code> (replicação).</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro relembramos que tuplas, listas e strings são sequências, com índices de <code>0</code> a <code>n-1</code>. Depois aprendemos o <strong>fatiamento (slicing)</strong>: passar um intervalo de índices <code>[i:j]</code> retorna uma sub-sequência com os elementos de <code>i</code> até <code>j-1</code> — ou seja, <strong>o valor final não é incluído</strong>. Vimos que podemos omitir <code>i</code> (<code>[:j]</code>, do início até <code>j-1</code>) ou omitir <code>j</code> (<code>[i:]</code>, de <code>i</code> até o fim).</p>
+
+<p>Em seguida, aprendemos a <strong>indexação com valores negativos</strong>: índices negativos contam a partir do final da sequência, como se ela fosse &quot;circular&quot;. Por exemplo, <code>-1</code> é o último elemento, <code>-2</code> o penúltimo, e assim por diante. O fatiamento com negativos também tem o final exclusivo.</p>
+
+<p>Depois vimos os <strong>operadores binários sobre sequências</strong>. O operador <code>in</code> verifica se um valor está presente na sequência — funciona para elementos de listas, substrings em strings e chaves em dicionários, e pode ser combinado com <code>not</code>. O operador <code>+</code> concatena duas sequências, criando uma nova. O operador <code><em></code> replica uma sequência um número inteiro de vezes (<code>3 </em> [1,2,3]</code>, <code>5 * &quot;---&quot;</code>). O material alerta que <code>in</code> também aparece nos laços <code>for</code>, mas com conotação diferente (iteração).</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Fatiamento <code>[i:j]</code> retorna elementos de <code>i</code> até <code>j-1</code> — final <strong>exclusivo</strong>.</li>
+<li><code>[:j]</code> vai do início até <code>j-1</code>; <code>[i:]</code> vai de <code>i</code> até o fim.</li>
+<li>Índices negativos contam do final: <code>-1</code> é o último elemento.</li>
+<li><code>in</code> verifica pertinência (elemento, substring ou chave); <code>not in</code> verifica ausência.</li>
+<li><code>+</code> concatena sequências criando uma nova.</li>
+<li><code>*</code> replica a sequência um número inteiro de vezes.</li>
+<li>Cuidado com índices fora do intervalo — respeite o tamanho da sequência.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>ls = [1, 5, 13, 50, 1000, 10, &#x27;fim&#x27;]
+print(ls[0:2])   # [1, 5] — o elemento 2 não entra
+print(ls[2:])    # [13, 50, 1000, 10, &#x27;fim&#x27;] — do índice 2 até o fim
+print(ls[-1])    # &#x27;fim&#x27; — último elemento
+print(ls[-3:])   # [1000, 10, &#x27;fim&#x27;] — três últimos
+
+# Operadores sobre sequências
+print(3 in [1, 2, 3])        # True — pertinência
+print(&#x27;cd&#x27; in &#x27;abcde&#x27;)       # True — substring
+print(&#x27;acd&#x27; in &#x27;abcde&#x27;)      # False — não é substring contígua
+print([1, 2, 3] + [4, 5, 6]) # [1, 2, 3, 4, 5, 6] — concatenação
+print(3 * (1, 2, 3))         # (1, 2, 3, 1, 2, 3, 1, 2, 3) — replicação</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Esquecer que o fatiamento exclui o índice final (<code>[0:2]</code> não inclui o 2).</li>
+<li>Usar índice fora do intervalo → erro de índice.</li>
+<li>Confundir <code>in</code> do laço <code>for</code> com o operador <code>in</code> de pertinência.</li>
+<li>Achar que <code>+</code> modifica a sequência: ele cria uma <strong>nova</strong> sequência.</li>
+<li>Confundir <code>&#x27;cd&#x27; in &#x27;abcde&#x27;</code> (True, contíguo) com substrings não contíguas (<code>&#x27;acd&#x27;</code> → False).</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Agora que sabemos extrair partes de sequências, a próxima aula apresenta os <strong>métodos de listas</strong> (<code>append</code>, <code>insert</code>, <code>extend</code>, <code>sort</code>, <code>remove</code>, <code>pop</code>, etc.) e operadores nativos como <code>sorted</code>, <code>max</code> e <code>min</code>.</p>
+
+</div>

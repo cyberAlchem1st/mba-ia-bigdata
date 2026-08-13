@@ -1,77 +1,52 @@
-# 10_colecoesaninhadas_comprehension
+# Aula 10 — Coleções Aninhadas e Comprehensions
 
-## Conceitos abordados
+> **Resumo didático** — você deve entender que listas, tuplas e dicionários podem ser **aninhados** para modelar dados mais ricos, e que **comprehensions** são uma forma compacta e mais rápida de construir listas aplicando uma expressão a cada elemento de uma sequência.
 
-- Python - Aula 10
-- Conteúdo:
-- - Coleções aninhadas
-- - Comprehensions
-- Coleções aninhadas
-- Lista de tuplas
-- Lista de listas
-- Aninhando dicionários e listas
-- Comprehension
-- Exercício 1.7
-- Resumo da aula
+## Objetivo da aula
+Apresentar coleções aninhadas (lista de tuplas, lista de listas, dicionários com listas) e introduzir a sintaxe de comprehension `[expressao for variavel in objeto]`, mostrando por que ela é preferível a laços manuais para construir listas.
 
-## Exemplos de código
+## Conceitos em ordem (narrativa didática)
+Primeiro vimos que listas, tuplas e dicionários podem ser **aninhados** para representar dados estruturados. Uma **lista de tuplas** permite usar os benefícios da lista (ordenação, adição) mantendo as tuplas como registros — por exemplo, uma lista de frutas em que cada tupla é (código, nome, preço). Uma **lista de listas** modela matrizes ou coleções de turmas. Também vimos dicionários aninhados: um dicionário de disciplinas, em que cada valor é outro dicionário (ano → lista de notas).
 
+Depois passamos às **comprehensions**. O problema: construir uma lista aplicando uma operação a cada elemento de uma sequência (como elevar ao quadrado os números de -50 a 50) exigia um laço `for` com `append`. A comprehension compacta isso numa única linha:
 ```python
-# tuplas como registros indicando frutas: código identificador, nome e preço por kilo
+lista = [expressao for variavel_local in objeto]
+```
+O resultado é equivalente ao laço com `append`, porém executado de forma **muito mais rápida** — o material compara os dois com `%%timeit`. Vimos também que a variável local pode ser omitida quando não é necessária (ex.: `[rd.randint(1,100) for _ in range(n)]`).
+
+## Pontos-chave
+- Coleções podem ser aninhadas: lista de tuplas, lista de listas, dicionários aninhados.
+- Lista de tuplas combina mutabilidade da lista com tuplas como registros.
+- Comprehension: `[expressao for var in objeto]` constrói listas de forma compacta.
+- Equivale a um `for` com `append`, mas é mais rápida.
+- A variável local pode ser `_` quando não é usada na expressão.
+- Comprehensions são tipicamente usadas para listas e dicionários.
+
+## Exemplo essencial
+```python
+# Lista de tuplas como registros
 fruta1 = (640, 'morango', 25.0)
 fruta2 = (201, 'banana', 4.99)
-fruta3 = (452, 'seriguela', 9.99)
-fruta4 = (330, 'melancia', 2.50)
-
-lista = [fruta1, fruta2, fruta3, fruta4]
-print(lista)
-```
-
-```python
+lista = [fruta1, fruta2]
 lista.append((202, 'maçã', 6.95))
-lista.sort()
+lista.sort()                 # ordena pelos códigos
 print(lista)
+
+# Comprehension: quadrados de -50 a 50
+quadr = [x**2 for x in range(-50, 51)]
+print(quadr)
+
+# Equivalente com for (mais lento)
+quadr_for = []
+for x in range(-50, 51):
+    quadr_for.append(x**2)
 ```
 
-```python
-# listas com notas de turmas de alunos
-turma1 = [9.5, 8.0, 10.0, 7.0]
-turma2 = [1.5, 5.0, 5.5, 6.8, 8.0, 9.5, 9.5, 10.0, 1.0]
-turma3 = [5.5, 7.0, 8.0, 6.0, 0.0, 3.5]
-turma4 = [10.0, 7.5, 8.0, 9.0, 4.0, 6.0, 6.5]
+## Armadilhas comuns
+- Confundir `append` de lista com concatenação ao montar estruturas aninhadas.
+- Esquecer que comprehension é para *construir* uma nova coleção, não para substituir qualquer laço.
+- Tentar usar comprehension onde a expressão depende de efeitos colaterais (ex.: `print`) — funciona, mas é confuso.
+- Achar que comprehension é apenas "açúcar sintático": além de compacta, é mais rápida.
 
-notas = [turma1, turma2]
-print(notas)
-notas = notas + [turma3]
-print(notas)
-notas.append(turma4)
-print(notas)
-```
-
-```python
-notas = {
-    'Python': { 2020: [9.5, 8.0, 10.0, 5.0, 6.0, 6.0],
-                2021: [8.2, 10.0, 10.0, 9.0, 7.5, 7.0, 10.0] },
-    'Redes Neurais': { 2019: [8.0, 9.8, 10.0, 0.0, 8.2, 7.5, 7.5],
-                       2020: [9.0, 7.2, 9.0, 8.0, 6.3, 7.0],
-                       2021: [10.0, 7.5, 8.0, 9.0, 7.0, 7.3, 6.5] }
-}
-```
-
-```python
-sum(notas['Python'])
-```
-
-```python
-type(notas['Python'])
-```
-
-```python
-for turma in notas['Redes Neurais']:
-    print(turma)
-```
-
-```python
-for turma in notas['Redes Neurais'].items():
-    print(turma[0], '- Menor nota:', min(turma[1]))
-```
+## Conexão com a próxima aula
+Agora que sabemos construir listas com comprehensions, a próxima aula mostra como **filtrar** elementos durante a construção — comprehensions com `if` — e como usar `if-else` dentro delas.

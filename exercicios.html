@@ -3,24 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exercícios — MBA IA & Big Data — ICMC/USP</title>
-<link rel="stylesheet" href="assets/site.css">
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script src="assets/site.js"></script>
+<title>Exercícios de fixação — MBA IA & Big Data — ICMC/USP</title>
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-<nav class="topnav"><a href="index.html" class="">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="">Aulas</a><a href="exercicios.html" class="active">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
+<nav class="topnav"><a href="/index.html" class="">Início</a><a href="/disciplinas.html" class="">Disciplinas</a><a href="/agenda.html" class="">Agenda</a><a href="/aulas.html" class="">Aulas</a><a href="/exercicios.html" class="active">Exercícios</a><a href="/palestras.html" class="">Palestras</a><a href="/tcc/index.html" class="">TCC</a></nav>
 <main class="container">
-<h2>Exercícios de fixação — conhecimento destilado</h2>
-<p>Conceitos extraídos dos exercícios do curso, com diagramas e exemplos.</p>
-<div class='cards'><div class="card"><h3><a href="exercicios/fixacao-python.html">Exercícios de Fixação — Curso 01 (Python + SQL)</a></h3><p>&gt; Conhecimento destilado dos exercícios de fixação do curso. Cada exercício exercita conceitos específicos — use como checklist de</p></div><div class="card"><h3><a href="exercicios/fixacao-sql.html">Exercícios de Fixação — SQL (Clínica Médica)</a></h3><p>&gt; Conhecimento destilado do gabarito SQL: schema relacional, DML e consultas.    ```mermaid erDiagram     Paciente {         CPF I</p></div></div>
+<h2>Exercícios de fixação</h2>
+<p>Conceitos destilados dos exercícios, com diagramas e explicações. Clique para abrir.</p>
+<div class='cards'><div class="card modal-trigger" data-src="/frag/exercicios/fixacao-python.html" tabindex="0" role="button"><h3>Exercícios de Fixação — Curso 01 (Python + SQL)</h3><p>&gt; Conhecimento destilado dos exercícios de fixação do curso. Cada exercício exercita conceitos específicos — use como checklist de domínio. </p></div><div class="card modal-trigger" data-src="/frag/exercicios/fixacao-sql.html" tabindex="0" role="button"><h3>Exercícios de Fixação — SQL (Clínica Médica)</h3><p>&gt; Conhecimento destilado do gabarito SQL: schema relacional, DML e consultas.    ```mermaid erDiagram     Paciente {         CPF INTEGER    </p></div></div>
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 13/08/2026 00:03 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
+<div id="modal" class="modal hidden">
+  <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal-box">
+    <button class="modal-close" data-modal-close>✕</button>
+    <div id="modal-content" class="content"></div>
+  </div>
+</div>
+<script>
+
+</script>
 </body>
 </html>

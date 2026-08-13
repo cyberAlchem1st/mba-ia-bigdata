@@ -1,0 +1,58 @@
+<div class="content">
+<h1>Aula 02 — Variáveis, Comentários e Saída de Dados</h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que variáveis são <em>nomes</em> (identificadores) que apontam para objetos na memória, que o Python é sensível a maiúsculas/minúsculas, e que comentários (<code>#</code>) servem para documentar sem afetar o código. Também aprende as operações aritméticas e a conversão de tipos.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Ensinar a criar e usar variáveis para guardar valores na memória, explicar as regras de nomeação (incluindo palavras reservadas), apresentar comentários e a função <code>print()</code>, além das operações aritméticas e conversões de tipo (explícita e implícita).</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro entendemos que <strong>variáveis</strong> são símbolos com identificadores associados a valores guardados na memória. Para criar uma, basta dar um nome (com letras minúsculas, maiúsculas, underscore <code>_</code> e dígitos — nunca começando com dígito) e atribuir um valor com <code>=</code>. Vimos que a nomeação é <strong>sensível à caixa</strong>: <code>_frase</code> e <code>_FRASE</code> são variáveis diferentes, e tentar usar uma que não foi definida gera erro.</p>
+
+<p>Depois aprendemos que existem <strong>palavras reservadas</strong> (<code>False</code>, <code>if</code>, <code>not</code>, <code>and</code>, <code>None</code>, <code>global</code>, <code>try</code>...) que não podem ser usadas como identificadores, para evitar ambiguidade — os interpretadores costumam colori-las para facilitar a identificação.</p>
+
+<p>Em seguida vimos <strong>comentários</strong>: tudo que vem após <code>#</code> é ignorado pelo Python, servindo para documentar o código. Também conhecemos a função <code>print()</code>, que exibe variáveis, textos e resultados. Passamos então pelas <strong>operações aritméticas</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code> (divisão inteira), <code>%</code> (resto) e <code>**</code> (potência). Vimos que strings suportam <code>+</code> (concatenação) e <code>*</code> (replicação).</p>
+
+<p>Por fim, entendemos a <strong>memória e o binding</strong>: uma variável é uma instância de um objeto alocado na memória; variáveis não têm tipo intrínseco (apenas objetos têm), e o Python determina o tipo automaticamente. Aprendemos também a <strong>conversão de tipos</strong>: explícita com <code>int(x)</code>, <code>float(x)</code>, <code>str(x)</code>, e implícita — por exemplo, <code>6/2</code> resulta em <code>float</code> mesmo com inteiros.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Variável = nome (identificador) que referencia um objeto na memória; criada com <code>=</code>.</li>
+<li>Nomes: letras, dígitos (não no início) e <code>_</code>; <strong>case sensitive</strong>.</li>
+<li>Palavras reservadas (<code>if</code>, <code>False</code>, <code>None</code>, etc.) não podem ser nomes de variáveis.</li>
+<li>Comentários começam com <code>#</code>; <code>print()</code> exibe conteúdo na tela.</li>
+<li>Operadores: <code>+ - * / // % **</code>; <code>//</code> é divisão inteira e <code>%</code> é resto.</li>
+<li>Strings: <code>+</code> concatena, <code>*</code> replica.</li>
+<li>Conversão implícita acontece sozinha (ex.: divisão gera <code>float</code>); conversão explícita usa <code>int()</code>, <code>float()</code>, <code>str()</code>.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code># Comentário: tudo após # é ignorado
+x = 36          # inteiro
+y = &quot;Rio&quot;       # string
+z = 3.45        # float
+
+x = x + 2       # preserva int
+y = y + &quot; Grande&quot;  # concatenação de strings
+w = x / 2       # divisão gera float (conversão implícita)
+
+print(&#x27;x =&#x27;, x, type(x))
+print(&#x27;y =&#x27;, y, type(y))
+print(&#x27;w =&#x27;, w, type(w))
+
+# Conversão explícita
+v = int(1.76)   # v = 1 (trunca a parte decimal)</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Usar variável antes de criá-la → erro de nome não definido.</li>
+<li>Confundir caixa: <code>_frase</code> ≠ <code>_FRASE</code>.</li>
+<li>Tentar usar palavra reservada como nome (<code>if = ...</code> → erro).</li>
+<li>Esquecer que <code>//</code> trunca (divisão inteira) e <code>%</code> dá o resto — não são a mesma coisa.</li>
+<li>Achar que <code>int(1.76)</code> arredonda: na verdade <em>trunca</em> para <code>1</code>.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Com variáveis e tipos dominados, a próxima aula apresenta as <strong>sequências</strong> — tuplas, listas e strings — que permitem guardar vários valores ordenados em uma única variável.</p>
+
+</div>

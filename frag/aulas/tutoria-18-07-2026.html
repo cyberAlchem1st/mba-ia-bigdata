@@ -1,0 +1,70 @@
+<div class="content">
+<h1>Tutoria 18/07/2026 — Resolvendo exercício de NumPy: filtro por média e mínimo</h1>
+
+<blockquote><strong>Resumo didático</strong> — tutoria do curso 1 focada em resolver, passo a passo, o exercício 18 de fixação (NumPy): comparar notas da empresa A com a média da empresa B, filtrar e calcular o mínimo ponderado. Também discutiu a diferença entre <code>min</code> do NumPy e <code>min</code> de lista, e a importância de quebrar problemas em etapas.</blockquote>
+
+<h2>O que foi coberto (cronológico)</h2>
+
+<p>A tutoria abriu com o William avisando que a quinzena 2 (banco de dados) foi liberada, mas que naquele momento ainda se falaria de Python (quinzena 1); na quarta-feira seguinte o tutor Afonso começaria a parte de banco de dados. O Gustavo continuaria acompanhando o fórum para dúvidas de Python.</p>
+
+<p>Gustavo lembrou que preparou um <strong>material em texto com as soluções do exercício da tutoria anterior</strong> (list comprehension), organizado passo a passo com as três soluções diferentes.</p>
+
+<p><strong>Exercício 18 resolvido ao vivo</strong> (dúvida do Marcos):</p>
+<ul>
+<li>Contexto: dois arrays NumPy com notas de 1 a 10 para 4 serviços de duas empresas concorrentes, A (10 notas) e B (5 notas), organizadas em linhas; há uma lista de pesos. O exercício pede: (1) média das notas de cada serviço (usando redução); (2) para cada serviço, a <strong>menor nota de A considerando apenas as notas maiores que a média de B</strong> daquele serviço; (3) armazenar essas notas mínimas num novo array de 4 elementos; (4) soma das notas mínimas ponderadas pelos pesos (multiplicação vetorial).</li>
+<li>Dificuldade do Marcos: comparar o array de A com a média de B dava erro de tamanho de arrays (broadcast não acontece automaticamente quando os tamanhos não batem).</li>
+<li>Estratégia mostrada:</li>
+</ul>
+<p>  1. Calcular a média de B por linha (ex.: com list comprehension <code>[np.mean(row) for row in B]</code>).</p>
+<p>  2. Usar <code>enumerate</code> para iterar por linha <strong>e coluna</strong> de A, comparando cada valor com a média de B daquela linha (índice).</p>
+<p>  3. Para valores que não passam no filtro, usar um &quot;valor inválido&quot; — como as notas vão de 1 a 10, usar <strong>11</strong> (nota inválida) em vez de 0, para não atrapalhar o cálculo do mínimo.</p>
+<p>  4. Aplicar <code>np.min(..., axis=1)</code> para obter a menor nota de cada linha.</p>
+<p>  5. Multiplicar vetorialmente pelos pesos e somar.</p>
+<ul>
+<li>Lição central: <strong>quebrar o problema em etapas menores</strong> — primeiro resolver cada parte, depois otimizar (ex.: juntar tudo num list comprehension). Não é preciso começar pela solução mais elegante.</li>
+</ul>
+
+<p><strong><code>np.min</code> vs <code>min</code> de lista</strong> (dúvida de outro aluno):</p>
+<ul>
+<li>Para esse exercício, a diferença é irrelevante (poucas comparações). Em geral, <code>np.min</code> tende a ser mais rápido porque o NumPy é implementado em C. A forma de decidir é consultar a documentação e comparar a complexidade (Big O) de cada função.</li>
+</ul>
+
+<p><strong>Discussão sobre bibliotecas e aprendizado</strong> (Jonas, vindo de Cobol):</p>
+<ul>
+<li>Jonas comentou a diferença entre linguagens mais antigas (onde um livro cobria ~70% do que se usava) e o ecossistema atual de bibliotecas. Gustavo respondeu que não é preciso decorar bibliotecas: elas evoluem, e refazer algo que uma biblioteca já faz também é aprendizado válido.</li>
+</ul>
+
+<p><strong>Encerramento</strong>: William e Gustavo reforçaram que a tutoria é um espaço para os alunos — dúvidas, curiosidades e questionamentos sobre conteúdo são bem-vindos, independentemente de onde cada um está no curso. Dúvidas que surgirem depois podem ir para o fórum.</p>
+
+<h2>Pontos-chave / Decisões ou orientações</h2>
+
+<ul>
+<li>Quinzena 2 (banco de dados) liberada; próxima tutoria de banco com o tutor Afonso na quarta-feira.</li>
+<li>Material em texto com as soluções do exercício de list comprehension foi disponibilizado.</li>
+<li>Exercício 18 (NumPy): para filtrar notas de A maiores que a média de B, iterar por linha e coluna com <code>enumerate</code> e comparar com a média da linha correspondente.</li>
+<li>Usar 11 (nota inválida) como valor de &quot;descarte&quot; para não interferir no <code>np.min</code>.</li>
+<li><code>np.min(..., axis=1)</code> calcula o mínimo por linha.</li>
+<li>Quebrar o problema em etapas menores antes de otimizar o código.</li>
+<li><code>np.min</code> tende a ser mais rápido que <code>min</code> de lista (NumPy é em C); para o exercício, tanto faz.</li>
+<li>Não é preciso decorar bibliotecas; elas evoluem e refazer algo já existente também ensina.</li>
+<li>Tutoria é espaço ativo: trazer dúvidas e curiosidades, mesmo que esteja no começo do conteúdo.</li>
+</ul>
+
+<h2>Ações para o aluno</h2>
+
+<ul>
+<li>Refazer o exercício 18 de fixação seguindo as etapas mostradas (média de B → filtro com <code>enumerate</code> → valor 11 → <code>np.min(axis=1)</code> → pesos).</li>
+<li>Consultar a documentação do NumPy para <code>np.min</code>, <code>np.mean</code> e <code>enumerate</code>.</li>
+<li>Revisar o material em texto com as soluções do exercício da tutoria anterior.</li>
+<li>Quem não chegou ao exercício 18: continuar os exercícios de fixação no próprio ritmo e levar dúvidas às próximas tutorias.</li>
+</ul>
+
+<h2>Materiais mencionados</h2>
+
+<ul>
+<li>Exercício 18 de fixação (NumPy: arrays, médias, mínimo, pesos)</li>
+<li>Material em texto com soluções do exercício de list comprehension (disponibilizado pelo tutor)</li>
+<li>Documentação do NumPy (<code>np.min</code>, <code>np.mean</code>, <code>enumerate</code>)</li>
+</ul>
+
+</div>

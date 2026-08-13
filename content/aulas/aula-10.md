@@ -1,24 +1,61 @@
-# Aula 10
+# Aula 10 — Consultas Alinhadas (Subqueries)
 
-## Resumo destilado
+> **Resumo didático** — o que você DEVE entender ao sair desta aula.
 
-> Resumo gerado automaticamente a partir da transcrição da aula gravada.
+## Objetivo da aula
+Mostrar como as **subconsultas** (consultas alinhadas) permitem quebrar problemas complexos em partes, contornando a limitação do SQL declarativo de não guardar estados intermediários. São apresentados os dois tipos: não correlacionadas e correlacionadas.
 
-### Tópicos principais
+## Conceitos em ordem (narrativa didática)
 
-- O sql é uma linguagem declarativa, então você não é imperativo, então você não pode dizer como as coisas serão feitas, você não pode guardar estados intermediários da consulta.
-- E isso muitas vezes dificulta a escrita de consulta ou torna pouco intuitiva na escrita de consulta e até mesmo a leitura de uma consulta que foi a escrita.
-- Uma outra modalidade de consulta aliada são as consultas correlacionadas, então na condição where consulta interna, ela vai referenciar alguma coisa da consulta externa consulta mais externa, melhor a gente ver como exemplo.
-- O aluno com a idade mais alta tem 40 anos, eu posso fazer isso aqui select 40 consegui produzir o valor 40 e aí eu posso fazer a seguinte consulta, select aster al oware idade igual 40 que é a idade mais alta.
-- Vou colocar a idade também dos alunos que tem a idade máxima que é 40 simples, só que eu tive que fazer duas consultas para resolver isso.
-- Veja são três selects select count pro, o resultado dessa consulta que considera essa consulta como consulta auxiliar.
-- Então essas consultas que são chamadas consultas in, então elas funcionam trazendo dados de fora para dentro da consulta principal.
-- Eu resolvo meus problemas usando essa constante, e de repente entra um aluno novo marcos número usp 23 41, então entrou um aluno novo 41 e quando eu executar essa consulta aqui eu não ela não responde mais ao meu problema.
-- Está tornando para mim um aluno que não é o aluno com a idade mais alta, a idade mais alta agora é 41 então eu tenho que re executar essa daqui e mudar essa consulta, o que torna todo o processo pouco automatizado.
-- Toda vez, você vai ter que ficar vendo se mudou a idade máxima e substituir refazer o sql.
-- A consulta correta funciona a gente tem o resultado esperado.
-- Esses dados aqui de fora são fornecidos para dentro da consulta principal para que ela possa funcionar corretamente.
+O professor começa pela motivação: SQL é **declarativo** — você não pode guardar estados intermediários nem dizer *como* fazer; tudo precisa ser dito "em uma tacada só". Isso torna consultas complexas difíceis de escrever e ler. As subconsultas resolvem isso: você quebra a consulta em partes e relaciona essas partes.
 
-## Transcrição completa
+**Consultas não correlacionadas**: a subconsulta é independente e aparece no WHERE. Exemplo: selecionar nome e número USP dos alunos com a idade mais alta. A solução ingênua seria descobrir a idade máxima (40) e usar como constante — mas isso quebra quando entra um aluno novo com 41 anos; você teria que reescrever a consulta toda vez. A solução robusta:
+```sql
+SELECT nome, numero_usp FROM aluno
+WHERE idade = (SELECT MAX(idade) FROM aluno);
+```
+A subconsulta `(SELECT MAX(idade) FROM aluno)` é executada **uma vez** e seu resultado alimenta a consulta externa. Dá para encadear: contar quantos alunos têm a idade máxima (`SELECT COUNT(*) FROM aluno WHERE idade = (SELECT MAX(idade) ...)`).
 
-[Ver transcrição completa](transcricoes/aula-10.html)
+**Consultas correlacionadas**: a subconsulta **referencia algo da consulta externa** e é executada **uma vez para cada dupla** da consulta externa. Exemplo: selecionar os alunos que **não estão matriculados** em nenhuma disciplina. A solução com junção usaria LEFT JOIN + filtro de NULL. Com subconsulta correlacionada:
+```sql
+SELECT nome, numero_usp FROM aluno a
+WHERE NOT EXISTS (
+  SELECT * FROM matricula m WHERE m.aluno = a.numero_usp
+);
+```
+Para cada aluno, o banco executa a subconsulta e verifica se o conjunto é vazio (`EXISTS` true/false). O `NOT EXISTS` inverte. O professor nota que o que importa no sub-SELECT é **se o conjunto é vazio ou não** — por isso o `SELECT *` (ou qualquer atributo) funciona.
+
+Outro exemplo correlacionado: alunos que estão matriculados **e** são monitores de alguma disciplina — duas condições com `EXISTS ... AND EXISTS ...`. O professor compara com a solução por junção: funciona, mas é menos **intuitiva** — você não entende o que está sendo feito só de olhar. A subconsulta particiona o problema: primeiro "quem tem matrícula?", depois "quem é monitor?".
+
+## Pontos-chave
+- SQL declarativo não guarda estados intermediários → subconsultas quebram o problema.
+- Não correlacionada: subconsulta independente, executada uma vez (ex.: `WHERE idade = (SELECT MAX(idade) ...)`).
+- Correlacionada: subconsulta referencia a consulta externa, executada por dupla.
+- `EXISTS` / `NOT EXISTS`: verifica se o conjunto retornado é vazio ou não.
+- No EXISTS, o conteúdo do SELECT é irrelevante (use `*`).
+- Subconsultas podem ser encadeadas (subconsulta dentro de subconsulta).
+- Junção também resolve, mas subconsulta é mais legível e intuitiva para certos problemas.
+- `NOT EXISTS` é a forma natural de "não existe / não está em".
+
+## Exemplo essencial
+```sql
+-- Não correlacionada: alunos com a idade mais alta (robusto a novos dados)
+SELECT nome, numero_usp FROM aluno
+WHERE idade = (SELECT MAX(idade) FROM aluno);
+
+-- Correlacionada: alunos NÃO matriculados em nenhuma disciplina
+SELECT nome, numero_usp FROM aluno a
+WHERE NOT EXISTS (
+  SELECT * FROM matricula m WHERE m.aluno = a.numero_usp
+);
+```
+
+## Armadilhas comuns
+- Usar constante "descoberta na mão" (ex.: idade = 40) em vez de subconsulta: quebra com dados novos.
+- Esquecer que a subconsulta correlacionada roda por dupla — custo maior que a não correlacionada.
+- Confundir EXISTS com IN: EXISTS testa existência de linhas; IN testa pertinência a um conjunto de valores.
+- Escrever `SELECT coluna` no EXISTS achando que importa: o que importa é se há linhas.
+- Tentar resolver tudo com junção quando a subconsulta deixa o problema mais claro.
+
+## Conexão com a próxima aula
+A próxima aula muda de paradigma: os bancos NoSQL, contrastando com o modelo relacional e as propriedades ACID.

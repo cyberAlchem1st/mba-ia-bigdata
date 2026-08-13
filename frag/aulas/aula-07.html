@@ -1,0 +1,79 @@
+<div class="content">
+<h1>Aula 07 — DML no Oracle: INSERT, UPDATE, DELETE e SELECT</h1>
+
+<blockquote><strong>Resumo didático</strong> — o que você DEVE entender ao sair desta aula.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Dominar o subconjunto DML do SQL no Oracle: inserir, atualizar, remover e consultar dados. O foco é entender a sintaxe correta, o papel do WHERE, o controle de transações (COMMIT/ROLLBACK) e o básico do SELECT.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+
+<p>O professor retoma o SQL Developer e mostra que a interface gráfica, ao inserir um registro, <strong>monta o INSERT por trás</strong> — e você precisa saber escrever isso à mão, porque a interface não escala: para importar milhares de registros de um Excel, você escreverá um software que gera um INSERT por linha.</p>
+
+<p><strong>INSERT</strong>: a sintaxe é <code>INSERT INTO tabela (atributos) VALUES (valores)</code>. O nome dos atributos é <strong>obrigatório</strong> quando você não fornece valores para todas as colunas. Ex.: inserir aluno só com número USP, nome e idade (sem data de nascimento) exige listar os atributos. Se você fornece um valor para cada coluna, pode omitir a lista. Datas usam a função <code>TO_DATE(&#x27;01/03/1998&#x27;, &#x27;dd/mm/yyyy&#x27;)</code> para converter string em data. Erro comum: omitir lista de atributos com valores faltando → erro de NOT NULL.</p>
+
+<p><strong>COMMIT / ROLLBACK</strong>: o banco abre uma transação; <code>COMMIT</code> consolida (não dá mais para desfazer), <code>ROLLBACK</code> desfaz (como um Ctrl+Z). Se você inseriu e ainda não fez commit, outros usuários não veem os dados. DDL (CREATE TABLE) <strong>não tem rollback</strong> — só DML.</p>
+
+<p><strong>INSERT com SELECT</strong>: dá para inserir múltiplas duplas de uma vez:</p>
+<pre><code>INSERT INTO aluno_maior (numero_usp, nome, idade, data_nasc)
+SELECT numero_usp, nome, idade, data_nasc FROM aluno WHERE idade &gt;= 18;</code></pre>
+
+<p><strong>UPDATE</strong>: precisa de três informações — qual tabela, quais atributos (e como), e quais duplas (WHERE). Ex.: <code>UPDATE matricula SET nota = 5.5 WHERE nota = 5;</code> ou com aritmética: <code>UPDATE disciplina SET creditos = creditos + 1 WHERE sigla LIKE &#x27;SC%&#x27;;</code> (LIKE para padrões).</p>
+
+<p><strong>DELETE</strong>: semelhante ao UPDATE — precisa de WHERE para dizer quais duplas remover. <code>DELETE FROM matricula WHERE sigla = &#x27;SCC518&#x27; AND numero = 1;</code> <strong>Sem WHERE, apaga a tabela inteira</strong> — por isso o WHERE é praticamente obrigatório.</p>
+
+<p><strong>SELECT</strong>: o comando principal. Estrutura: <code>SELECT atributos FROM tabela WHERE condição</code>. O WHERE é o <strong>particionamento horizontal</strong> — seleciona duplas. Você pode escolher todos os atributos (<code>*</code>) ou específicos. Exemplos:</p>
+<ul>
+<li><code>SELECT nome, numero_usp, idade FROM professor WHERE idade &gt; 30;</code></li>
+<li><strong>DISTINCT</strong>: elimina duplicatas. Se você seleciona só a titulação, aparecem valores repetidos; <code>SELECT DISTINCT titulacao</code> transforma o resultado em conjunto. Se a chave está incluída, o resultado já é conjunto (não precisa de DISTINCT).</li>
+<li><strong>ORDER BY</strong>: ordena (<code>ORDER BY nome DESC</code> ou ASC).</li>
+<li><strong>EXTRACT</strong>: extrai parte de uma data — <code>EXTRACT(YEAR FROM data_nasc) &gt; 2001</code>.</li>
+<li><strong>IN</strong>: <code>WHERE sigla IN (&#x27;SCC220&#x27;, &#x27;SCC116&#x27;)</code>.</li>
+<li><strong>IS NULL</strong>: para testar NULL — <code>WHERE monitor IS NULL</code>. <strong>Nunca</strong> <code>= NULL</code> (NULL é valor especial: desconhecido, não disponível, não fornecido).</li>
+<li><strong>BETWEEN</strong>: <code>WHERE creditos BETWEEN 4 AND 6</code>.</li>
+</ul>
+
+<p>Convenção: comandos em maiúsculas (não é obrigatório — SQL não é sensível a maiúsculas fora de strings).</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>INSERT: lista de atributos é obrigatória se você não fornecer todas as colunas.</li>
+<li>Datas: <code>TO_DATE(&#x27;dd/mm/yyyy&#x27;, &#x27;dd/mm/yyyy&#x27;)</code>.</li>
+<li>COMMIT consolida; ROLLBACK desfaz; DDL não tem rollback.</li>
+<li><code>INSERT INTO ... SELECT</code> insere múltiplas duplas de uma vez.</li>
+<li>UPDATE: tabela + atributos + WHERE (quais duplas).</li>
+<li>DELETE: WHERE obrigatório na prática — sem ele, apaga tudo.</li>
+<li>SELECT: WHERE faz particionamento horizontal; DISTINCT elimina duplicatas; ORDER BY ordena.</li>
+<li>NULL se testa com <code>IS NULL</code>, nunca com <code>=</code>.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>-- Inserir aluno fornecendo só 3 dos 4 atributos (lista obrigatória)
+INSERT INTO aluno (numero_usp, nome, idade)
+VALUES (22, &#x27;Rodrigo&#x27;, 40);
+
+-- Inserir com data
+INSERT INTO aluno VALUES (21, &#x27;Marta&#x27;, 19, TO_DATE(&#x27;01/03/1998&#x27;,&#x27;dd/mm/yyyy&#x27;));
+
+-- Atualizar quem tirou nota 5
+UPDATE matricula SET nota = 5.5 WHERE nota = 5;
+
+-- Selecionar titulações sem repetição
+SELECT DISTINCT titulacao FROM professor;
+
+-- Disciplinas sem monitor (NULL!)
+SELECT * FROM disciplina WHERE monitor IS NULL;</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Usar <code>= NULL</code> em vez de <code>IS NULL</code>: NULL não é igual a nada, nem a NULL.</li>
+<li>Esquecer o WHERE no DELETE/UPDATE: apaga/atualiza todas as tuplas.</li>
+<li>Omitir a lista de atributos no INSERT com valores faltando → erro de NOT NULL.</li>
+<li>Achar que COMMIT é opcional: sem commit, outros usuários não veem seus dados.</li>
+<li>Confundir DISTINCT com desnecessário: sem a chave no SELECT, o resultado pode ter repetições.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>A próxima aula aprofunda o SELECT com junções — essencial para recuperar informação espalhada em tabelas normalizadas.</p>
+
+</div>

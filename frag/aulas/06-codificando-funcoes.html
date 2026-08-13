@@ -1,0 +1,60 @@
+<div class="content">
+<h1>Aula 06 — Codificando Funções</h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que funções são blocos de código reutilizáveis, definidos com <code>def</code>, que recebem parâmetros e podem <strong>retornar</strong> um resultado com <code>return</code>. A lição central desta aula: prefira <code>return</code> a <code>print()</code> dentro de funções, para que o resultado possa ser usado no restante do programa.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Ensinar a criar funções próprias com <code>def</code>, mostrando por que elas são úteis (evitar repetição de código) e por que é melhor que uma função <em>retorne</em> um valor em vez de apenas imprimi-lo.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro relembramos que já usamos várias funções nativas do Python — <code>len()</code>, <code>sum()</code>, <code>type()</code>, <code>input()</code> — que foram implementadas para facilitar nossa vida. Vimos que funções são úteis quando precisamos repetir uma tarefa várias vezes: em vez de copiar o mesmo código, definimos uma função e a chamamos quando necessário.</p>
+
+<p>Depois aprendemos a sintaxe para criar nossa própria função:</p>
+<pre><code>def nome_da_funcao(parametros):
+    &lt;código indentado&gt;
+    return &lt;valor&gt;</code></pre>
+<p>A palavra <code>def</code> indica a definição da função, que passa a ficar disponível para uso. Criamos uma função que verifica se um número é <code>int</code> ou <code>float</code>.</p>
+
+<p>Em seguida, entendemos um ponto importante: a nossa primeira versão <em>imprimia</em> o resultado na tela, mas <strong>não é recomendado</strong> que funções façam operações de entrada e saída. É muito mais útil que a função <strong>devolva</strong> o resultado, usando <code>return</code>. Assim, o valor retornado pode ser usado como parte de outras soluções — por exemplo, dentro de um <code>if</code>. O material destaca que usar <code>print()</code> em vez de <code>return</code> é um erro comum.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Funções evitam repetição de código e organizam o programa.</li>
+<li>Sintaxe: <code>def nome(parametros):</code> seguido de bloco indentado.</li>
+<li><code>return</code> devolve um valor para quem chamou a função.</li>
+<li>Prefira <code>return</code> a <code>print()</code> dentro de funções.</li>
+<li>Funções que retornam valor podem ser usadas em expressões e condições.</li>
+<li>A função só é executada quando é chamada (invocada).</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code># Função que retorna True/False em vez de imprimir
+def is_intfloat(x):
+    if type(x) == int or type(x) == float:
+        return True
+    else:
+        return False
+
+val1 = 3.0
+print(is_intfloat(val1))   # True
+
+# O retorno pode ser usado em uma condição
+val = &#x27;dd&#x27;
+if is_intfloat(val):
+    val = val / 2
+    print(val)
+# Como &#x27;dd&#x27; não é número, o bloco não executa — sem erro!</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Usar <code>print()</code> dentro da função quando se quer usar o resultado depois.</li>
+<li>Esquecer o <code>return</code> — a função retorna <code>None</code> implicitamente.</li>
+<li>Esquecer os dois pontos e a indentação após a linha <code>def</code>.</li>
+<li>Achar que a função executa sozinha: ela só roda quando chamada.</li>
+<li>Confundir parâmetros (definição) com argumentos (valores passados na chamada).</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Com funções dominadas, a próxima aula volta às <strong>sequências</strong> para aprofundar o <strong>fatiamento (slicing)</strong> — extrair sub-sequências com <code>[i:j]</code> — e os operadores <code>in</code>, <code>+</code> e <code>*</code>.</p>
+
+</div>

@@ -1,0 +1,69 @@
+<div class="content">
+<h1>Aula 12 — MongoDB: o modelo orientado a documentos</h1>
+
+<blockquote><strong>Resumo didático</strong> — o que você DEVE entender ao sair desta aula.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Aprofundar o MongoDB, o banco NoSQL mais usado, mostrando na prática como o paradigma orientado a documentos contrasta com o modelo relacional: documentos e coleções no lugar de tuplas e tabelas, <code>_id</code> como chave, documentos autocontidos, BSON, e a arquitetura de escala horizontal com sharding e réplicas.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+
+<p>O professor retoma as características do MongoDB: orientado a documentos, alta disponibilidade, alto desempenho e escala facilitada. A ideia central do modelo é que <strong>todas as informações de uma instância de interesse do domínio devem estar contidas em um único documento</strong> — nome, telefone, endereço, produtos comprados, tudo junto. Você sempre recupera uma unidade de informação (o documento), sem percorrer várias tabelas.</p>
+
+<p>Ele monta a tabela de correspondência com o relacional: <strong>documento equivale a tupla; coleção equivale a tabela</strong>. A chave primária existe nos dois mundos — é essencial para qualquer solução de informação, pois garante a propriedade de conjunto (sem repetição, sem ambiguidade). No MongoDB, porém, a chave é sempre o campo especial <strong><code>_id</code></strong>. No relacional você escolhe qualquer atributo como PK; no MongoDB o <code>_id</code> identifica todo documento.</p>
+
+<p>A grande diferença estrutural: o relacional é <strong>rigidamente estruturado</strong> (todas as tuplas de uma tabela têm os mesmos campos, preenchidos com NULL quando faltam); o MongoDB é <strong>semiestruturado/fracamente estruturado</strong> — documentos da mesma coleção podem ter 2, 5 ou 10 atributos, sem uniformidade. Isso não é desestruturado: há estrutura, mas flexível.</p>
+
+<p>Sobre indexação: ambos usam índices (no MongoDB, árvore B) para acelerar buscas. Sobre junção: o relacional a usa como prioridade; o MongoDB <strong>tem</strong> recurso de junção, mas ela não é prioridade de projeto — o projeto assume documentos autocontidos, e é nessa configuração que o MongoDB performa melhor. O relacional usa partições para distribuir; o MongoDB usa <strong>shards</strong>. O relacional tem DML; o MongoDB tem <strong>CRUD</strong> (Create, Read, Update, Delete), com equivalência ao DML vista na próxima aula.</p>
+
+<p>O conceito de <strong>shard</strong> permeia todo o MongoDB: é um pedaço/fragmento (subconjunto) dos dados. Características: os shards são <strong>replicados</strong> — normalmente pelo menos 3 cópias de toda a informação (você pode definir 5 ou mais). Mais réplicas = mais confiabilidade (difícil perder dados) e mais disponibilidade (se um servidor está sobrecarregado, o processamento vai para outro nó que tem a cópia). A distribuição segue uma <strong>shard key</strong>: um atributo muito usado nas consultas vira a chave de distribuição homogênea dos dados entre os nós — se a chave também é usada nas consultas, a distribuição do processamento fica uniforme e a escala horizontal fica simples.</p>
+
+<p>A arquitetura geral: aplicações consomem dados via <strong>drivers</strong> (camada de software que traduz as requisições da aplicação para o servidor de banco); um <strong>roteador</strong> sabe onde cada documento está e faz a distribuição uniforme do processamento; vários shards (não necessariamente um por nó) carregam as cópias. Com 3 cópias em equipamentos diferentes, a chance de perder a informação é mínima (seria preciso um desastre simultâneo de hardware) e ainda há balanceamento de carga.</p>
+
+<p>O formato dos dados: os documentos seguem a notação <strong>JSON</strong> (JavaScript Object Notation) — legível por humanos e processável por computadores, organizada em pares campo-valor e arrays. Internamente o MongoDB armazena em <strong>BSON</strong>, a versão binária do JSON: mais leve e com codificação eficiente, para aproveitar melhor o espaço em disco. Os documentos suportam <strong>multivaloração</strong> (listas de valores, ex.: lista de deputados) e <strong>subdocumentos/embedding</strong> (um documento dentro de outro, ex.: prefeito com seu endereço dentro do documento do estado). É assim que os documentos se tornam autocontidos: no relacional isso seria outra relação com chave estrangeira e junção; no MongoDB você embute tudo no mesmo documento, em vários níveis.</p>
+
+<p>O MongoDB é tipado (ObjectId, string, número, array etc.), como qualquer banco — tipagem existe desde os primórdios da computação por questões de desempenho e controle. A instalação é muito simples: baixar, descompactar um zip e já está funcionando — muito mais rápido que instalar Oracle. Comandos básicos: ver bancos (<code>show dbs</code>), trocar de banco (<code>use</code>), ver coleções (<code>show collections</code>), criar coleção. O <code>_id</code> é imutável: se você não o fornece, o MongoDB gera um <strong>ObjectId</strong> único; se quiser mudar, é preciso deletar e reinserir o documento. É possível até usar um documento como <code>_id</code>.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Documento = tupla; coleção = tabela; <code>_id</code> = chave primária (sempre o <code>_id</code> no MongoDB).</li>
+<li>Modelo <strong>semiestruturado</strong>: documentos da mesma coleção podem ter estruturas diferentes.</li>
+<li>Documentos <strong>autocontidos</strong>: toda a informação de uma instância em um único documento; junção não é prioridade.</li>
+<li><strong>Sharding</strong>: dados divididos em shards, replicados (≥3 cópias), distribuídos por uma shard key — escala horizontal simples.</li>
+<li>Arquitetura: aplicação → driver → roteador → shards (com réplicas).</li>
+<li>JSON para interação; <strong>BSON</strong> (binário) para armazenamento eficiente.</li>
+<li>Multivaloração e <strong>embedding</strong> (subdocumentos) são naturais no MongoDB.</li>
+<li><code>_id</code> imutável: gerado automaticamente como ObjectId se não fornecido.</li>
+<li>Instalação trivial (descompactar zip) — contraste com a inércia do relacional.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>Relacional (tabela usuario):
+  id | user_name | email | idade | cidade
+  ---+-----------+-------+-------+--------
+  1  | ana       | ...   | 25    | LA
+  2  | bob       | ...   | 30    | SP
+
+MongoDB (coleção usuario) — mesma informação, paradigma diferente:
+  { &quot;_id&quot;: ObjectId(&quot;...&quot;), &quot;user_name&quot;: &quot;ana&quot;, &quot;email&quot;: &quot;...&quot;,
+    &quot;idade&quot;: 25, &quot;cidade&quot;: &quot;LA&quot; }
+  { &quot;_id&quot;: ObjectId(&quot;...&quot;), &quot;user_name&quot;: &quot;bob&quot;, &quot;email&quot;: &quot;...&quot;,
+    &quot;idade&quot;: 30, &quot;cidade&quot;: &quot;SP&quot; }
+
+Com embedding (subdocumento autocontido):
+  { &quot;_id&quot;: ..., &quot;estado&quot;: &quot;SP&quot;, &quot;prefeito&quot;: { &quot;nome&quot;: &quot;X&quot;,
+    &quot;endereco&quot;: { &quot;rua&quot;: &quot;Y&quot;, &quot;numero&quot;: 100 } } }</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Achar que o MongoDB não tem chave primária: tem — é sempre o <code>_id</code>, imutável.</li>
+<li>Esperar uniformidade de esquema: documentos da mesma coleção podem (e vão) ter estruturas diferentes.</li>
+<li>Projetar como se fosse relacional (normalizar tudo, espalhar em tabelas): o MongoDB performa melhor com documentos autocontidos.</li>
+<li>Confundir réplicas com backups opcionais: as cópias são o mecanismo central de disponibilidade e balanceamento.</li>
+<li>Achar que &quot;sem junção&quot; significa que junção não existe: ela existe, só não é prioridade de projeto.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Com os conceitos do modelo orientado a documentos estabelecidos, a próxima aula mostra o MongoDB funcionando na prática: instalação, prompt de comando, inserção e recuperação de dados (CRUD).</p>
+
+</div>

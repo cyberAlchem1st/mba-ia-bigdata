@@ -4,46 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Início — MBA IA & Big Data — ICMC/USP</title>
-<link rel="stylesheet" href="assets/site.css">
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script src="assets/site.js"></script>
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js"></script>
 </head>
 <body>
 <header class="site-header">
   <h1>MBA IA & Big Data — ICMC/USP</h1>
   <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
 </header>
-<nav class="topnav"><a href="index.html" class="active">Início</a><a href="disciplinas.html" class="">Disciplinas</a><a href="agenda.html" class="">Agenda</a><a href="aulas.html" class="">Aulas</a><a href="exercicios.html" class="">Exercícios</a><a href="palestras.html" class="">Palestras</a><a href="transcricoes.html" class="">Transcrições</a><a href="info.html" class="">Info</a><a href="tcc/index.html" class="">TCC</a></nav>
+<nav class="topnav"><a href="/index.html" class="active">Início</a><a href="/disciplinas.html" class="">Disciplinas</a><a href="/agenda.html" class="">Agenda</a><a href="/aulas.html" class="">Aulas</a><a href="/exercicios.html" class="">Exercícios</a><a href="/palestras.html" class="">Palestras</a><a href="/tcc/index.html" class="">TCC</a></nav>
 <main class="container">
 
     <section class="hero">
       <h2>MBA em Inteligência Artificial e Big Data — Turma 6</h2>
-      <p>ICMC/USP — PRCEU. Hub centralizado: disciplinas, resumos de aulas, transcrições, exercícios destilados e agenda de atividades síncronas.</p>
+      <p>ICMC/USP — PRCEU. Hub centralizado: disciplinas, resumos didáticos de aulas, palestras destiladas, exercícios e agenda de atividades síncronas.</p>
       <p><a class="btn" href="https://cursosextensao.usp.br/course/view.php?id=4666">Abrir curso no Moodle</a>
-         <a class="btn" href="agenda.html">Ver agenda</a></p>
+         <a class="btn" href="/agenda.html">Ver agenda completa</a></p>
     </section>
 
-    <h2>Próximas atividades síncronas</h2>
-    <ul class="event-list"><li><span class="date">12/08/2026 19:00</span>[MBA-IABigData-T6] Curso 01 - Tutoria<span class="tag tag-sync">síncrona</span></li><li><span class="date">12/08/2026 20:00</span>[MBA-IABigData-T6] Curso 02 - Tutoria com profa Roseli<span class="tag tag-sync">síncrona</span></li><li><span class="date">15/08/2026 09:00</span>[MBA-IABigData-T6] Curso 02 - Tutoria com Prof. Ricardo<span class="tag tag-sync">síncrona</span></li><li><span class="date">19/08/2026 19:00</span>[MBA-IABigData-T6] Curso 01 - Tutoria<span class="tag tag-sync">síncrona</span></li><li><span class="date">19/08/2026 20:00</span>[MBA-IABigData-T6] Curso 02 - Tutoria<span class="tag tag-sync">síncrona</span></li><li><span class="date">22/08/2026 09:00</span>[MBA-IABigData-T6] Curso 02 - Tutoria<span class="tag tag-sync">síncrona</span></li><li><span class="date">24/08/2026 14:00</span>[MBA-IABigData-T6] Curso 15 - Palestra<span class="tag tag-sync">síncrona</span></li><li><span class="date">24/08/2026 19:00</span>[MBA-IABigData-T6] Tutoria - Como funciona os TCCs e acompanhamento<span class="tag tag-sync">síncrona</span></li></ul>
+    <h2>Calendário de atividades síncronas</h2>
+    <div id="calendar" class="calendar-wrap"></div>
+    <p class="calendar-hint">Clique em um dia para ver os eventos. Horários em America/Sao_Paulo.</p>
 
-    <h2>Avaliações com nota</h2>
-    <ul class="event-list"><li><span class="date">25 jul. 2026</span>Avaliação final - Linguagens e Ferramentas/Frameworks (Python + SQL) -<span class="tag tag-grade">nota</span></li><li><span class="date">4 jul. 2026</span>Atividade quinzenal 01 - Linguagens e Ferramentas/Frameworks (Python +<span class="tag tag-grade">nota</span></li><li><span class="date">18 jul. 2026</span>Atividade quinzenal 02 - Linguagens e Ferramentas/Frameworks (Python +<span class="tag tag-grade">nota</span></li><li><span class="date">1 ago. 2026</span>Atividade quinzenal 01 - Ciência de Dados, Aprendizado de Máquina e Mi<span class="tag tag-grade">nota</span></li><li><span class="date">7 ago. 2027</span>Tarefa: Resumo - Palestra bônus 01: Perception: Entendendo o usuário a<span class="tag tag-grade">nota</span></li><li><span class="date">7 ago. 2027</span>Tarefa: Resumo - Palestra bônus 02: Assegure sua Estratégia de GenAI: <span class="tag tag-grade">nota</span></li><li><span class="date">7 ago. 2027</span>Tarefa: Resumo - Palestra bônus 03: O Moat de Dados: RLVR, Dados Sinté<span class="tag tag-grade">nota</span></li><li><span class="date">8 ago. 2026</span>Tarefa: Resumo - Palestra 01: Do laboratório ao mercado: a jornada do <span class="tag tag-grade">nota</span></li></ul>
+    <h2>Próximas atividades</h2>
+    <ul class="event-list"><li><span class="date">15/08/2026 09:00</span>[MBA-IABigData-T6] Curso 02 - Tutoria com Prof. Ricardo<span class="tag tag-sync">síncrona</span></li><li><span class="date">19/08/2026 19:00</span>[MBA-IABigData-T6] Curso 01 - Tutoria<span class="tag tag-sync">síncrona</span></li><li><span class="date">19/08/2026 20:00</span>[MBA-IABigData-T6] Curso 02 - Tutoria<span class="tag tag-sync">síncrona</span></li><li><span class="date">22/08/2026 09:00</span>[MBA-IABigData-T6] Curso 02 - Tutoria<span class="tag tag-sync">síncrona</span></li><li><span class="date">24/08/2026 14:00</span>[MBA-IABigData-T6] Curso 15 - Palestra<span class="tag tag-sync">síncrona</span></li><li><span class="date">24/08/2026 19:00</span>[MBA-IABigData-T6] Tutoria - Como funciona os TCCs e acompanhamento<span class="tag tag-sync">síncrona</span></li><li><span class="date">26/08/2026 19:00</span>[MBA-IABigData-T6] Curso 02 - Tutoria<span class="tag tag-sync">síncrona</span></li><li><span class="date">29/08/2026 09:00</span>[MBA-IABigData-T6] Curso 02 - Tutoria com Prof. Ricardo<span class="tag tag-sync">síncrona</span></li></ul>
 
     <h2>Disciplinas</h2>
-    <div class="cards"><div class="card"><h3><a href="disciplinas.html#sec-1">Curso 01 — Python + SQL</a></h3><p>70 atividades</p></div><div class="card"><h3><a href="disciplinas.html#sec-2">Curso 02 — Ciência de Dados / ML</a></h3><p>33 atividades</p></div><div class="card"><h3><a href="disciplinas.html#sec-15">Curso 15 — Tendências e Mercado</a></h3><p>9 atividades</p></div><div class="card"><h3><a href="disciplinas.html#sec-21">Conteúdos interessantes</a></h3><p>3 atividades</p></div><div class="card"><h3><a href="disciplinas.html#sec-22">Informações importantes</a></h3><p>9 atividades</p></div></div>
+    <div class="cards"><div class="card"><h3><a href="/disciplinas.html#sec-1">Curso 01 — Python + SQL</a></h3><p>70 atividades</p></div><div class="card"><h3><a href="/disciplinas.html#sec-2">Curso 02 — Ciência de Dados / ML</a></h3><p>33 atividades</p></div><div class="card"><h3><a href="/disciplinas.html#sec-15">Curso 15 — Tendências e Mercado</a></h3><p>9 atividades</p></div><div class="card"><h3><a href="/disciplinas.html#sec-21">Conteúdos interessantes</a></h3><p>3 atividades</p></div><div class="card"><h3><a href="/disciplinas.html#sec-22">Informações importantes</a></h3><p>9 atividades</p></div></div>
 
     <h2>Conteúdo</h2>
     <div class="cards">
-      <div class="card"><h3><a href="aulas.html">Aulas</a></h3><p>Resumos destilados de notebooks e aulas gravadas</p></div>
-      <div class="card"><h3><a href="exercicios.html">Exercícios de fixação</a></h3><p>Conceitos destilados dos exercícios (Python + SQL)</p></div>
-      <div class="card"><h3><a href="palestras.html">Palestras</a></h3><p>Resumos e materiais das palestras</p></div>
-      <div class="card"><h3><a href="transcricoes.html">Transcrições</a></h3><p>24 transcrições de aulas, tutorias e reuniões</p></div>
-      <div class="card"><h3><a href="tcc/index.html">TCC Explorer</a></h3><p>Pesquisa e materiais do TCC</p></div>
+      <div class="card"><h3><a href="/aulas.html">Aulas</a></h3><p>Resumos didáticos de aulas (Python, SQL, NoSQL) e tutorias</p></div>
+      <div class="card"><h3><a href="/exercicios.html">Exercícios de fixação</a></h3><p>Conceitos destilados (Python + SQL)</p></div>
+      <div class="card"><h3><a href="/palestras.html">Palestras</a></h3><p>Conhecimento destilado das palestras</p></div>
+      <div class="card"><h3><a href="/tcc/index.html">TCC Explorer</a></h3><p>Pesquisa e materiais do TCC</p></div>
     </div>
     
 </main>
 <footer class="site-footer">
-  <p>Gerado em 12/08/2026 22:45 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+  <p>Gerado em 13/08/2026 00:03 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
 </footer>
+<div id="modal" class="modal hidden">
+  <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal-box">
+    <button class="modal-close" data-modal-close>✕</button>
+    <div id="modal-content" class="content"></div>
+  </div>
+</div>
+<script>
+window.SYNC_EVENTS = [{"date": "2026-05-23", "time": "10:00", "title": "Curso 15 - Palestra"}, {"date": "2026-07-04", "time": "10:00", "title": "Abertura da Turma 6"}, {"date": "2026-07-06", "time": "19:00", "title": "Curso 01 - Aula inaugural"}, {"date": "2026-07-06", "time": "20:00", "title": "Reunião com coordenação"}, {"date": "2026-07-08", "time": "19:00", "title": "Curso 00 - Tutoria"}, {"date": "2026-07-08", "time": "20:00", "title": "Curso 01 - Tutoria"}, {"date": "2026-07-11", "time": "09:00", "title": "Curso 01 - Tutoria"}, {"date": "2026-07-15", "time": "19:00", "title": "Curso 00 - Tutoria com Prof. Lucas"}, {"date": "2026-07-15", "time": "20:00", "title": "Curso 01 - Tutoria"}, {"date": "2026-07-18", "time": "09:00", "title": "Curso 01 - Tutoria"}, {"date": "2026-07-22", "time": "19:00", "title": "Curso 00 - Tutoria com Profa Mirela"}, {"date": "2026-07-22", "time": "20:00", "title": "Curso 01 - Tutoria com prof. Leandro"}, {"date": "2026-07-23", "time": "19:00", "title": "Curso 01 - Tutoria"}, {"date": "2026-07-25", "time": "09:00", "title": "Curso 01 - Tutoria"}, {"date": "2026-07-29", "time": "19:00", "title": "Curso 00 - Tutoria"}, {"date": "2026-07-29", "time": "20:00", "title": "Curso 01 - Tutoria com prof. José Fernando"}, {"date": "2026-08-01", "time": "09:00", "title": "Curso 01 - Tutoria"}, {"date": "2026-08-01", "time": "10:00", "title": "Curso 02 - Aula inaugural"}, {"date": "2026-08-05", "time": "19:00", "title": "Curso 00 - Tutoria"}, {"date": "2026-08-05", "time": "20:00", "title": "Curso 01 - Tutoria"}, {"date": "2026-08-06", "time": "19:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-08-08", "time": "09:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-08-08", "time": "10:00", "title": "Curso 15 - Palestra"}, {"date": "2026-08-12", "time": "19:00", "title": "Curso 01 - Tutoria"}, {"date": "2026-08-12", "time": "20:00", "title": "Curso 02 - Tutoria com profa Roseli"}, {"date": "2026-08-15", "time": "09:00", "title": "Curso 02 - Tutoria com Prof. Ricardo"}, {"date": "2026-08-19", "time": "19:00", "title": "Curso 01 - Tutoria"}, {"date": "2026-08-19", "time": "20:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-08-22", "time": "09:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-08-24", "time": "14:00", "title": "Curso 15 - Palestra"}, {"date": "2026-08-24", "time": "19:00", "title": "Tutoria - Como funciona os TCCs e acompanhamento"}, {"date": "2026-08-26", "time": "19:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-08-29", "time": "09:00", "title": "Curso 02 - Tutoria com Prof. Ricardo"}, {"date": "2026-09-02", "time": "19:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-09-05", "time": "09:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-09-09", "time": "19:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-09-12", "time": "09:00", "title": "Curso 02 - Tutoria com Prof. Ricardo"}, {"date": "2026-09-14", "time": "19:00", "title": "Curso 3 - Aula Inaugural"}, {"date": "2026-09-16", "time": "19:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-09-16", "time": "20:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-09-19", "time": "09:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-09-23", "time": "19:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-09-23", "time": "20:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-09-26", "time": "09:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-09-30", "time": "19:00", "title": "Curso 02 - Tutoria"}, {"date": "2026-09-30", "time": "20:00", "title": "Curso 03 - Tutoria com prof. José Fernando"}, {"date": "2026-10-03", "time": "09:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-10-07", "time": "19:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-10-10", "time": "09:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-10-14", "time": "19:00", "title": "Curso 03 - Tutoria com prof. José Fernando"}, {"date": "2026-10-17", "time": "09:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-10-21", "time": "19:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-10-24", "time": "09:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-10-28", "time": "19:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-11-04", "time": "19:00", "title": "Curso 03 - Tutoria"}, {"date": "2026-11-11", "time": "19:00", "title": "Curso 03 - Tutoria"}];
+</script>
 </body>
 </html>

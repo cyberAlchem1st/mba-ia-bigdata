@@ -1,0 +1,55 @@
+<div class="content">
+<h1>Aula 10 — Coleções Aninhadas e Comprehensions</h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que listas, tuplas e dicionários podem ser <strong>aninhados</strong> para modelar dados mais ricos, e que <strong>comprehensions</strong> são uma forma compacta e mais rápida de construir listas aplicando uma expressão a cada elemento de uma sequência.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Apresentar coleções aninhadas (lista de tuplas, lista de listas, dicionários com listas) e introduzir a sintaxe de comprehension <code>[expressao for variavel in objeto]</code>, mostrando por que ela é preferível a laços manuais para construir listas.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro vimos que listas, tuplas e dicionários podem ser <strong>aninhados</strong> para representar dados estruturados. Uma <strong>lista de tuplas</strong> permite usar os benefícios da lista (ordenação, adição) mantendo as tuplas como registros — por exemplo, uma lista de frutas em que cada tupla é (código, nome, preço). Uma <strong>lista de listas</strong> modela matrizes ou coleções de turmas. Também vimos dicionários aninhados: um dicionário de disciplinas, em que cada valor é outro dicionário (ano → lista de notas).</p>
+
+<p>Depois passamos às <strong>comprehensions</strong>. O problema: construir uma lista aplicando uma operação a cada elemento de uma sequência (como elevar ao quadrado os números de -50 a 50) exigia um laço <code>for</code> com <code>append</code>. A comprehension compacta isso numa única linha:</p>
+<pre><code>lista = [expressao for variavel_local in objeto]</code></pre>
+<p>O resultado é equivalente ao laço com <code>append</code>, porém executado de forma <strong>muito mais rápida</strong> — o material compara os dois com <code>%%timeit</code>. Vimos também que a variável local pode ser omitida quando não é necessária (ex.: <code>[rd.randint(1,100) for _ in range(n)]</code>).</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Coleções podem ser aninhadas: lista de tuplas, lista de listas, dicionários aninhados.</li>
+<li>Lista de tuplas combina mutabilidade da lista com tuplas como registros.</li>
+<li>Comprehension: <code>[expressao for var in objeto]</code> constrói listas de forma compacta.</li>
+<li>Equivale a um <code>for</code> com <code>append</code>, mas é mais rápida.</li>
+<li>A variável local pode ser <code>_</code> quando não é usada na expressão.</li>
+<li>Comprehensions são tipicamente usadas para listas e dicionários.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code># Lista de tuplas como registros
+fruta1 = (640, &#x27;morango&#x27;, 25.0)
+fruta2 = (201, &#x27;banana&#x27;, 4.99)
+lista = [fruta1, fruta2]
+lista.append((202, &#x27;maçã&#x27;, 6.95))
+lista.sort()                 # ordena pelos códigos
+print(lista)
+
+# Comprehension: quadrados de -50 a 50
+quadr = [x**2 for x in range(-50, 51)]
+print(quadr)
+
+# Equivalente com for (mais lento)
+quadr_for = []
+for x in range(-50, 51):
+    quadr_for.append(x**2)</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Confundir <code>append</code> de lista com concatenação ao montar estruturas aninhadas.</li>
+<li>Esquecer que comprehension é para <em>construir</em> uma nova coleção, não para substituir qualquer laço.</li>
+<li>Tentar usar comprehension onde a expressão depende de efeitos colaterais (ex.: <code>print</code>) — funciona, mas é confuso.</li>
+<li>Achar que comprehension é apenas &quot;açúcar sintático&quot;: além de compacta, é mais rápida.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Agora que sabemos construir listas com comprehensions, a próxima aula mostra como <strong>filtrar</strong> elementos durante a construção — comprehensions com <code>if</code> — e como usar <code>if-else</code> dentro delas.</p>
+
+</div>

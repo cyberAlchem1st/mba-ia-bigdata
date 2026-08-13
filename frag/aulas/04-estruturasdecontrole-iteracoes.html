@@ -1,0 +1,61 @@
+<div class="content">
+<h1>Aula 04 — Estruturas de Controle: Condicional e Laço <code>for</code></h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que <code>if</code>/<code>elif</code>/<code>else</code> decidem qual bloco de código executar conforme uma condição, e que o laço <code>for</code> repete um bloco para cada elemento de uma sequência. O ponto mais importante é a <strong>indentação</strong>: é ela que define os blocos em Python.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Apresentar as estruturas de controle de fluxo: o condicional <code>if</code> (com <code>elif</code> e <code>else</code> e a forma ternária) e o laço de repetição <code>for</code>, mostrando como iterar por sequências e combinar condicionais com laços.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro entendemos o comando <strong><code>if</code></strong>, que condiciona o fluxo de execução: se a condição for verdadeira (<code>True</code>), o bloco indentado abaixo é executado. Aprendemos que <strong>indentação é obrigatória</strong> em Python — diferente de Java ou C++, que usam chaves — e que linhas no mesmo nível de indentação formam um bloco. Os erros mais comuns são esquecer os dois pontos (<code>:</code>) e errar a indentação.</p>
+
+<p>Depois vimos que, além da condição principal, podemos usar <strong><code>elif</code></strong> (senão se) e <strong><code>else</code></strong> (senão): o <code>elif</code> só é testado se as condições anteriores forem falsas, e o <code>else</code> executa quando todas forem falsas. Também conhecemos o <strong><code>if</code> ternário</strong>, uma forma compacta de atribuir valores: <code>y = &#x27;três&#x27; if x == 3 else &#x27;outro número&#x27;</code>.</p>
+
+<p>Em seguida, passamos para a <strong>iteração</strong>. Vimos que uma tarefa comum é executar uma ação para cada elemento de uma sequência — como soletrar uma palavra. O laço <strong><code>for</code></strong> resolve isso: <code>for variavel in sequencia:</code> repete o bloco indentado atribuindo a variável a cada elemento, um por vez. Por fim, combinamos <code>for</code> com <code>if</code> para filtrar elementos — por exemplo, imprimir apenas os elementos que são strings de uma lista mista.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li><code>if condicao:</code> executa o bloco indentado apenas se a condição for <code>True</code>.</li>
+<li>Indentação define blocos em Python — é obrigatória e precisa ser consistente.</li>
+<li><code>elif</code> testa condições seguintes; <code>else</code> cobre o caso em que tudo é falso.</li>
+<li><code>if</code> ternário: <code>valor = A if condicao else B</code>.</li>
+<li><code>for var in sequencia:</code> itera por cada elemento da sequência.</li>
+<li>O bloco do <code>for</code> deve estar indentado; comandos fora do laço não são indentados.</li>
+<li><code>for</code> + <code>if</code> permite filtrar elementos durante a iteração.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code># if / elif / else
+x = 3
+if x == 3:
+    print(&quot;x vale 3&quot;)
+elif x &gt; 2:
+    print(&quot;x é maior do que 2&quot;)
+else:
+    print(&quot;x não vale 3 nem é maior que 2&quot;)
+
+# for iterando por uma sequência
+palavra = &quot;excesso&quot;
+print(&quot;soletrando:&quot;)
+for elemento in palavra:
+    print(elemento)      # indentado: dentro do for
+
+# for + if para filtrar
+categorias = [&#x27;zebra&#x27;, &#x27;person&#x27;, 5, &#x27;airplane&#x27;, 10, &#x27;car&#x27;]
+for elem in categorias:
+    if type(elem) == str:
+        print(elem)      # só imprime strings</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Esquecer os dois pontos após <code>if</code>, <code>elif</code>, <code>else</code> ou <code>for</code>.</li>
+<li>Errar a indentação: blocos mal indentados mudam o significado do código ou geram erro.</li>
+<li>Confundir <code>elif</code> com <code>else if</code> de outras linguagens — em Python é uma palavra só.</li>
+<li>Esquecer que o bloco do <code>for</code> precisa ser indentado para estar no laço.</li>
+<li>Usar <code>=</code> (atribuição) em vez de <code>==</code> (comparação) dentro de condições.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Com <code>for</code> dominado, a próxima aula apresenta a função <code>range()</code> para gerar intervalos numéricos, os laços aninhados, as diretivas <code>continue</code>/<code>break</code> e o laço <code>while</code>, que repete enquanto uma condição for verdadeira.</p>
+
+</div>

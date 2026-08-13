@@ -1,0 +1,79 @@
+<div class="content">
+<h1>Aula 09 — Agregação com GROUP BY e HAVING</h1>
+
+<blockquote><strong>Resumo didático</strong> — o que você DEVE entender ao sair desta aula.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Apresentar a <strong>agregação</strong> — transformar vários valores em um único valor — como a forma mais básica de análise de dados, usando funções de agregação, a cláusula GROUP BY e o HAVING para filtrar grupos.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+
+<p>O professor define agregação: <strong>entrada é um conjunto de valores, saída é um único valor</strong>. É a maneira mais simples de fazer análise e compreensão de dados, usada desde os primórdios da humanidade. As funções mais comuns: <strong>AVG</strong> (média), <strong>COUNT</strong> (contagem), <strong>SUM</strong> (somatória), <strong>MAX</strong>, <strong>MIN</strong>, além de <strong>STDDEV</strong> (desvio padrão) e <strong>VARIANCE</strong> (variância) — estas últimas permitem conclusões com embasamento estatístico (como a distribuição se desvia da média).</p>
+
+<p>A base de exemplo é a matrícula: cada aluno cursa disciplinas com notas. Consultas iniciais:</p>
+<ul>
+<li><code>SELECT AVG(nota), MAX(nota), MIN(nota) FROM matricula;</code> — média, nota máxima e mínima de todos os alunos.</li>
+<li>Com filtro: média apenas dos aprovados (<code>WHERE nota &gt;= 5</code>).</li>
+</ul>
+
+<p>O problema: essas consultas consideram todos os alunos juntos. Para saber a média <strong>por aluno</strong>, usa-se o <strong>GROUP BY</strong>:</p>
+<pre><code>SELECT aluno, AVG(nota) FROM matricula GROUP BY aluno;</code></pre>
+<p>O GROUP BY cria grupos (um por aluno) e aplica a função de agregação dentro de cada grupo. Regra importante: <strong>todo atributo no SELECT que não é função de agregação precisa estar no GROUP BY</strong> — senão o banco não sabe qual valor exibir.</p>
+
+<p>O professor mostra a evolução: agrupar por aluno e disciplina (<code>GROUP BY aluno, sigla</code>) para saber a média de cada aluno em cada disciplina, e usar <code>COUNT(*)</code> para saber quantas vezes o aluno cursou cada disciplina (alguns cursaram 3 vezes).</p>
+
+<p>Depois, o problema completo com <strong>junção</strong>: o nome do aluno está em outra tabela. Junta-se aluno com matrícula (<code>FROM aluno a, matricula m WHERE a.numero_usp = m.aluno</code>) e agrupa por nome:</p>
+<pre><code>SELECT a.nome, AVG(m.nota)
+FROM aluno a, matricula m
+WHERE a.numero_usp = m.aluno AND m.nota &gt;= 5
+GROUP BY a.nome
+ORDER BY a.nome;</code></pre>
+
+<p>O segundo problema exige <strong>HAVING</strong>: listar alunos que cursaram a mesma disciplina mais de uma vez, com nome da disciplina, número de vezes e nota máxima. A junção envolve três tabelas (aluno, matrícula, disciplina). O filtro &quot;cursou mais de uma vez&quot; é <code>COUNT(*) &gt; 1</code> — mas isso <strong>não cabe no WHERE</strong>, porque o WHERE é resolvido <strong>antes</strong> do GROUP BY (a contagem ainda não existe). A solução é o <strong>HAVING</strong>, que filtra <strong>depois</strong> do GROUP BY:</p>
+<pre><code>SELECT a.nome, d.nome, COUNT(*) AS vezes, MAX(m.nota)
+FROM aluno a, matricula m, disciplina d
+WHERE a.numero_usp = m.aluno AND m.sigla = d.sigla
+GROUP BY a.nome, d.nome
+HAVING COUNT(*) &gt; 1
+ORDER BY vezes DESC;</code></pre>
+<p>O professor reforça a <strong>ordem de execução do SQL</strong>: FROM/WHERE → GROUP BY → HAVING → SELECT → ORDER BY. O HAVING é &quot;um segundo WHERE&quot;, mas só funciona depois de um GROUP BY.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Agregação: vários valores → um valor (AVG, COUNT, SUM, MAX, MIN, STDDEV, VARIANCE).</li>
+<li>GROUP BY cria grupos e aplica a agregação em cada um.</li>
+<li>Todo atributo não agregado no SELECT deve estar no GROUP BY.</li>
+<li>GROUP BY com mais de um atributo cria grupos e subgrupos (ex.: aluno + disciplina).</li>
+<li>HAVING filtra grupos depois do GROUP BY (WHERE filtra antes).</li>
+<li>Junção + agregação: junte as tabelas antes de agrupar.</li>
+<li>Ordem de execução: FROM/WHERE → GROUP BY → HAVING → SELECT → ORDER BY.</li>
+<li>Agregação é o &quot;bê-á-bá&quot; da analítica, base de data warehouse.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>-- Média, nota máxima e mínima por aluno
+SELECT aluno, AVG(nota) AS media, MAX(nota) AS max, MIN(nota) AS min
+FROM matricula
+GROUP BY aluno;
+
+-- Alunos que cursaram a mesma disciplina mais de uma vez
+SELECT a.nome, d.nome, COUNT(*) AS vezes, MAX(m.nota) AS nota_max
+FROM aluno a, matricula m, disciplina d
+WHERE a.numero_usp = m.aluno AND m.sigla = d.sigla
+GROUP BY a.nome, d.nome
+HAVING COUNT(*) &gt; 1
+ORDER BY vezes DESC;</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Colocar no SELECT um atributo não agregado que não está no GROUP BY → erro.</li>
+<li>Tentar filtrar agregação no WHERE (<code>WHERE COUNT(*) &gt; 1</code>) → não funciona; use HAVING.</li>
+<li>Esquecer a condição de junção antes do GROUP BY → resultados errados.</li>
+<li>Confundir HAVING com WHERE: WHERE filtra duplas, HAVING filtra grupos.</li>
+<li>Achar que AVG sem GROUP BY é por grupo: sem GROUP BY, tudo é um único grupo.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>A próxima aula mostra as consultas alinhadas (subqueries), que permitem quebrar consultas complexas em partes.</p>
+
+</div>

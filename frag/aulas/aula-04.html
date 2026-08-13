@@ -1,0 +1,59 @@
+<div class="content">
+<h1>Aula 04 — Chaves e Integridade Referencial</h1>
+
+<blockquote><strong>Resumo didático</strong> — o que você DEVE entender ao sair desta aula.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Mostrar como uma relação se torna um conjunto — pela <strong>chave primária</strong> — e como relações diferentes se conectam de forma íntegra pela <strong>chave estrangeira</strong> e pela <strong>integridade referencial</strong>. São os principais mecanismos do modelo relacional para manter os dados fiéis ao mundo real.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+
+<p>O professor começa com a restrição de <strong>unicidade (chave)</strong>: deve ser possível identificar univocamente cada dupla da relação, sem repetição. Ele usa exemplos brasileiros: o <strong>CPF</strong> foi criado (por volta dos anos 1990) para identificar cada contribuinte — dois brasileiros não podem ter o mesmo CPF; curiosamente, o CPF não tem foto. Já o <strong>RG</strong> não é único nacionalmente: o mesmo número pode existir em estados diferentes, então é preciso saber quem emitiu — por isso RG sozinho não é uma boa chave. Nome + nome da mãe é uma <strong>chave composta</strong> com probabilidade quase zero de colisão (usada quando a pessoa não tem CPF).</p>
+
+<p>Na USP, o equivalente é o <strong>número USP</strong>: único para cada aluno, professor e funcionário. Enquanto nome, idade e curso podem se repetir, o número USP nunca se repete. A chave primária <strong>não pode ser nula</strong> e pode ser composta por mais de um atributo.</p>
+
+<p>Ele então distingue os dois tipos de restrição de integridade:</p>
+<ol>
+<li><strong>Integridade de entidade</strong> (chave primária): define como cada unidade de informação é única (ex.: dois alunos não podem ter o mesmo número USP).</li>
+<li><strong>Integridade referencial</strong> (chave estrangeira): quando há mais de uma relação, o valor usado numa relação precisa existir em outra. Exemplos: o número do consumidor nos pedidos precisa existir na tabela de consumidores (&quot;só vendo para quem fez cadastro&quot;); o código do departamento do empregado precisa existir na relação de departamentos; o monitor de uma disciplina precisa ser um aluno existente (não dá para atribuir o monitor 5678 se não existe aluno com esse número).</li>
+</ul>
+
+<p>A chave estrangeira <strong>também pode ser composta</strong> (ex.: nome + sobrenome de um funcionário referenciado pelos dependentes).</p>
+
+<p>Um banco relacional completo é composto por: <strong>conjunto de relações + restrições de integridade</strong> (entidade e referencial). Essas restrições vêm do <strong>universo</strong> que se quer representar: só existem aulas com professores que existem, só há matrículas de alunos matriculados. O modelo relacional apenas formaliza isso computacionalmente.</p>
+
+<p>Por fim, ele antecipa que os bancos <strong>NoSQL relaxam</strong> parte das exigências ACID, mas os dados continuam sujeitos à teoria dos conjuntos e à integridade referencial — porque essas restrições emergem do mundo real, não do modelo. Como as tabelas se referenciam entre si, você não pode mexer numa tabela ignorando as outras — é isso que trava operações que levariam a estados irreais.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Chave primária = unicidade: identifica cada dupla sem repetição; não pode ser nula.</li>
+<li>CPF, número USP, placa, número de série são chaves do mundo real; RG precisa do emissor.</li>
+<li>Chave composta = mais de um atributo (ex.: nome + nome da mãe).</li>
+<li>Integridade de entidade: cada entidade é única (chave primária).</li>
+<li>Integridade referencial: valor numa relação precisa existir em outra (chave estrangeira).</li>
+<li>Exemplos: pedido → consumidor; empregado → departamento; monitor → aluno.</li>
+<li>Banco relacional = relações + restrições de integridade; restrições vêm do universo real.</li>
+<li>NoSQL relaxa ACID, mas não escapa da unicidade e da integridade referencial.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>aluno(número_usp PK, nome, idade)          -- integridade de entidade
+disciplina(sigla PK, ..., monitor FK → aluno.número_usp)
+                                           -- integridade referencial
+
+Regra: monitor = 5678 só é aceito se existir aluno com número_usp 5678.
+Se 5678 não existe na tabela aluno → o banco REJEITA a dupla.</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Usar RG como chave sem considerar o órgão emissor (mesmo número em estados diferentes).</li>
+<li>Achar que chave estrangeira pode apontar para qualquer coluna: ela referencia uma <strong>chave</strong> (primária) da outra tabela.</li>
+<li>Esquecer que a chave primária não pode ser NULL.</li>
+<li>Tentar inserir um valor estrangeiro que não existe na tabela referenciada — o banco bloqueia (e isso é correto).</li>
+<li>Confundir 1:N (um departamento, vários empregados) com N:N — a integridade referencial modela o primeiro caso diretamente.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Agora que você entende o modelo relacional e suas restrições, a próxima aula mostra como traduzir esse projeto para SQL usando a linguagem de definição de dados (DDL).</p>
+
+</div>

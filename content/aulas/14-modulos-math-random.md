@@ -1,85 +1,57 @@
-# 14_modulos_math_random
+# Aula 14 — Módulos Python: `math` e `random`
 
-## Conceitos abordados
+> **Resumo didático** — você deve entender que módulos são bibliotecas de funções que ampliam o Python, e que `import`, `from ... import` e `import ... as` são as três formas de carregá-los. Com `math` ganhamos funções matemáticas e constantes; com `random`, números pseudo-aleatórios.
 
-- Python - Aula 14
-- Conteúdo
-- - Módulos Python
-- - Módulos: math e random
-- Módulos Python
-- `import`, `from` e `as`
-- `math`
-- Exemplo de uso de `from  import `
-- `random`
-- Exemplo de uso de `import as`
-- Funções com listas
-- Controlando a geração pseudo-aleatória com `seed()`
-- Resumo da aula
+## Objetivo da aula
+Apresentar o conceito de módulos e as três formas de importá-los, explorando os módulos `math` (funções matemáticas e constantes) e `random` (geração de números pseudo-aleatórios e embaralhamento).
 
-## Exemplos de código
+## Conceitos em ordem (narrativa didática)
+Primeiro entendemos que o Python vem com funções nativas na *standard library*, mas que é possível carregar **módulos** adicionais com centenas de funcionalidades: matemática, interfaces gráficas, números aleatórios, gráficos, bancos de dados.
 
+Depois aprendemos as três formas de importar:
+- `import <modulo>` — usa o nome do módulo como prefixo (`math.log(31)`).
+- `import <modulo> as <apelido>` — apelido para facilitar a digitação (`import random as rd`).
+- `from <modulo> import <parte>` — importa apenas parte, poupando memória (`from math import pi`).
+
+Em seguida, exploramos o **`math`**: funções como `log` (com base opcional), `fsum` (soma de floats que evita erros de precisão, diferente de `sum`), e constantes como `pi`, `e`, `inf` e `nan`.
+
+Por fim, vimos o **`random`**, que gera números *pseudo*-aleatórios para simulações: `random()` (entre 0 e 1), `randint(a, b)` (inteiro entre a e b), `uniform(a, b)` (float), `shuffle(lista)` (embaralha), `sample(lista, k)` (sorteia k elementos) e `seed(s)` — que define a semente e permite **reproduzir** a mesma sequência, já que os números não são realmente aleatórios.
+
+## Pontos-chave
+- Módulos ampliam o Python; importe com `import`, `from ... import` ou `import ... as`.
+- `import modulo` exige prefixo; `from modulo import x` traz só `x` (economiza memória).
+- `math`: `log`, `fsum` (soma precisa de floats), constantes `pi`, `e`, `inf`, `nan`.
+- `random`: `random()`, `randint`, `uniform`, `shuffle`, `sample`, `seed`.
+- Números aleatórios são *pseudo*-aleatórios: com a mesma `seed`, a sequência se repete.
+- `seed()` permite reproduzir experimentos/simulações.
+
+## Exemplo essencial
 ```python
 import math
+print(math.log(31))            # logaritmo natural
+print(math.log(32, 2))         # log na base 2
+print(math.fsum([0.1]*10))     # soma precisa de floats
+print(math.pi, math.e)         # constantes
 
-# logaritmo natural
-print(math.log(31))
-
-# especificando a base
-print(math.log(32, 2))
-```
-
-```python
-# soma de floats que evita erros de precisão
-num_floats = [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
-# usando função padrão
-print(sum(num_floats))
-print(math.fsum(num_floats))
-```
-
-```python
-# constantes
-print(math.pi)
-print(math.e)
-print(math.inf)
-print(math.nan)
-```
-
-```python
-from math import pi
-print(pi)
-```
-
-```python
-from math import log, sqrt
-print(log(1001, 3))
-print(sqrt(100))
-```
-
-```python
-# podemos usar `rd` ao invés de `random` para acessar o módulo
 import random as rd
+print(rd.random())             # float entre 0 e 1
+print(rd.randint(1, 10))       # inteiro entre 1 e 10
+
+numeros = [111, 222, 333, 444]
+print(rd.sample(numeros, 2))   # amostra de 2 elementos
+rd.shuffle(numeros)            # embaralha a lista
+print(numeros)
+
+rd.seed('a')                   # semente fixa → sequência reproduzível
+print([rd.randint(1, 10) for _ in range(5)])
 ```
 
-```python
-# sorteia um número aleatório
-print(rd.random())
+## Armadilhas comuns
+- Esquecer o prefixo do módulo após `import modulo` (usar `log` em vez de `math.log`).
+- Confundir `sum` com `math.fsum`: para floats, `fsum` evita erros de precisão.
+- Achar que `randint(a, b)` exclui `b` — inclui ambos os extremos.
+- Esquecer que `shuffle` modifica a lista in place (não retorna nova).
+- Não usar `seed()` quando quiser resultados reproduzíveis.
 
-# exemplo: criando uma lista de números aleatórios
-num_aleat = []
-for i in range(5):
-    num_aleat.append(rd.random())
-    
-print(num_aleat)
-```
-
-```python
-# sorteia um numero aleatorio inteiro uniforme entre "a" e "b"
-print(rd.randint(1,10))
-
-# exemplo: criando uma lista de números aleatórios
-numint_1_10 = []
-for i in range(30):
-    numint_1_10.append(rd.randint(1,10))
-    
-print(numint_1_10)
-```
+## Conexão com a próxima aula
+Agora que sabemos importar módulos, a próxima aula apresenta o **NumPy** — o módulo de computação numérica — começando pelos **arrays**, sua criação, atributos e iteração.

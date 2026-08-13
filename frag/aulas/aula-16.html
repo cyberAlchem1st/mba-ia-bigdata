@@ -1,0 +1,104 @@
+<div class="content">
+<h1>Aula 16 — Common Table Expressions (CTE) no Oracle</h1>
+
+<blockquote><strong>Resumo didático</strong> — o que você DEVE entender ao sair desta aula.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Apresentar as Common Table Expressions (CTE) no Oracle: um recurso que permite <strong>modularizar, organizar e explicar</strong> consultas SQL grandes e complexas, quebrando-as em blocos nomeados com a cláusula <code>WITH</code>. O objetivo é clareza e legibilidade — não desempenho. A base de exemplo é o esquema de aluno/matrícula/turma/disciplina.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+
+<p>O motivador da CTE é a leitura: um SQL muito grande e complexo fica difícil de entender. A CTE permite <strong>decompor a consulta em etapas</strong> — primeiro filtra, depois calcula, depois junta, depois faz o filtro final — usando <strong>blocos nomeados</strong> com a cláusula <code>WITH</code>.</p>
+
+<p>O princípio fundamental: a cláusula <code>WITH</code> diz &quot;para este SQL, guarde o resultado (o conjunto de tuplas) sob este nome, para ser usado posteriormente <strong>na mesma consulta</strong>&quot;. Exemplo: <code>WITH matriculas_2024 AS (SELECT ... WHERE ano = 2024) SELECT ... FROM matriculas_2024</code>. É como salvar o resultado em uma variável — mas uma variável que <strong>só existe durante aquela consulta</strong>. Se você executar só a consulta final, <code>matriculas_2024</code> não existe: não é uma tabela permanente. O banco guarda o resultado intermediário em memória (ou em disco, se for grande) e, ao fim da consulta, ele não está mais disponível (eventualmente fica em cache por um tempo, mas via de regra some).</p>
+
+<p>Segundo exemplo: filtrar os alunos de 2024 com <strong>frequência maior que 70%</strong> (critério da USP) — dos oito alunos, sete passam — e guardar como <code>base_aprovados_frequencia</code>. Sobre esse resultado, pergunta-se quantos têm nota para passar (nota ≥ 5, ou ≥ 7 em algumas universidades). A CTE permite encadear raciocínios: primeiro define-se um conjunto, depois opera-se sobre ele.</p>
+
+<p>A CTE é comparada com a <strong>consulta aninhada</strong> (subquery): as duas resolvem o mesmo problema — criar um resultado intermediário e usá-lo depois. A diferença é de organização: na subquery o bloco interno fica dentro do <code>FROM</code>; na CTE ele é nomeado no <code>WITH</code> e referenciado pelo nome. Dá para resolver a mesma consulta de N maneiras em SQL (junção, subquery, CTE) — a CTE traz a vantagem de pensar em <strong>resultados intermediários nomeados</strong>.</p>
+
+<p>A CTE também guarda <strong>agregações</strong>: <code>WITH medias_disciplina AS (SELECT sigla, AVG(nota) AS media, COUNT(*) AS qtd FROM matricula GROUP BY sigla)</code> — depois você seleciona sobre esse resultado, podendo usar os nomes definidos (<code>media</code>, <code>qtd</code>) em vez das funções de agregação. Isso permite, por exemplo, juntar a média por disciplina com as matrículas para calcular <strong>a diferença de cada nota para a média da disciplina</strong> — algo que, como o professor lembra, a window function da aula anterior faz de forma mais simples. A CTE não substitui a window function; é só uma demonstração do que dá para fazer.</p>
+
+<p>É possível usar <strong>mais de um bloco</strong> na mesma consulta, separados por vírgula: <code>WITH matriculas_2024 AS (...), medias AS (SELECT ... FROM matriculas_2024 ...) SELECT ...</code> — blocos podem usar blocos anteriores, e o resultado final pode juntar vários deles (ex.: juntar <code>matriculas</code> com <code>medias</code> pela sigla).</p>
+
+<p>A aula combina CTE com <strong>window function</strong>: para pegar os melhores alunos de cada disciplina, o ranking é criado com <code>ROW_NUMBER() OVER (PARTITION BY sigla ORDER BY nota DESC)</code>. O problema: não dá para filtrar <code>WHERE posicao = 1</code> no mesmo <code>SELECT</code>, porque o <code>WHERE</code> é resolvido antes do <code>SELECT</code> criar o alias <code>posicao</code>. A solução é a <strong>consulta aninhada</strong> ou a <strong>CTE</strong>: calcula-se o ranking em um bloco nomeado e, sobre ele, faz-se a consulta final filtrando <code>posicao = 1</code>. Só sobram os melhores de cada disciplina.</p>
+
+<p>Outro recurso combinado: o <strong><code>CASE</code></strong> dentro da CTE para criar um atributo derivado. Para cada tupla, uma expressão avalia frequência e nota e devolve uma string de situação: <code>frequencia &lt; 70</code> → &quot;reprovado por frequência&quot;; <code>nota &lt; 5</code> → &quot;reprovado por nota&quot;; <code>nota &gt;= 7</code> → &quot;aprovado&quot;; senão → &quot;aprovado com bom desempenho&quot;. Esse resultado é guardado como <code>situacao_aluno</code> e, na consulta seguinte, agrega-se por situação (<code>GROUP BY situacao</code>) para contar quantos alunos estão em cada estado.</p>
+
+<p>Exemplo final com duas agregações: <code>media_geral</code> (média de todas as notas) e <code>medias_disciplina</code> (média por disciplina, <code>GROUP BY sigla</code>). Na terceira consulta, juntam-se os dois resultados e compara-se: <strong>quais disciplinas têm média maior que a média geral</strong> (no exemplo, só a disciplina com média acima de 7,5). A complexidade do raciocínio cresce por partes — esse é o espírito da CTE.</p>
+
+<p>Ponto importante: <strong>CTE não deixa a consulta mais rápida</strong> — o propósito é clareza e compartimentação. O desempenho depende do otimizador do SGBD; se houver problema de performance, usa-se <code>EXPLAIN</code> (fora do escopo da aula). Boas práticas: nomes descritivos, separar etapas conceitualmente diferentes (filtro, agregação, ranking, comparação final), evitar CTE desnecessárias e <strong>testar cada CTE isoladamente</strong> antes de juntar. O critério final: uma boa CTE torna a consulta mais legível.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>CTE = consulta nomeada com <code>WITH</code>; guarda um resultado intermediário <strong>durante a consulta</strong>.</li>
+<li>Não é tabela permanente: ao fim da consulta, o resultado não existe mais.</li>
+<li>Decompõe consultas grandes em etapas: filtrar → calcular → juntar → filtro final.</li>
+<li>Alternativa à consulta aninhada (subquery), com a vantagem de pensar em resultados intermediários nomeados.</li>
+<li>Suporta agregações, múltiplos blocos (separados por vírgula) e encadeamento entre blocos.</li>
+<li>Combina com window functions: o alias do ranking não pode ser usado no <code>WHERE</code> do mesmo <code>SELECT</code> — use CTE/subquery.</li>
+<li>Combina com <code>CASE</code> para criar atributos derivados (ex.: situação do aluno).</li>
+<li><strong>Não é recurso de desempenho</strong> — é recurso de escrita/clareza; o otimizador decide a performance.</li>
+<li>Boas práticas: nomes descritivos, separar etapas, evitar CTE desnecessárias, testar cada bloco isoladamente.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>-- CTE simples: resultado intermediário nomeado
+WITH matriculas_2024 AS (
+    SELECT a.nome, m.sigla, m.nota, m.frequencia
+    FROM matricula m JOIN aluno a ON m.numero_usp = a.numero_usp
+    WHERE m.ano = 2024
+)
+SELECT nome, sigla, nota
+FROM matriculas_2024
+ORDER BY nome;
+
+-- Múltiplos blocos encadeados + agregação
+WITH matriculas_2024 AS (
+    SELECT * FROM matricula WHERE ano = 2024
+),
+medias AS (
+    SELECT sigla, AVG(nota) AS media
+    FROM matriculas_2024
+    GROUP BY sigla
+)
+SELECT m.nome, m.sigla, m.nota, d.media
+FROM matriculas_2024 m JOIN medias d ON m.sigla = d.sigla;
+
+-- CTE + window function: melhores alunos por disciplina
+WITH ranking AS (
+    SELECT nome, sigla, nota,
+           ROW_NUMBER() OVER (PARTITION BY sigla ORDER BY nota DESC) AS posicao
+    FROM matricula m JOIN aluno a ON m.numero_usp = a.numero_usp
+)
+SELECT nome, sigla, nota
+FROM ranking
+WHERE posicao = 1;
+
+-- CTE + CASE: situação do aluno e contagem por situação
+WITH situacao_aluno AS (
+    SELECT nome, nota, frequencia,
+           CASE
+             WHEN frequencia &lt; 70 THEN &#x27;reprovado por frequencia&#x27;
+             WHEN nota &lt; 5 THEN &#x27;reprovado por nota&#x27;
+             WHEN nota &gt;= 7 THEN &#x27;aprovado&#x27;
+             ELSE &#x27;aprovado com bom desempenho&#x27;
+           END AS situacao
+    FROM matricula m JOIN aluno a ON m.numero_usp = a.numero_usp
+)
+SELECT situacao, COUNT(*) AS qtd
+FROM situacao_aluno
+GROUP BY situacao;</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Achar que a CTE acelera a consulta: é recurso de escrita/clareza; a performance depende do otimizador.</li>
+<li>Tentar usar o bloco nomeado fora da consulta em que foi definido: ele só existe durante aquela consulta.</li>
+<li>Usar o alias da window function no <code>WHERE</code> do mesmo <code>SELECT</code>: não funciona (WHERE vem antes do SELECT) — use CTE ou subquery.</li>
+<li>Criar CTEs desnecessárias: elas devem tornar o SQL mais legível, não mais confuso.</li>
+<li>Não testar cada bloco isoladamente: juntar tudo de uma vez dificulta encontrar erros.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Com as CTEs, encerra-se o bloco de recursos avançados do SQL no Oracle (funções analíticas + CTE). A disciplina de fundamentos de banco de dados está completa: relacional (Oracle), NoSQL (MongoDB), integração com Python e SQL avançado — a base para os próximos cursos do MBA.</p>
+
+</div>

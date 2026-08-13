@@ -1,0 +1,73 @@
+<div class="content">
+<h1>Aula 03 — Teoria dos Conjuntos no Modelo Relacional</h1>
+
+<blockquote><strong>Resumo didático</strong> — o que você DEVE entender ao sair desta aula.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Traduzir os conceitos da teoria dos conjuntos para a terminologia do modelo relacional: tabelas, duplas, atributos, esquema, instância e domínio. O objetivo é entender por que o modelo relacional é rigidamente estruturado e como isso garante qualidade de dados.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+
+<p>O professor começa mostrando que a <strong>tabela é a representação natural</strong> de informação para o ser humano — há tabelas em livros, jornais, direito, biologia, há séculos. Matematicamente, uma tabela é uma <strong>relação</strong>: cada linha (instância) guarda valores que têm relação entre si (ex.: nome, CPF, RG e data de nascimento de uma pessoa).</p>
+
+<p>Ele então define o vocabulário do modelo:</p>
+<ul>
+<li><strong>Duplas</strong> (registros, linhas): cada linha da tabela — ex.: João, Maria, José, Leandro.</li>
+<li><strong>Atributos</strong> (campos, propriedades): as colunas — nome, RG, CPF, data de nascimento.</li>
+<li><strong>Esquema</strong>: os metadados da relação — o conjunto de atributos (ex.: <code>aluno(nome, número_usp, curso)</code>).</li>
+<li><strong>Instância</strong>: o conjunto de valores/duplas efetivamente armazenados.</li>
+<li><strong>Domínio</strong>: o conjunto de valores permitidos para um atributo.</li>
+</ul>
+
+<p>Ele recomenda materiais de apoio: um livro de acesso aberto sobre o modelo relacional de dados (capítulo 7), além de um livro-texto tradicional de sistemas de banco de dados.</p>
+
+<p>O ponto central é que o modelo relacional é <strong>rigidamente estruturado</strong>: ao inserir um registro, você deve fornecer (no mínimo) os atributos obrigatórios do esquema e não pode acrescentar atributos fora do projeto. Exemplo: a relação <code>aluno</code> tem nome, número USP e curso — não dá para guardar a placa do carro do aluno, porque isso não foi previsto no projeto.</p>
+
+<p>Em seguida, as <strong>propriedades desejáveis dos valores</strong>:</p>
+<ul>
+<li><strong>Atômicos (indivisíveis)</strong>: não guardar &quot;José Rodrigues&quot; num único atributo — separar em nome e sobrenome.</li>
+<li><strong>Monovalorados</strong>: idade é um único valor; telefone deve ter campos separados (residencial, celular), não vários números no mesmo atributo.</li>
+</ul>
+
+<p>Depois, os <strong>domínios</strong> como ferramenta de qualidade: definir que nome é string de até 60 caracteres, que idade é inteiro entre 15 e 100, que código de disciplina segue um formato (ex.: 3 letras maiúsculas + traço + 4 dígitos). Se um dado foge do domínio (ex.: idade 200 anos), ele não tem qualidade — o banco deve impedir. Isso permite que algoritmos assumam padrões válidos.</p>
+
+<p>Ele introduz o valor especial <strong>NULL</strong>: um dado desconhecido, que não se aplica ou está indisponível (ex.: data de nascimento que a pessoa se recusou a informar). O projeto pode decidir se um atributo aceita NULL ou é obrigatório (NOT NULL).</p>
+
+<p>Por fim, a matemática do modelo: o <strong>grau</strong> de uma relação é o número de atributos; cada atributo tem um domínio; e a <strong>instância</strong> de uma relação é um subconjunto do <strong>produto cartesiano</strong> dos domínios. O produto cartesiano de dois conjuntos (ex.: {1,2,3} × {3,4,5}) lista todas as combinações possíveis — o banco só pode conter duplas que estejam dentro desse espaço de possibilidades. O esquema é <strong>estático</strong> (muda raramente), enquanto a instância é <strong>dinâmica</strong> (muda o tempo todo).</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Tabela = relação; linha = dupla/registro; coluna = atributo/campo.</li>
+<li>Esquema = metadados (conjunto de atributos); instância = valores armazenados; domínio = valores permitidos.</li>
+<li>Modelo relacional é rigidamente estruturado: atributos obrigatórios definidos no projeto, sem extras.</li>
+<li>Valores desejáveis: atômicos (indivisíveis) e monovalorados (um valor por campo).</li>
+<li>Domínios garantem qualidade de dados (tipos, formatos, faixas).</li>
+<li>NULL = desconhecido / não se aplica / indisponível — valor especial, diferente de zero ou vazio.</li>
+<li>Instância é subconjunto do produto cartesiano dos domínios.</li>
+<li>Esquema estático, instância dinâmica.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>Esquema:  aluno(nome, número_usp, curso)
+Domínios: nome = string(60) | número_usp = inteiro | curso = string(3 letras + &#x27;-&#x27; + 4 dígitos)
+
+Instância (3 duplas):
+  Paulo  | 999   | INFO
+  Isabela| 1000  | MAT
+  João   | 1001  | EST
+
+Regra de qualidade: idade deve ser inteiro entre 15 e 100.
+Idade = 200 → dado inválido, banco deve rejeitar (ou é corrupção, ou erro de digitação).</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Guardar nome e sobrenome juntos, ou vários telefones num mesmo campo: dificulta consultas futuras.</li>
+<li>Confundir NULL com zero ou string vazia: NULL significa &quot;desconhecido&quot;, não &quot;nada&quot;.</li>
+<li>Achar que dá para adicionar qualquer coluna depois: o relacional exige pensar no esquema antes.</li>
+<li>Ignorar domínios: sem restrição de formato, dados inconsistentes quebram algoritmos de análise.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Com os blocos do modelo definidos, a próxima aula mostra como chaves e integridade referencial fazem as relações virarem conjuntos e se conectarem entre si.</p>
+
+</div>

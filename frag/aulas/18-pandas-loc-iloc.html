@@ -1,0 +1,57 @@
+<div class="content">
+<h1>Aula 18 — Pandas: DataFrame e Localização com <code>loc</code> e <code>iloc</code></h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que o Pandas organiza dados em <strong>DataFrames</strong> (tabelas com linhas e colunas rotuladas) e que <code>loc</code> seleciona por <strong>rótulo</strong> (com intervalo fechado e máscara booleana), enquanto <code>iloc</code> seleciona por <strong>posição</strong> (como uma matriz, com intervalo aberto).</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Introduzir o módulo Pandas e a estrutura DataFrame: carregar dados (CSV), analisar a estrutura, acessar colunas e linhas, criar/remover colunas e dominar a diferença entre <code>loc</code> (rótulos) e <code>iloc</code> (posições).</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro entendemos o que é o <strong>Pandas</strong>: um pacote construído sobre o NumPy que organiza dados em formato de tabela, com funcionalidades para processar e tratar dados. Ele oferece três estruturas: Series, DataFrame e Panel (não abordado). Vimos que Pandas carrega arquivos de vários formatos — texto, JSON, XML, HTML, CSV, Excel e até direto de bancos de dados.</p>
+
+<p>Depois conhecemos o <strong>DataFrame</strong>: uma estrutura semelhante a uma planilha, em que linhas e colunas são indexadas por <strong>rótulos</strong>. Aprendemos métodos para analisá-lo: <code>info()</code> (informação geral), <code>head()</code> (primeiras linhas), <code>sample(n)</code> (amostra), e atributos como <code>shape</code>, <code>dtypes</code> e <code>columns</code>.</p>
+
+<p>Em seguida, vimos o <strong>acesso a colunas</strong>: por rótulo com colchetes (<code>df[&#x27;day&#x27;]</code>), por atributo (<code>df.day</code>, não recomendado) e com lista de rótulos (<code>df[[&#x27;day&#x27;, &#x27;num access&#x27;]]</code>). Para converter em valores usamos <code>df[&#x27;coluna&#x27;].values</code>. Também vimos a <strong>busca (query)</strong> com expressões (<code>df.query(&#x27;month == 6&#x27;)</code>) e a <strong>criação/remoção de colunas</strong> (atribuição, <code>del</code> e <code>drop(coluna, axis=1)</code>).</p>
+
+<p>Por fim, o coração da aula: <strong>acessar linhas</strong>. <code>iloc</code> manipula o DataFrame como uma matriz, com índices inteiros (posição), e o fatiamento é <strong>aberto</strong> no final (padrão Python). <code>loc</code> seleciona pelos <strong>rótulos</strong> (índices) ou por <strong>máscara booleana</strong>, e — excepcionalmente — o fatiamento com <code>loc</code> é <strong>fechado</strong> nos dois extremos. Vimos <code>set_index()</code> para definir um índice a partir de uma coluna (com <code>inplace=True</code>), e que ambos retornam cópias.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>DataFrame = tabela com linhas e colunas rotuladas (como planilha).</li>
+<li><code>read_csv()</code> carrega CSV; <code>info()</code>, <code>head()</code>, <code>sample()</code> analisam.</li>
+<li>Colunas: <code>df[&#x27;col&#x27;]</code>, <code>df[[&#x27;c1&#x27;,&#x27;c2&#x27;]]</code>, <code>df.query(&#x27;expr&#x27;)</code>.</li>
+<li>Criar coluna: <code>df[&#x27;nova&#x27;] = valores</code>; remover: <code>del</code> ou <code>drop(col, axis=1)</code>.</li>
+<li><code>iloc</code> seleciona por posição inteira (como matriz); fatiamento aberto no final.</li>
+<li><code>loc</code> seleciona por rótulo ou máscara booleana; fatiamento <strong>fechado</strong> nos extremos.</li>
+<li><code>set_index(&#x27;col&#x27;, inplace=True)</code> define o índice; <code>loc</code>/<code>iloc</code> retornam cópias.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>import pandas as pd
+df = pd.read_csv(&#x27;data_access.csv&#x27;)   # carrega CSV
+df.set_index(&#x27;id&#x27;, inplace=True)      # define índice a partir da coluna &#x27;id&#x27;
+
+# loc: por rótulo, intervalo fechado
+print(df.loc[20])                     # linha com rótulo 20
+print(df.loc[10:30, [&#x27;category&#x27;]])    # rótulos 10..30 (30 INCLUSO)
+
+# loc com máscara booleana
+print(df.loc[df[&#x27;num access&#x27;] &gt; 1000])
+
+# iloc: por posição, intervalo aberto
+print(df.iloc[1])                     # segunda linha (posição 1)
+print(df.iloc[3:5, 2:4])              # posições 3..4 e colunas 2..3 (5 e 4 EXCLUSOS)</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Confundir <code>loc</code> (rótulo, intervalo fechado) com <code>iloc</code> (posição, intervalo aberto).</li>
+<li>Acessar coluna com espaço no nome por atributo (<code>df.num access</code> → erro).</li>
+<li>Esquecer <code>inplace=True</code> no <code>set_index</code> — sem ele, o DataFrame não muda.</li>
+<li>Achar que <code>df[&#x27;col&#x27;]</code> retorna lista — retorna uma Series.</li>
+<li>Usar <code>drop</code> sem <code>axis=1</code> para colunas (padrão é <code>axis=0</code>, linhas).</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Agora que sabemos navegar por DataFrames, a próxima aula apresenta as <strong>Series</strong>, as <strong>estatísticas</strong> descritivas e o <strong>agrupamento</strong> com <code>groupby</code> e <code>agg</code>.</p>
+
+</div>

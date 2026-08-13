@@ -1,0 +1,64 @@
+<div class="content">
+<h1>Aula 17 — NumPy: Broadcasting, Reduções, Ordenação e Aritmética</h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que o <strong>broadcasting</strong> estende arrays de dimensões diferentes para operações elemento a elemento, que as <strong>reduções</strong> (<code>sum</code>, <code>mean</code>, <code>min</code>, <code>argmax</code>...) resumem arrays (com <code>axis</code> controlando a direção), e que <code>*</code> é multiplicação elemento a elemento enquanto <code>dot()</code> é a multiplicação matricial.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Apresentar o broadcasting (extensão de arrays para operações element-wise), os operadores relacionais, as reduções (com o parâmetro <code>axis</code>), a ordenação e a aritmética vetorial/matricial com <code>dot()</code>.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro entendemos o <strong>broadcasting</strong>: as operações aritméticas (<code>+</code>, <code>-</code>, <code><em></code>, <code>/</code>) em NumPy são feitas <strong>elemento a elemento</strong>, e o broadcasting transforma os operandos para que tenham as mesmas dimensões. Ao operar um <strong>escalar</strong> com um array, o escalar é replicado em um array com a mesma forma. Entre <strong>arrays</strong>, as dimensões devem ser compatíveis em algum eixo, e o broadcasting estende os demais — por exemplo, um vetor linha <code>(5,)</code> multiplicado por uma matriz <code>(5,5)</code> se estende em linhas; um vetor coluna <code>(5,1)</code> se estende em colunas. Quando um é linha e outro é coluna, ambos são estendidos. O material alerta: <code></em></code> é multiplicação <strong>elemento a elemento</strong>, não matricial.</p>
+
+<p>Depois vimos os <strong>operadores relacionais</strong>: <code>==</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code> são aplicados elemento a elemento, gerando arrays booleanos. <code>np.array_equal(A, B)</code> compara arrays inteiros.</p>
+
+<p>Em seguida, as <strong>reduções</strong>: métodos aplicados ao array como um todo ou por linhas/colunas. O parâmetro <code>axis</code> controla a direção: sem <code>axis</code>, um único valor; <code>axis=0</code> reduz por colunas; <code>axis=1</code> reduz por linhas. Vimos reduções lógicas (<code>all</code>, <code>any</code>) e aritméticas/estatísticas (<code>sum</code>, <code>mean</code>, <code>median</code>, <code>std</code>, <code>min</code>, <code>max</code>, <code>argmin</code>, <code>argmax</code>).</p>
+
+<p>Depois, a <strong>ordenação</strong>: <code>A.sort()</code> ordena <em>in place</em> (modifica o array, por padrão por linhas, <code>axis=1</code>), enquanto <code>np.sort(A)</code> gera uma cópia ordenada sem tocar no original. Por fim, a <strong>aritmética vetorial e matricial</strong>: a multiplicação de matriz por vetor (ou matriz por matriz), como na álgebra linear, é feita com <code>dot()</code> — e as dimensões devem ser compatíveis.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Broadcasting estende arrays para operações element-wise; <code>*</code> é multiplicação elemento a elemento.</li>
+<li>Escalar + array = escalar replicado; vetor linha/coluna se estende nas linhas/colunas.</li>
+<li>Operadores relacionais geram arrays booleanos elemento a elemento.</li>
+<li>Reduções: <code>sum</code>, <code>mean</code>, <code>median</code>, <code>std</code>, <code>min</code>, <code>max</code>, <code>argmin</code>, <code>argmax</code>, <code>all</code>, <code>any</code>.</li>
+<li><code>axis=0</code> reduz por colunas; <code>axis=1</code> por linhas; sem <code>axis</code>, valor único.</li>
+<li><code>A.sort()</code> é in place; <code>np.sort(A)</code> retorna cópia ordenada.</li>
+<li>Multiplicação matricial usa <code>dot()</code> (dimensões compatíveis), não <code>*</code>.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>import numpy as np
+
+A = np.arange(25).reshape(5, 5)   # matriz 5x5
+v = np.arange(5)                  # vetor linha (5,)
+B = v * A                         # broadcasting: v se estende nas linhas
+print(B.shape)                    # (5, 5)
+
+# Reduções com axis
+print(np.sum(A))                  # soma de todos os elementos
+print(np.sum(A, axis=0))          # soma por coluna
+print(np.mean(A, axis=1))         # média por linha
+
+# Ordenação: in place vs cópia
+C = np.sort(A)                    # cópia ordenada (A intacto)
+A.sort()                          # ordena A in place
+
+# Multiplicação matricial
+M = np.array([[1, 2], [3, 4]])
+w = np.array([1, 2]).reshape(2, 1)
+print(np.dot(M, w))               # [[5], [11]] — matriz 2x2 * vetor 2x1</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Confundir <code>*</code> (elemento a elemento) com <code>dot()</code> (matricial).</li>
+<li>Usar <code>and</code>/<code>or</code> em vez de <code>&amp;</code>/<code>|</code> para combinar máscaras booleanas.</li>
+<li>Errar a direção do <code>axis</code>: <code>axis=0</code> é por coluna, <code>axis=1</code> é por linha.</li>
+<li>Achar que <code>A.sort()</code> retorna o array ordenado — modifica in place e retorna <code>None</code>.</li>
+<li>Tentar <code>dot</code> com dimensões incompatíveis → erro.</li>
+<li>Esquecer que <code>argmax</code> retorna a <em>posição</em> do maior valor, não o valor.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Agora que dominamos arrays, reduções e broadcasting, a próxima aula introduz o <strong>Pandas</strong> — construído sobre o NumPy — começando pelos <strong>DataFrames</strong> e pela localização de dados com <code>loc</code> e <code>iloc</code>.</p>
+
+</div>

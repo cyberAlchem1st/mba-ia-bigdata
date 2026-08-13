@@ -1,0 +1,59 @@
+<div class="content">
+<h1>Aula 21 — Pandas: Preparação de Dados</h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que <em>tidy data</em> (dados organizados) segue três regras — cada variável em uma coluna, cada observação em uma linha, cada unidade observacional em uma tabela — e que <code>melt</code>, <code>merge</code> e <code>concat</code> são as ferramentas para reorganizar e combinar tabelas até chegar nesse formato.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Apresentar a preparação de dados: os princípios de <em>tidy data</em> (que correspondem à 3ª forma normal de Codd), a reorganização de tabelas com <code>melt</code>, e a combinação de DataFrames com <code>merge</code> e <code>concat</code>.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro entendemos o objetivo da preparação de dados: que cada <strong>variável</strong> forme uma coluna, cada <strong>observação</strong> forme uma linha e cada <strong>tipo de unidade observacional</strong> forme uma tabela — o que o material associa à 3ª forma normal de Codd. O exemplo: recebemos duas tabelas de temperaturas por cidade (uma por dia), organizadas de formas diferentes, e precisamos consolidá-las para que cada observação seja (cidade, dia, temperatura).</p>
+
+<p>Depois vimos o <strong><code>melt()</code></strong>, que &quot;derrete&quot; a tabela para o formato longo: <code>id_vars</code> são as variáveis que permanecem como colunas, e <code>value_vars</code> (ou o resto) viram linhas. Aprendemos a nomear as colunas resultantes com <code>var_name</code> e <code>value_name</code>, a resetar o índice para transformar rótulos em colunas (<code>rename_axis(&#x27;city&#x27;).reset_index()</code>) e a ajustar os dias da segunda tabela com <code>apply</code>/<code>map</code> somando o último dia da primeira.</p>
+
+<p>Em seguida, a <strong>combinação</strong> de DataFrames. <code>merge</code> combina dados vinculando linhas por uma ou mais <strong>chaves</strong> — por valores de colunas, por coluna em um e índice no outro (<code>left_on</code>/<code>right_index</code>), ou por índices nos dois. O parâmetro <code>how</code> controla a união: <code>outer</code> (união) e <code>inner</code> (interseção). <code>concat</code> concatena DataFrames/Series por um eixo: <code>axis=0</code> empilha por linhas, <code>axis=1</code> por colunas (e, com séries, gera um DataFrame).</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Tidy data: cada variável em coluna, cada observação em linha, cada unidade em tabela.</li>
+<li><code>melt(id_vars=..., value_name=..., var_name=...)</code> transforma para formato longo.</li>
+<li><code>rename_axis(&#x27;nome&#x27;).reset_index()</code> transforma rótulos do índice em coluna.</li>
+<li><code>merge</code> combina por chaves: <code>on</code>, <code>left_on</code>/<code>right_on</code>, <code>left_index</code>/<code>right_index</code>.</li>
+<li><code>how=&#x27;outer&#x27;</code> = união; <code>how=&#x27;inner&#x27;</code> = interseção (padrão).</li>
+<li><code>concat([df1, df2], axis=0)</code> empilha linhas; <code>axis=1</code> junta colunas.</li>
+<li><code>concat</code> com séries em <code>axis=1</code> produz um DataFrame.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>import pandas as pd
+
+# melt: do formato largo para o longo
+dtemp1 = pd.DataFrame([[23, 21, 20], [30, 29, 28]],
+                      index=[&#x27;São Paulo&#x27;, &#x27;Fortaleza&#x27;])
+dtemp1 = dtemp1.rename_axis(&#x27;city&#x27;).reset_index()
+tabela1 = dtemp1.melt(id_vars=[&#x27;city&#x27;], value_name=&#x27;temperature&#x27;, var_name=&#x27;day&#x27;)
+print(tabela1)
+
+# merge: combinar por coluna e índice
+dcity = pd.DataFrame({&#x27;country&#x27;: [&#x27;BR&#x27;, &#x27;BR&#x27;]},
+                     index=[&#x27;São Paulo&#x27;, &#x27;Fortaleza&#x27;])
+tabela1 = pd.merge(tabela1, dcity, left_on=&#x27;city&#x27;, right_index=True, how=&#x27;outer&#x27;)
+
+# concat: empilhar duas tabelas de temperaturas
+tabela_temperaturas = pd.concat([tabela1, tabela2], axis=0)
+print(tabela_temperaturas)</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Esquecer que <code>melt</code> sem <code>id_vars</code> &quot;derrete&quot; tudo, perdendo variáveis identificadoras.</li>
+<li>Esquecer <code>rename_axis(...).reset_index()</code> quando a informação está no índice.</li>
+<li>Confundir <code>merge</code> (por chaves, combina colunas) com <code>concat</code> (por eixo, empilha).</li>
+<li>Esquecer <code>how=&#x27;outer&#x27;</code> quando quer manter todos os valores de ambos os lados.</li>
+<li>Confundir <code>left_on</code>/<code>right_on</code> (colunas) com <code>left_index</code>/<code>right_index</code> (índices).</li>
+<li>Esquecer de ajustar índices/dias após concatenar (buracos ou duplicatas).</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Agora que sabemos preparar e combinar dados em tabelas organizadas, a próxima aula fecha o curso de Python com a <strong>visualização de dados</strong> — criando gráficos com Matplotlib e Seaborn para comunicar os insights extraídos dos dados.</p>
+
+</div>

@@ -1,0 +1,61 @@
+<div class="content">
+<h1>Aula 19 — Pandas: Series, Estatísticas e Agrupamento</h1>
+
+<blockquote><strong>Resumo didático</strong> — você deve entender que uma <strong>Series</strong> é um array unidimensional com rótulos (como uma coluna de DataFrame ou um dicionário), que o Pandas oferece <strong>estatísticas</strong> descritivas (<code>mean</code>, <code>std</code>, <code>describe</code>, <code>corr</code>) e que <strong><code>groupby</code> + <code>agg</code></strong> permitem calcular métricas por grupos de valores.</blockquote>
+
+<h2>Objetivo da aula</h2>
+<p>Apresentar a estrutura Series, as funções estatísticas do Pandas e o agrupamento de dados com <code>groupby</code> e <code>agg</code>, incluindo agrupamento por múltiplas colunas e o achatamento de índices com <code>reset_index</code>.</p>
+
+<h2>Conceitos em ordem (narrativa didática)</h2>
+<p>Primeiro vimos a <strong>Series</strong>: um array unidimensional com um tipo de dado, similar a um dicionário (índice que funciona como chave + valores). Pode ser criada a partir de um array NumPy, de um dicionário ou até de um escalar. Quando o índice não é especificado, é numérico começando em 0. Séries se comportam de forma muito similar a <code>ndarrays</code>; podemos obter o array com <code>serie.array</code> ou <code>serie.to_numpy()</code>.</p>
+
+<p>Depois vimos operações com <strong>operadores lógicos</strong>: em NumPy e Pandas, <code>&amp;</code> (E), <code>|</code> (OU) e <code>~</code> (NÃO) — não <code>and</code>/<code>or</code>/<code>not</code>. Exemplo: filtrar linhas de um DataFrame com múltiplas condições (<code>df.loc[(df[&#x27;country&#x27;]==&#x27;Puerto Rico&#x27;) &amp; (df[&#x27;year&#x27;]&gt;=1990)]</code>).</p>
+
+<p>Em seguida, as <strong>estatísticas</strong>: funções básicas que retornam um escalar como <code>mean</code>, <code>std</code>, <code>quantile</code>, <code>min</code>, <code>max</code>, e mais complexas como <code>cov</code> (covariância) e <code>corr</code> (correlação). O método <code>describe()</code> gera estatística descritiva para todas as colunas numéricas de uma vez. O material recomenda consultar a documentação oficial — há muito ruído na internet.</p>
+
+<p>Por fim, o <strong>agrupamento</strong>: <code>df.groupby([&#x27;year&#x27;])[&#x27;lifeExp&#x27;].mean()</code> calcula a média por ano. Quando queremos aplicar funções próprias ou de bibliotecas externas, usamos <code>agg()</code> — inclusive com múltiplas funções, gerando um novo DataFrame. Também vimos agrupamento por <strong>múltiplas colunas</strong> (<code>groupby([&#x27;year&#x27;,&#x27;continent&#x27;])</code>), que cria um índice composto mais difícil de acessar — por isso é útil &quot;achatar&quot; com <code>reset_index()</code>.</p>
+
+<h2>Pontos-chave</h2>
+<ul>
+<li>Series = array 1D com rótulos; criada de array, dicionário ou escalar.</li>
+<li>Operadores lógicos em arrays/DataFrames: <code>&amp;</code>, <code>|</code>, <code>~</code> (não <code>and</code>/<code>or</code>/<code>not</code>).</li>
+<li>Estatísticas: <code>mean</code>, <code>std</code>, <code>quantile</code>, <code>min</code>, <code>max</code>, <code>cov</code>, <code>corr</code>, <code>describe</code>.</li>
+<li><code>groupby(coluna)</code> agrupa; aplique métricas por grupo.</li>
+<li><code>agg()</code> aplica funções próprias ou de bibliotecas (ex.: <code>np.mean</code>).</li>
+<li><code>agg</code> com lista de tuplas (nome, função) gera um novo DataFrame.</li>
+<li><code>groupby</code> por múltiplas colunas cria índice composto; use <code>reset_index()</code> para achatar.</li>
+</ul>
+
+<h2>Exemplo essencial</h2>
+<pre><code>import pandas as pd
+import numpy as np
+
+# Series a partir de dicionário
+veic = {&#x27;AAA0A00&#x27;: 1980, &#x27;BBB1B11&#x27;: 2001, &#x27;CCC2C22&#x27;: 1984}
+s_veic = pd.Series(veic)
+print(s_veic.mean())                    # média dos valores
+print(s_veic[s_veic &gt; s_veic.mean()])   # filtro com comparação
+
+# Estatísticas e correlação
+df = pd.read_csv(&#x27;countries_data.tsv&#x27;, sep=&#x27;\t&#x27;)
+print(df.describe())
+print(df[[&#x27;lifeExp&#x27;, &#x27;pop&#x27;, &#x27;gdpPercap&#x27;]].corr())
+
+# Agrupamento
+print(df.groupby([&#x27;year&#x27;])[&#x27;lifeExp&#x27;].mean())
+print(df.groupby([&#x27;year&#x27;])[&#x27;pop&#x27;].agg([(&#x27;media&#x27;, np.mean),
+                                       (&#x27;log10_somapop&#x27;, lambda v: np.log2(v.sum()))]))</code></pre>
+
+<h2>Armadilhas comuns</h2>
+<ul>
+<li>Usar <code>and</code>/<code>or</code> em vez de <code>&amp;</code>/<code>|</code> em filtros de DataFrame → erro ou resultado errado.</li>
+<li>Esquecer parênteses ao combinar condições com <code>&amp;</code>/<code>|</code>.</li>
+<li>Achar que <code>groupby</code> já retorna o resultado — ele retorna um objeto; é preciso aplicar uma métrica.</li>
+<li>Confundir <code>agg</code> (aplica funções) com <code>apply</code> (aplica função por coluna/linha).</li>
+<li>Esquecer <code>reset_index()</code> após <code>groupby</code> multi-coluna — o acesso fica difícil.</li>
+</ul>
+
+<h2>Conexão com a próxima aula</h2>
+<p>Agora que sabemos agrupar e calcular estatísticas, a próxima aula mostra as <strong>transformações</strong> com <code>apply</code>, <code>map</code> e <code>applymap</code> e a <strong>limpeza de dados</strong> — tratamento de valores faltantes e duplicados.</p>
+
+</div>
