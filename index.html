@@ -3,45 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TCC MBA ICMC-USP — Half-Life of Code</title>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="assets/style.css">
+<title>Início — MBA IA & Big Data — ICMC/USP</title>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<nav id="sidebar">
-  <div class="sidebar-header">
-    <h2>🎓 TCC Explorer</h2>
-    <span class="subtitle">MBA IA & Big Data — ICMC/USP</span>
-  </div>
-  <div id="nav-tree"></div>
-  <div class="sidebar-footer">
-    <button id="toggle-graph" class="btn-small">📊 Grafo Relacional</button>
-    <button id="toggle-theme" class="btn-small">🌓 Tema</button>
-  </div>
-</nav>
+<header class="site-header">
+  <h1>MBA IA & Big Data — ICMC/USP</h1>
+  <p class="subtitle">Hub de estudos — Turma 6 (2026)</p>
+</header>
 
-<main id="content">
-  <div id="markdown-render"></div>
+    <nav class="topnav">
+      <a href="index.html" class="active">Início</a>
+      <a href="disciplinas.html" class="">Disciplinas</a>
+      <a href="agenda.html" class="">Agenda</a>
+      <a href="aulas.html" class="">Aulas</a>
+      <a href="palestras.html" class="">Palestras</a>
+      <a href="transcricoes.html" class="">Transcrições</a>
+      <a href="tcc/index.html" class="">TCC</a>
+    </nav>
+    
+<main class="container">
+
+    <section class="hero">
+      <h2>MBA em Inteligência Artificial e Big Data — Turma 6</h2>
+      <p>ICMC/USP — PRCEU. Hub centralizado com disciplinas, aulas, resumos, transcrições e agenda.</p>
+      <p><a class="btn" href="https://cursosextensao.usp.br/course/view.php?id=4666">Abrir curso no Moodle</a>
+         <a class="btn" href="agenda.html">Ver agenda</a></p>
+    </section>
+
+    <h2>Próximas atividades</h2>
+    <ul class="event-list"><li><strong>T2/81/2026 22:00</strong> — [MBA-IABigData-T6] Curso 01 - Tutoria</li><li><strong>T2/81/2026 23:00</strong> — [MBA-IABigData-T6] Curso 02 - Tutoria com profa Roseli</li><li><strong>T1/81/2026 12:00</strong> — [MBA-IABigData-T6] Curso 02 - Tutoria com Prof. Ricardo</li><li><strong>T2/81/2026 22:00</strong> — [MBA-IABigData-T6] Curso 01 - Tutoria</li><li><strong>T2/81/2026 23:00</strong> — [MBA-IABigData-T6] Curso 02 - Tutoria</li><li><strong>T1/82/2026 12:00</strong> — [MBA-IABigData-T6] Curso 02 - Tutoria</li><li><strong>T1/82/2026 17:00</strong> — [MBA-IABigData-T6] Curso 15 - Palestra</li><li><strong>T2/82/2026 22:00</strong> — [MBA-IABigData-T6] Tutoria - Como funciona os TCCs e acompanhamento</li></ul>
+
+    <h2>Disciplinas</h2>
+    <div class="cards"><div class="card"><h3><a href="disciplinas.html#sec-1">Curso 01 — Python + SQL</a></h3><p>70 atividades</p></div><div class="card"><h3><a href="disciplinas.html#sec-2">Curso 02 — Ciência de Dados / ML</a></h3><p>33 atividades</p></div><div class="card"><h3><a href="disciplinas.html#sec-15">Curso 15 — Tendências e Mercado</a></h3><p>9 atividades</p></div><div class="card"><h3><a href="disciplinas.html#sec-21">Conteúdos interessantes</a></h3><p>3 atividades</p></div><div class="card"><h3><a href="disciplinas.html#sec-22">Informações importantes</a></h3><p>9 atividades</p></div></div>
+
+    <h2>Conteúdo</h2>
+    <div class="cards">
+      <div class="card"><h3><a href="aulas.html">Aulas</a></h3><p>Notebooks, slides e materiais por aula</p></div>
+      <div class="card"><h3><a href="palestras.html">Palestras</a></h3><p>Resumos e materiais das palestras</p></div>
+      <div class="card"><h3><a href="transcricoes.html">Transcrições</a></h3><p>Transcrições de vídeos e aulas gravadas</p></div>
+      <div class="card"><h3><a href="tcc/index.html">TCC Explorer</a></h3><p>Pesquisa e materiais do TCC</p></div>
+    </div>
+    
 </main>
-
-<div id="graph-panel" class="hidden">
-  <div id="graph-header">
-    <h3>🔗 Grafo Relacional de Conteúdo</h3>
-    <button id="close-graph" class="btn-small">✕</button>
-  </div>
-  <div id="graph-container">
-    <svg id="graph-svg"></svg>
-  </div>
-  <div id="graph-legend"></div>
-</div>
-
-<script src="assets/nav.js"></script>
-<script src="assets/graph.js"></script>
-<script src="assets/app.js"></script>
+<footer class="site-footer">
+  <p>Gerado em 12/08/2026 21:56 por <code>scripts/build.py</code> — dados em <code>data/</code>, conteúdo em <code>content/</code>.</p>
+</footer>
 </body>
 </html>

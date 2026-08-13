@@ -1,0 +1,18 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // Project-level config for the MBA repo.
+  // Enables the git MCP server pointed at THIS repository (the global config
+  // keeps it disabled because it needs a concrete repo path per project).
+  "mcp": {
+    "git": {
+      "type": "local",
+      "command": [
+        "mcp-server-git",
+        "-r",
+        "/Users/cyberalchem1st/mba-ia-bigdata"
+      ],
+      "enabled": true
+    }
+  }
+}

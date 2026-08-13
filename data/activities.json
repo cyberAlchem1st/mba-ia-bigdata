@@ -1,0 +1,108 @@
+[
+ {
+  "cmid": "283796",
+  "mod": "questionnaire",
+  "title": "Avaliação do Curso 01 - Linguagens e Ferramentas/Frameworks (Python + SQL)",
+  "dates": [],
+  "info": {
+   "Fecha": "is Buscar Fechar Buscar Alternar entrada de pesquisa 0 Notificações Você não tem nenhuma notificação Mostrar todos 0 Há 0 conversa"
+  }
+ },
+ {
+  "cmid": "283797",
+  "mod": "quiz",
+  "title": "Avaliação final - Linguagens e Ferramentas/Frameworks (Python + SQL) - T6",
+  "dates": [
+   "25 jul. 2026",
+   "24 ago. 2026"
+  ],
+  "info": {
+   "Fecha": "is Buscar Fechar Buscar Alternar entrada de pesquisa 0 Notificações Você não tem nenhuma notificação Mostrar todos 0 Há 0 conversa"
+  }
+ },
+ {
+  "cmid": "283830",
+  "mod": "quiz",
+  "title": "Atividade quinzenal 01 - Linguagens e Ferramentas/Frameworks (Python + SQL)",
+  "dates": [
+   "4 jul. 2026",
+   "24 ago. 2026",
+   "19 jul. 2026",
+   "19 jul. 2026"
+  ],
+  "info": {
+   "Fecha": "is Buscar Fechar Buscar Alternar entrada de pesquisa 0 Notificações Você não tem nenhuma notificação Mostrar todos 0 Há 0 conversa"
+  }
+ },
+ {
+  "cmid": "283854",
+  "mod": "quiz",
+  "title": "Atividade quinzenal 02 - Linguagens e Ferramentas/Frameworks (Python + SQL)",
+  "dates": [
+   "18 jul. 2026",
+   "24 ago. 2026",
+   "11 ago. 2026",
+   "11 ago. 2026"
+  ],
+  "info": {
+   "Fecha": "is Buscar Fechar Buscar Alternar entrada de pesquisa 0 Notificações Você não tem nenhuma notificação Mostrar todos 0 Há 0 conversa"
+  }
+ },
+ {
+  "cmid": "283904",
+  "mod": "quiz",
+  "title": "Atividade quinzenal 01 - Ciência de Dados, Aprendizado de Máquina e Mineração de Dados",
+  "dates": [
+   "1 ago. 2026",
+   "17 ago. 2026"
+  ],
+  "info": {
+   "Fecha": "is Buscar Fechar Buscar Alternar entrada de pesquisa 0 Notificações Você não tem nenhuma notificação Mostrar todos 0 Há 0 conversa"
+  }
+ },
+ {
+  "cmid": "284791",
+  "mod": "assign",
+  "title": "Tarefa: Resumo - Palestra bônus 01: Perception: Entendendo o usuário através da IA",
+  "dates": [
+   "7 ago. 2027"
+  ],
+  "info": {
+   "Fecha": "is Buscar Fechar Buscar Alternar entrada de pesquisa 0 Notificações Você não tem nenhuma notificação Mostrar todos 0 Há 0 conversa"
+  }
+ },
+ {
+  "cmid": "284793",
+  "mod": "assign",
+  "title": "Tarefa: Resumo - Palestra bônus 02: Assegure sua Estratégia de GenAI: Combinando 'Hardness' e Estimativa de Risco para Captura de Valor Sustentável",
+  "dates": [
+   "7 ago. 2027"
+  ],
+  "info": {
+   "Fecha": "is Buscar Fechar Buscar Alternar entrada de pesquisa 0 Notificações Você não tem nenhuma notificação Mostrar todos 0 Há 0 conversa"
+  }
+ },
+ {
+  "cmid": "284805",
+  "mod": "assign",
+  "title": "Tarefa: Resumo - Palestra bônus 03: O Moat de Dados: RLVR, Dados Sintéticos e a Nova Economia do Pós-Treinamento",
+  "dates": [
+   "7 ago. 2027"
+  ],
+  "info": {
+   "Fecha": "is Buscar Fechar Buscar Alternar entrada de pesquisa 0 Notificações Você não tem nenhuma notificação Mostrar todos 0 Há 0 conversa"
+  }
+ },
+ {
+  "cmid": "284779",
+  "mod": "assign",
+  "title": "Tarefa: Resumo - Palestra 01: Do laboratório ao mercado: a jornada do empreendedorismo acadêmico",
+  "dates": [
+   "8 ago. 2026",
+   "7 ago. 2027"
+  ],
+  "info": {
+   "Fecha": "is Buscar Fechar Buscar Alternar entrada de pesquisa 0 Notificações Você não tem nenhuma notificação Mostrar todos 0 Há 0 conversa"
+  }
+ }
+]

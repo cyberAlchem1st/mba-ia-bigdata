@@ -1,0 +1,1262 @@
+{
+ "course_id": 4666,
+ "title": "MBA em Inteligência Artificial e Big Data - 2026",
+ "url": "https://cursosextensao.usp.br/course/view.php?id=4666",
+ "institution": "ICMC/USP — PRCEU",
+ "calendar_embed": "https://calendar.google.com/calendar/embed?src=c_c5c059cdd50ee6303d33c090de9aba81b1867d08fe943a48595d73367360b6f1%40group.calendar.google.com",
+ "calendar_ical": "https://calendar.google.com/calendar/ical/c_c5c059cdd50ee6303d33c090de9aba81b1867d08fe943a48595d73367360b6f1%40group.calendar.google.com/public/basic.ics",
+ "sections": [
+  {
+   "section": 1,
+   "activities": [
+    {
+     "mod": "forum",
+     "title": "Fórum - Curso 01 - Linguagens e Ferramentas/Frameworks (Python + SQL)",
+     "url": "https://cursosextensao.usp.br/mod/forum/view.php?id=283795",
+     "cmid": "283795"
+    },
+    {
+     "mod": "page",
+     "title": "Aula Inaugural",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=287499",
+     "cmid": "287499"
+    },
+    {
+     "mod": "questionnaire",
+     "title": "Avaliação do Curso 01 - Linguagens e Ferramentas/Frameworks (Python + SQL)",
+     "url": "https://cursosextensao.usp.br/mod/questionnaire/view.php?id=283796",
+     "cmid": "283796"
+    },
+    {
+     "mod": "quiz",
+     "title": "Avaliação final - Linguagens e Ferramentas/Frameworks (Python + SQL) - T6",
+     "url": "https://cursosextensao.usp.br/mod/quiz/view.php?id=283797",
+     "cmid": "283797",
+     "dates": [
+      "25 jul. 2026",
+      "24 ago. 2026"
+     ]
+    },
+    {
+     "mod": "resource_json",
+     "title": "Avaliação final - Linguagens e Ferramentas/Frameworks (Python + SQL) - Enunciados",
+     "url": "https://cursosextensao.usp.br/mod/resource/view.php?id=283798&redirect=1",
+     "cmid": "283798"
+    },
+    {
+     "mod": "label",
+     "title": "Quinzena 01",
+     "url": null,
+     "cmid": null
+    },
+    {
+     "mod": "page",
+     "title": "00_introducao",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283805",
+     "cmid": "283805"
+    },
+    {
+     "mod": "page",
+     "title": "01_memoria_tipos",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283806",
+     "cmid": "283806"
+    },
+    {
+     "mod": "page",
+     "title": "02_variaveis_comentarios",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283807",
+     "cmid": "283807"
+    },
+    {
+     "mod": "page",
+     "title": "03_sequencias_tuplas_listas_strings",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283808",
+     "cmid": "283808"
+    },
+    {
+     "mod": "page",
+     "title": "04_estruturasdecontrole_iteracoes",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283809",
+     "cmid": "283809"
+    },
+    {
+     "mod": "page",
+     "title": "05_range_lacosaninhados_while",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283810",
+     "cmid": "283810"
+    },
+    {
+     "mod": "page",
+     "title": "06_codificando_funcoes",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283811",
+     "cmid": "283811"
+    },
+    {
+     "mod": "page",
+     "title": "07_sequencias_fatiamento",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283812",
+     "cmid": "283812"
+    },
+    {
+     "mod": "page",
+     "title": "08_metodosdelistasesequencias",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283813",
+     "cmid": "283813"
+    },
+    {
+     "mod": "page",
+     "title": "09_dicionarios",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283814",
+     "cmid": "283814"
+    },
+    {
+     "mod": "page",
+     "title": "10_colecoesaninhadas_comprehension",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283815",
+     "cmid": "283815"
+    },
+    {
+     "mod": "page",
+     "title": "11_comprehension_filtragem",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283816",
+     "cmid": "283816"
+    },
+    {
+     "mod": "page",
+     "title": "12_comprehensionparalelo_aninhados",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283817",
+     "cmid": "283817"
+    },
+    {
+     "mod": "page",
+     "title": "13_expressoeslambda",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283818",
+     "cmid": "283818"
+    },
+    {
+     "mod": "page",
+     "title": "14_modulos_math_random",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283819",
+     "cmid": "283819"
+    },
+    {
+     "mod": "page",
+     "title": "15_numpy_arrays_manipulacao_iteracao",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283820",
+     "cmid": "283820"
+    },
+    {
+     "mod": "page",
+     "title": "16_numpy_slicing_visoes",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283821",
+     "cmid": "283821"
+    },
+    {
+     "mod": "page",
+     "title": "17_numpy_broadcasting_reducoes_ordenacao",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283822",
+     "cmid": "283822"
+    },
+    {
+     "mod": "page",
+     "title": "18_Pandas_loc_iloc",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283823",
+     "cmid": "283823"
+    },
+    {
+     "mod": "page",
+     "title": "19_Pandas_series_estatisticas_agrupamento",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283824",
+     "cmid": "283824"
+    },
+    {
+     "mod": "page",
+     "title": "20_Pandas_apply_limpeza",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283825",
+     "cmid": "283825"
+    },
+    {
+     "mod": "page",
+     "title": "21_Pandas_preparacaodados",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283826",
+     "cmid": "283826"
+    },
+    {
+     "mod": "page",
+     "title": "22_Visualização",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=285987",
+     "cmid": "285987"
+    },
+    {
+     "mod": "url",
+     "title": "Exercícios de fixação",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283827&redirect=1",
+     "cmid": "283827"
+    },
+    {
+     "mod": "url",
+     "title": "Exercícios de fixação resolvidos",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283828&redirect=1",
+     "cmid": "283828"
+    },
+    {
+     "mod": "url",
+     "title": "Arquivos de dados para os exercícios",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283829&redirect=1",
+     "cmid": "283829"
+    },
+    {
+     "mod": "quiz",
+     "title": "Atividade quinzenal 01 - Linguagens e Ferramentas/Frameworks (Python + SQL)",
+     "url": "https://cursosextensao.usp.br/mod/quiz/view.php?id=283830",
+     "cmid": "283830",
+     "dates": [
+      "4 jul. 2026",
+      "24 ago. 2026",
+      "19 jul. 2026",
+      "19 jul. 2026"
+     ]
+    },
+    {
+     "mod": "resource_json",
+     "title": "Atividade quinzenal 01 - Linguagens e Ferramentas/Frameworks (Python + SQL) - Enunciados",
+     "url": "https://cursosextensao.usp.br/mod/resource/view.php?id=283831&redirect=1",
+     "cmid": "283831"
+    },
+    {
+     "mod": "label",
+     "title": "Quinzena 02",
+     "url": null,
+     "cmid": null
+    },
+    {
+     "mod": "url",
+     "title": "Visão Geral",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283834&redirect=1",
+     "cmid": "283834"
+    },
+    {
+     "mod": "url",
+     "title": "Suporte - CONEXÃO ORACLE",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283835&redirect=1",
+     "cmid": "283835"
+    },
+    {
+     "mod": "resource_pdf",
+     "title": "Suporte - Instalação MongoDB",
+     "url": "https://cursosextensao.usp.br/mod/resource/view.php?id=283836&redirect=1",
+     "cmid": "283836"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 01",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283837",
+     "cmid": "283837"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 02",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283838",
+     "cmid": "283838"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 03",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283839",
+     "cmid": "283839"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 04",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283840",
+     "cmid": "283840"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 05",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283841",
+     "cmid": "283841"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 06",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283842",
+     "cmid": "283842"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 07",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283843",
+     "cmid": "283843"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 08",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283844",
+     "cmid": "283844"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 09",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283845",
+     "cmid": "283845"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 10",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283846",
+     "cmid": "283846"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 11",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283847",
+     "cmid": "283847"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 12",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283848",
+     "cmid": "283848"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 13",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283849",
+     "cmid": "283849"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 14",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283850",
+     "cmid": "283850"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 15",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=285403",
+     "cmid": "285403"
+    },
+    {
+     "mod": "page",
+     "title": "Aula 16",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=285404",
+     "cmid": "285404"
+    },
+    {
+     "mod": "url",
+     "title": "Exercícios de fixação",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283851&redirect=1",
+     "cmid": "283851"
+    },
+    {
+     "mod": "url",
+     "title": "Exercícios de fixação - Gabarito",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283852&redirect=1",
+     "cmid": "283852"
+    },
+    {
+     "mod": "url",
+     "title": "Suporte - Exercícios de fixação - Dados Copa do Mundo",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283853&redirect=1",
+     "cmid": "283853"
+    },
+    {
+     "mod": "quiz",
+     "title": "Atividade quinzenal 02 - Linguagens e Ferramentas/Frameworks (Python + SQL)",
+     "url": "https://cursosextensao.usp.br/mod/quiz/view.php?id=283854",
+     "cmid": "283854",
+     "dates": [
+      "18 jul. 2026",
+      "24 ago. 2026",
+      "11 ago. 2026",
+      "11 ago. 2026"
+     ]
+    },
+    {
+     "mod": "resource_pdf",
+     "title": "Atividade quinzenal 02 - Linguagens e Ferramentas/Frameworks (Python + SQL) - Enunciados",
+     "url": "https://cursosextensao.usp.br/mod/resource/view.php?id=283855&redirect=1",
+     "cmid": "283855"
+    },
+    {
+     "mod": "label",
+     "title": "Tutorias",
+     "url": null,
+     "cmid": null
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 08-07-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=287731",
+     "cmid": "287731"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 11-07-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=287753",
+     "cmid": "287753"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 15-07-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=288331",
+     "cmid": "288331"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 18-07-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=288682",
+     "cmid": "288682"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 22-07-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=289125",
+     "cmid": "289125"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 23-07-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=289154",
+     "cmid": "289154"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 25-07-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=289172",
+     "cmid": "289172"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 29-07-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=289575",
+     "cmid": "289575"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 01-08-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=289626",
+     "cmid": "289626"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 05-08-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=289746",
+     "cmid": "289746"
+    }
+   ]
+  },
+  {
+   "section": 2,
+   "activities": [
+    {
+     "mod": "forum",
+     "title": "Fórum - Curso 02 - Ciência de Dados, Aprendizado de Máquina e Mineração de Dados",
+     "url": "https://cursosextensao.usp.br/mod/forum/view.php?id=283870",
+     "cmid": "283870"
+    },
+    {
+     "mod": "url",
+     "title": "Sugestao de Temas para o TCC",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283872&redirect=1",
+     "cmid": "283872"
+    },
+    {
+     "mod": "page",
+     "title": "Aula inaugural",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283881",
+     "cmid": "283881"
+    },
+    {
+     "mod": "label",
+     "title": "Quinzena 01",
+     "url": null,
+     "cmid": null
+    },
+    {
+     "mod": "page",
+     "title": "Introdução",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283883",
+     "cmid": "283883"
+    },
+    {
+     "mod": "page",
+     "title": "Aula1_Tipos de Dados",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283884",
+     "cmid": "283884"
+    },
+    {
+     "mod": "page",
+     "title": "Aula2 - Medidas localização",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283885",
+     "cmid": "283885"
+    },
+    {
+     "mod": "page",
+     "title": "Aula2 - Medidas localização - Prática",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283886",
+     "cmid": "283886"
+    },
+    {
+     "mod": "page",
+     "title": "Aula3 - Momentos",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283887",
+     "cmid": "283887"
+    },
+    {
+     "mod": "page",
+     "title": "Aula3 - Momentos - Prática",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283888",
+     "cmid": "283888"
+    },
+    {
+     "mod": "page",
+     "title": "Aula4 - Imputação",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283889",
+     "cmid": "283889"
+    },
+    {
+     "mod": "page",
+     "title": "Aula4 - Imputação - Prática",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283890",
+     "cmid": "283890"
+    },
+    {
+     "mod": "page",
+     "title": "Aula5 - Escalonamento Numerico Numerico",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283891",
+     "cmid": "283891"
+    },
+    {
+     "mod": "page",
+     "title": "Aula5 - Escalonamento MinMax Zscore - Prática",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283892",
+     "cmid": "283892"
+    },
+    {
+     "mod": "page",
+     "title": "Aula6a - Escalonamento Categorico Numerico",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283893",
+     "cmid": "283893"
+    },
+    {
+     "mod": "page",
+     "title": "Aula6b - Transformações Dados Heterogeneos - Prática",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283894",
+     "cmid": "283894"
+    },
+    {
+     "mod": "page",
+     "title": "Aula6c - Função LOG - Prática",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283895",
+     "cmid": "283895"
+    },
+    {
+     "mod": "page",
+     "title": "Aula7 - Reducao Dimensionalidade Correlação",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283896",
+     "cmid": "283896"
+    },
+    {
+     "mod": "page",
+     "title": "Aula7 - Correlacao - Prática",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283897",
+     "cmid": "283897"
+    },
+    {
+     "mod": "page",
+     "title": "Aula8 - Redução Dimensionalidade PCA",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283898",
+     "cmid": "283898"
+    },
+    {
+     "mod": "page",
+     "title": "Aula8 - PCA - Prática",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283899",
+     "cmid": "283899"
+    },
+    {
+     "mod": "page",
+     "title": "Aula9 - Dados Desbalanceados",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283900",
+     "cmid": "283900"
+    },
+    {
+     "mod": "page",
+     "title": "Aula9 - Dados Desbalanceados - Prática",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=283901",
+     "cmid": "283901"
+    },
+    {
+     "mod": "page",
+     "title": "Estudo de caso 01 - Parte 1",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=286103",
+     "cmid": "286103"
+    },
+    {
+     "mod": "page",
+     "title": "Estudo de caso 01 - Parte 2",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=286104",
+     "cmid": "286104"
+    },
+    {
+     "mod": "page",
+     "title": "Estudo de caso 02 - Parte 1",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=286105",
+     "cmid": "286105"
+    },
+    {
+     "mod": "page",
+     "title": "Estudo de caso 02 - Parte 2",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=286106",
+     "cmid": "286106"
+    },
+    {
+     "mod": "url",
+     "title": "Arquivos de dados",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283902&redirect=1",
+     "cmid": "283902"
+    },
+    {
+     "mod": "url",
+     "title": "Exercícios de fixação",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=283903&redirect=1",
+     "cmid": "283903"
+    },
+    {
+     "mod": "quiz",
+     "title": "Atividade quinzenal 01 - Ciência de Dados, Aprendizado de Máquina e Mineração de Dados",
+     "url": "https://cursosextensao.usp.br/mod/quiz/view.php?id=283904",
+     "cmid": "283904",
+     "dates": [
+      "1 ago. 2026",
+      "17 ago. 2026"
+     ]
+    },
+    {
+     "mod": "resource_json",
+     "title": "Atividade quinzenal 01 - Ciência de Dados, Aprendizado de Máquina e Mineração de Dados  - Enunciados",
+     "url": "https://cursosextensao.usp.br/mod/resource/view.php?id=283905&redirect=1",
+     "cmid": "283905"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 06-08-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=289749",
+     "cmid": "289749"
+    },
+    {
+     "mod": "page",
+     "title": "Tutoria 08-08-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=289783",
+     "cmid": "289783"
+    }
+   ]
+  },
+  {
+   "section": 15,
+   "activities": [
+    {
+     "mod": "forum",
+     "title": "Fórum Curso 15 - Tendências e Mercado em IA e BIGDATA",
+     "url": "https://cursosextensao.usp.br/mod/forum/view.php?id=284777",
+     "cmid": "284777"
+    },
+    {
+     "mod": "page",
+     "title": "Palestra bônus 01: Perception: Entendendo o usuário através da IA",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=284790",
+     "cmid": "284790"
+    },
+    {
+     "mod": "assign",
+     "title": "Tarefa: Resumo - Palestra bônus 01: Perception: Entendendo o usuário através da IA",
+     "url": "https://cursosextensao.usp.br/mod/assign/view.php?id=284791",
+     "cmid": "284791",
+     "dates": [
+      "7 ago. 2027"
+     ]
+    },
+    {
+     "mod": "page",
+     "title": "Palestra bônus 02: Assegure sua Estratégia de GenAI: Combinando 'Hardness' e Estimativa de Risco para Captura de Valor Sustentável",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=284792",
+     "cmid": "284792"
+    },
+    {
+     "mod": "assign",
+     "title": "Tarefa: Resumo - Palestra bônus 02: Assegure sua Estratégia de GenAI: Combinando 'Hardness' e Estimativa de Risco para Captura de Valor Sustentável",
+     "url": "https://cursosextensao.usp.br/mod/assign/view.php?id=284793",
+     "cmid": "284793",
+     "dates": [
+      "7 ago. 2027"
+     ]
+    },
+    {
+     "mod": "page",
+     "title": "Palestra bônus 03: O Moat de Dados: RLVR, Dados Sintéticos e a Nova Economia do Pós-Treinamento",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=287689",
+     "cmid": "287689"
+    },
+    {
+     "mod": "assign",
+     "title": "Tarefa: Resumo - Palestra bônus 03: O Moat de Dados: RLVR, Dados Sintéticos e a Nova Economia do Pós-Treinamento",
+     "url": "https://cursosextensao.usp.br/mod/assign/view.php?id=284805",
+     "cmid": "284805",
+     "dates": [
+      "7 ago. 2027"
+     ]
+    },
+    {
+     "mod": "page",
+     "title": "Palestra 01: Do laboratório ao mercado: a jornada do empreendedorismo acadêmico",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=284778",
+     "cmid": "284778"
+    },
+    {
+     "mod": "assign",
+     "title": "Tarefa: Resumo - Palestra 01: Do laboratório ao mercado: a jornada do empreendedorismo acadêmico",
+     "url": "https://cursosextensao.usp.br/mod/assign/view.php?id=284779",
+     "cmid": "284779",
+     "dates": [
+      "8 ago. 2026",
+      "7 ago. 2027"
+     ]
+    }
+   ]
+  },
+  {
+   "section": 21,
+   "activities": [
+    {
+     "mod": "label",
+     "title": "Monografias selecionadas das turmas anteriores",
+     "url": null,
+     "cmid": null
+    },
+    {
+     "mod": "url",
+     "title": "Monografias selecionadas da turma 2",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=284919&redirect=1",
+     "cmid": "284919"
+    },
+    {
+     "mod": "url",
+     "title": "Monografias selecionadas da turma 3",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=284920&redirect=1",
+     "cmid": "284920"
+    }
+   ]
+  },
+  {
+   "section": 22,
+   "activities": [
+    {
+     "mod": "label",
+     "title": "Abertura do MBA e Reuniões Gerais",
+     "url": null,
+     "cmid": null
+    },
+    {
+     "mod": "page",
+     "title": "Abertura da 6ª turma do MBA em IA e Big Data",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=284948",
+     "cmid": "284948"
+    },
+    {
+     "mod": "page",
+     "title": "Reunião com Coordenação 06-07-2026",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=287500",
+     "cmid": "287500"
+    },
+    {
+     "mod": "page",
+     "title": "Reunião com supervisora Mirela 22-07-2026 - Novos Alunos (de Julho/26) - Informações do Curso 0 e 1",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=289127",
+     "cmid": "289127"
+    },
+    {
+     "mod": "page",
+     "title": "Reunião Coordenação 22-07-2026 - com alunos novos",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=289182",
+     "cmid": "289182"
+    },
+    {
+     "mod": "label",
+     "title": "Manuais e outros documentos importantes",
+     "url": null,
+     "cmid": null
+    },
+    {
+     "mod": "resource_pdf",
+     "title": "Utilizando o Calendário do Moodle",
+     "url": "https://cursosextensao.usp.br/mod/resource/view.php?id=284957&redirect=1",
+     "cmid": "284957"
+    },
+    {
+     "mod": "url",
+     "title": "Como configurar a VPN USPnet",
+     "url": "https://cursosextensao.usp.br/mod/url/view.php?id=284958&redirect=1",
+     "cmid": "284958"
+    },
+    {
+     "mod": "page",
+     "title": "Como acessar as bases bibliográficas assinadas pela USP",
+     "url": "https://cursosextensao.usp.br/mod/page/view.php?id=284959",
+     "cmid": "284959"
+    }
+   ]
+  }
+ ],
+ "calendar_events": [
+  {
+   "summary": "[MBA-IABigData-T6] Curso 15 - Palestra",
+   "start": "20260523T130000Z",
+   "end": "20260523T140000Z",
+   "description": "<span>Link MBA IA e Bigdata - <a href=\"https://www.google.com/u",
+   "location": "",
+   "uid": "3mi2pvk28s8gmpbt19612dl4t4@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Abertura da Turma 6",
+   "start": "20260704T130000Z",
+   "end": "20260704T140000Z",
+   "description": "Canal do MBA: <a href=\"https://www.youtube.com/watch?v=UJQ9h9mX",
+   "location": "",
+   "uid": "7ecduphhlubkac5rbvm7ik620f@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Aula inaugural",
+   "start": "20260706T220000Z",
+   "end": "20260706T230000Z",
+   "description": "<a href=\"https://zoom.us/j/98382247791?pwd=kW8oJ05k9OfR0W69ZTBa",
+   "location": "",
+   "uid": "0ao3k55cc88v0qsam51347258n@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Reunião com coordenação",
+   "start": "20260706T230000Z",
+   "end": "20260707T000000Z",
+   "description": "<a href=\"https://zoom.us/j/93792786919?pwd=G2VKKMHZrbfFRavNQKmG",
+   "location": "",
+   "uid": "2uq5turqlb7anut6aov33v4ep3@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 00 - Tutoria",
+   "start": "20260708T220000Z",
+   "end": "20260708T230000Z",
+   "description": "<a href=\"https://zoom.us/j/93996771977?pwd=5VM5S9bm8ZQHYd5nab4v",
+   "location": "",
+   "uid": "7f9h728107lt7ktm71bc21j14n@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria",
+   "start": "20260708T230000Z",
+   "end": "20260709T000000Z",
+   "description": "<a href=\"https://zoom.us/j/99039096192?pwd=vQFI4itOhqWQyXyqLoxr",
+   "location": "",
+   "uid": "7kdu2bakqebis1b0a9rb0m6lb8@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria",
+   "start": "20260711T120000Z",
+   "end": "20260711T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "7v6h7228i4ga26cfoo3bn81vdr@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 00 - Tutoria com Prof. Lucas",
+   "start": "20260715T220000Z",
+   "end": "20260715T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9399677",
+   "location": "",
+   "uid": "7mbe5gdfpvn8k831q537mvcu9v@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria",
+   "start": "20260715T230000Z",
+   "end": "20260716T000000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "0qbbv05vvc92u62t1bpsohuos6@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria",
+   "start": "20260718T120000Z",
+   "end": "20260718T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "32rsh5mr2t01kl9f9qpi3a1cno@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 00 - Tutoria com Profa Mirela",
+   "start": "20260722T220000Z",
+   "end": "20260722T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9399677",
+   "location": "",
+   "uid": "6e31101f97ag91mim2vu2d7omg@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria com prof. Leandro",
+   "start": "20260722T230000Z",
+   "end": "20260723T000000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "5rrpg59vi7bf6vs7lai5vuef24@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria",
+   "start": "20260723T220000Z",
+   "end": "20260723T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "67ler1fv8edg5abp3d29g0lj8j@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria",
+   "start": "20260725T120000Z",
+   "end": "20260725T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "31bj2rhsh8v9eu906iqqp8mine@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 00 - Tutoria",
+   "start": "20260729T220000Z",
+   "end": "20260729T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9399677",
+   "location": "",
+   "uid": "01bbgq54arm5degkr81dcg5ukc@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria com prof. José Fernando",
+   "start": "20260729T230000Z",
+   "end": "20260730T000000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "2m0uv5i1vlophisjfmpnj4fgcb@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria",
+   "start": "20260801T120000Z",
+   "end": "20260801T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "60fkfd5fpatamp8se58b4rbdif@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Aula inaugural",
+   "start": "20260801T130000Z",
+   "end": "20260801T140000Z",
+   "description": "<a href=\"https://zoom.us/launch/jc/97739109459\">https://zoom.us",
+   "location": "",
+   "uid": "62krtqecogromm2hsjrbuu4a63@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 00 - Tutoria",
+   "start": "20260805T220000Z",
+   "end": "20260805T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9399677",
+   "location": "",
+   "uid": "2irn07uffc31jvi99ius7scma2@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria",
+   "start": "20260805T230000Z",
+   "end": "20260806T000000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "5tasrs9hbr4hq0kgead0tvj3ms@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260806T220000Z",
+   "end": "20260806T230000Z",
+   "description": "<a href=\"https://zoom.us/j/99001569126?pwd=zrlgGmvlL3zjMlpeIbA6",
+   "location": "",
+   "uid": "69cr2p645lma834qsv23fkqvb1@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260808T120000Z",
+   "end": "20260808T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "0qfka0t3gh4nuqk8jesthhqv8e@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 15 - Palestra",
+   "start": "20260808T130000Z",
+   "end": "20260808T140000Z",
+   "description": "Canal MBA IA Big Data <a href=\"https://www.youtube.com/watch?v=",
+   "location": "",
+   "uid": "50cu7akpjsgdem14kiomq97578@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria",
+   "start": "20260812T220000Z",
+   "end": "20260812T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "199msdhg615t26edc0o87i0pf6@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria com profa Roseli",
+   "start": "20260812T230000Z",
+   "end": "20260813T000000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "65euq0aq90785qfehngpacopq0@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria com Prof. Ricardo",
+   "start": "20260815T120000Z",
+   "end": "20260815T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "18fead4ksdrjsmn8qr4davqkm2@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 01 - Tutoria",
+   "start": "20260819T220000Z",
+   "end": "20260819T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9903909",
+   "location": "",
+   "uid": "7g3kmo4cbog4ihso71ru7daf7n@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260819T230000Z",
+   "end": "20260820T000000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "6qno2640ross4d2vbnrjenbj59@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260822T120000Z",
+   "end": "20260822T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "2amdmvh9bmd5pqupv9loqmcspk@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 15 - Palestra",
+   "start": "20260824T170000Z",
+   "end": "20260824T180000Z",
+   "description": "<span>Canal MBA IA Big Data <a href=\"https://www.youtube.com/wa",
+   "location": "",
+   "uid": "1gofk2p2je89a8eg0ft2ihj8i2@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Tutoria - Como funciona os TCCs e acompanhamento",
+   "start": "20260824T220000Z",
+   "end": "20260824T230000Z",
+   "description": "<a href=\"https://zoom.us/j/99831379463?pwd=EzZWMq5WtCq5gsOBQJoe",
+   "location": "",
+   "uid": "5qsdffgvogebbgqnv5h8h9dpq7@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260826T220000Z",
+   "end": "20260826T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "6tbhmripga9jcov6r7cgo8btgq@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria com Prof. Ricardo",
+   "start": "20260829T120000Z",
+   "end": "20260829T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "5l6ke9qcics7muq6l24ihgjcjb@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260902T220000Z",
+   "end": "20260902T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "63d2sti47p71a3b5hl0g6gchp0@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260905T120000Z",
+   "end": "20260905T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "3bs9nltvv15vcsob5ds1i1c9q8@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260909T220000Z",
+   "end": "20260909T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "2gvm1p5hqe81djror188u22s7i@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria com Prof. Ricardo",
+   "start": "20260912T120000Z",
+   "end": "20260912T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "4d9sd96vg40kpabv42vl2gjkgn@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 3 - Aula Inaugural",
+   "start": "20260914T220000Z",
+   "end": "20260914T230000Z",
+   "description": "<a href=\"https://zoom.us/j/95700302547?pwd=IwhvPzO9Q2BDzHGroXbb",
+   "location": "",
+   "uid": "2p0ia2ul0u0ik3huahbgn4493m@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260916T220000Z",
+   "end": "20260916T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "609k5cd00einrafu8hd8urtngb@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20260916T230000Z",
+   "end": "20260917T000000Z",
+   "description": "<a href=\"https://zoom.us/j/96744837711?pwd=z9vHSEpEWgdHmwR5v5Ol",
+   "location": "",
+   "uid": "54kegqljr8hb7v417r60n1topd@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20260919T120000Z",
+   "end": "20260919T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "6h2j6vab7vdrnjiggi5b143hg2@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260923T220000Z",
+   "end": "20260923T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "5eh81lv9cbpe83eal7lh0gu3hg@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20260923T230000Z",
+   "end": "20260924T000000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "12m7lcj8jus5ob686k2c9iqrsg@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20260926T120000Z",
+   "end": "20260926T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "7i6sg64llh1tvc9oi3ac5todqt@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 02 - Tutoria",
+   "start": "20260930T220000Z",
+   "end": "20260930T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9900156",
+   "location": "",
+   "uid": "4e2hfndo8r1mjn8016nnuu59ek@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria com prof. José Fernando",
+   "start": "20260930T230000Z",
+   "end": "20261001T000000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "1dh10m4q5rn1dbig6etkb9dahm@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20261003T120000Z",
+   "end": "20261003T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "7910tglr4ti06j9as540v21d72@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20261007T220000Z",
+   "end": "20261007T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "7vi1mml8d7bth95494ijng5b32@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20261010T120000Z",
+   "end": "20261010T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "69q6oecl0tcfkp85ag8cn9s0k6@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria com prof. José Fernando",
+   "start": "20261014T220000Z",
+   "end": "20261014T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "5l150tu7k4b3gmqmj17qb69n28@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20261017T120000Z",
+   "end": "20261017T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "4d0uuarlfskgkqd5be3pu3ip9i@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20261021T220000Z",
+   "end": "20261021T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "027cak67m5kk2ai2mq3fesdvoc@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20261024T120000Z",
+   "end": "20261024T130000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "0v8ldpo54larf7mnttmpvc046i@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20261028T220000Z",
+   "end": "20261028T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "5rs9lhimph51nknato1hl7otpv@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20261104T220000Z",
+   "end": "20261104T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "21ccohe813k5gkqdf1hmdqr8b1@google.com"
+  },
+  {
+   "summary": "[MBA-IABigData-T6] Curso 03 - Tutoria",
+   "start": "20261111T220000Z",
+   "end": "20261111T230000Z",
+   "description": "<a href=\"https://www.google.com/url?q=https://zoom.us/j/9674483",
+   "location": "",
+   "uid": "4t5mot84o8k9eom8qvsgkl1lg5@google.com"
+  }
+ ]
+}
