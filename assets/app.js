@@ -1,4 +1,4 @@
-// App initialization
+// App initialization — MBA Explorer
 document.addEventListener('DOMContentLoaded', () => {
   mermaid.initialize({
     startOnLoad: false,
